@@ -21,8 +21,8 @@
  <tr>
    <td align = "center"> :tada: </td>
    <td align = "center"> : tada : </td>
-    <td align = "center"> 새로운 lecture 생성 </td>
-     <td align = "left"> :tada: :: 함수 강의 lecture 생성 </td>
+    <td align = "center"> 새로운 프로젝트 시작 </td>
+     <td align = "left"> :tada: :: 프로젝트 시작  </td>
  </tr>
  
   <tr>
@@ -45,7 +45,7 @@
    <td align = "center"> 🐞 </td>
    <td align = "center"> : bug : </td>
     <td align = "center"> 버그 픽스 </td>
-     <td align = "left"> 🛠️ :: 함수 lecture Readme 수정 </td>
+     <td align = "left"> 🛠️ :: Color 버그 수정 </td>
  </tr>
  
  <tr>
@@ -60,14 +60,14 @@
    <td align = "center"> 🎸  </td>
    <td align = "center"> : guitar : </td>
     <td align = "center">  그 외 </td>
-     <td align = "left"> 🎸 :: 함수 lecture 정리 완료 </td>
+     <td align = "left"> 🎸 :: 뷰 분할 </td>
  </tr>
 
   <tr>
    <td align = "center"> 👏 </td>
    <td align = "center"> : clap : </td>
     <td align = "center">  병합(merge) </td>
-     <td align = "left"> 👏 :: 함수 lecture 정리 완료 </td>
+     <td align = "left"> 👏 :: 카드 뷰 완료 </td>
  </tr>
  
 
