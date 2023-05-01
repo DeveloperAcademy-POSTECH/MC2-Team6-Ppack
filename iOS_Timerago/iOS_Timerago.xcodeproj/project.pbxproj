@@ -13,6 +13,7 @@
 		B0B4BDC929FB73C7000E6593 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B4BDC829FB73C7000E6593 /* Preview Assets.xcassets */; };
 		B0B4BDCB29FB73C7000E6593 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BDCA29FB73C7000E6593 /* Persistence.swift */; };
 		B0B4BDCE29FB73C7000E6593 /* iOS_Timerago.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BDCC29FB73C7000E6593 /* iOS_Timerago.xcdatamodeld */; };
+		B0B4BE1D29FFC7AC000E6593 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE1C29FFC7AC000E6593 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		B0B4BDC829FB73C7000E6593 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B0B4BDCA29FB73C7000E6593 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B0B4BDCD29FB73C7000E6593 /* iOS_Timerago.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOS_Timerago.xcdatamodel; sourceTree = "<group>"; };
+		B0B4BE1C29FFC7AC000E6593 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +57,10 @@
 		B0B4BDC029FB73C6000E6593 /* iOS_Timerago */ = {
 			isa = PBXGroup;
 			children = (
+				B0B4BE1629FFC71D000E6593 /* Resources */,
+				B0B4BE1529FFC708000E6593 /* Sources */,
 				B0B4BDC129FB73C6000E6593 /* iOS_TimeragoApp.swift */,
 				B0B4BDC329FB73C6000E6593 /* ContentView.swift */,
-				B0B4BDC529FB73C7000E6593 /* Assets.xcassets */,
 				B0B4BDCA29FB73C7000E6593 /* Persistence.swift */,
 				B0B4BDCC29FB73C7000E6593 /* iOS_Timerago.xcdatamodeld */,
 				B0B4BDC729FB73C7000E6593 /* Preview Content */,
@@ -71,6 +74,54 @@
 				B0B4BDC829FB73C7000E6593 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B0B4BE1529FFC708000E6593 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B0B4BE1729FFC72F000E6593 /* Core */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B0B4BE1629FFC71D000E6593 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B0B4BDC529FB73C7000E6593 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B0B4BE1729FFC72F000E6593 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B0B4BE1A29FFC75D000E6593 /* Home */,
+				B0B4BE1829FFC742000E6593 /* Utils */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B0B4BE1829FFC742000E6593 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B0B4BE1A29FFC75D000E6593 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B0B4BE1B29FFC763000E6593 /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B0B4BE1B29FFC763000E6593 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B0B4BE1C29FFC7AC000E6593 /* HomeView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +197,7 @@
 				B0B4BDCB29FB73C7000E6593 /* Persistence.swift in Sources */,
 				B0B4BDC429FB73C6000E6593 /* ContentView.swift in Sources */,
 				B0B4BDC229FB73C6000E6593 /* iOS_TimeragoApp.swift in Sources */,
+				B0B4BE1D29FFC7AC000E6593 /* HomeView.swift in Sources */,
 				B0B4BDCE29FB73C7000E6593 /* iOS_Timerago.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
