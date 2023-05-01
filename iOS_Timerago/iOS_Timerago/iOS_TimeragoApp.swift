@@ -15,8 +15,7 @@ struct iOS_TimeragoApp: App {
         WindowGroup {
             NavigationStack{
                 HomeView()
-
-                   
+   
             }  
         }
     }
