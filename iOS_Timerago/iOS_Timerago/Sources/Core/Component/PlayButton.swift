@@ -9,12 +9,24 @@ import SwiftUI
 
 struct PlayButton: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        Image(systemName: "play.fill")
+            .font(.title)
+            .foregroundColor(.white)
+            .padding()
+            .background(
+                Circle()
+                    .fill(LinearGradient(colors: [.gradient1,.accent], startPoint: .leading, endPoint: .trailing))
+                    .shadow(color:.accent,radius: 1,x: 0,y: 3)
+            )
+        
+        
     }
 }
 
 struct PlayButton_Previews: PreviewProvider {
     static var previews: some View {
         PlayButton()
+            .previewLayout(.sizeThatFits)
     }
 }
