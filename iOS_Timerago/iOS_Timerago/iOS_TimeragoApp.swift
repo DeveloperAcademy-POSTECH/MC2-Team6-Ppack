@@ -15,8 +15,19 @@ struct iOS_TimeragoApp: App {
         WindowGroup {
             NavigationStack{
                 HomeView()
+
                    
             }  
         }
     }
 }
+
+//                        .onAppear{
+//                            for family in UIFont.familyNames {
+//                                        print(family)
+//
+//                                        for names in UIFont.fontNames(forFamilyName: family) {
+//                                            print("== \(names)")
+//                                        }
+//                            }
+//                        }
