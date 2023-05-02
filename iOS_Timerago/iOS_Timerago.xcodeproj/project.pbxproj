@@ -24,6 +24,7 @@
 		B0B4BE3029FFCE0F000E6593 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE2F29FFCE0F000E6593 /* View+Extension.swift */; };
 		B0B4BE3229FFCE46000E6593 /* Extension+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE3129FFCE46000E6593 /* Extension+UIApplication.swift */; };
 		B0B4BE3529FFD14D000E6593 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE3429FFD14D000E6593 /* PlayButton.swift */; };
+		B0B4BE3729FFD67A000E6593 /* RoutineCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE3629FFD67A000E6593 /* RoutineCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		B0B4BE2F29FFCE0F000E6593 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		B0B4BE3129FFCE46000E6593 /* Extension+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIApplication.swift"; sourceTree = "<group>"; };
 		B0B4BE3429FFD14D000E6593 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
+		B0B4BE3629FFD67A000E6593 /* RoutineCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				B0B4BE3429FFD14D000E6593 /* PlayButton.swift */,
+				B0B4BE3629FFD67A000E6593 /* RoutineCardView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				B0B4BE3529FFD14D000E6593 /* PlayButton.swift in Sources */,
 				B0B4BDC229FB73C6000E6593 /* iOS_TimeragoApp.swift in Sources */,
 				B0B4BE1D29FFC7AC000E6593 /* HomeView.swift in Sources */,
+				B0B4BE3729FFD67A000E6593 /* RoutineCardView.swift in Sources */,
 				B0B4BE2C29FFCC6F000E6593 /* Font+Extension.swift in Sources */,
 				B0B4BE3029FFCE0F000E6593 /* View+Extension.swift in Sources */,
 				B0B4BDCE29FB73C7000E6593 /* iOS_Timerago.xcdatamodeld in Sources */,

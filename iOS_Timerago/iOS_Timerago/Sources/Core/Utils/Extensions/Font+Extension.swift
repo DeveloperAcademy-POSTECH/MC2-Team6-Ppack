@@ -16,3 +16,5 @@ extension Font {
     static func preB(_ size:CGFloat = 10) -> Font { return Font.custom("Pretendard-Bold", size: size) }
     
 }
+
+
