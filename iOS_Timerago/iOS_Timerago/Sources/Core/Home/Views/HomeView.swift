@@ -9,7 +9,18 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            
+            Color.background.ignoresSafeArea()
+            
+            List{
+                ForEach((0..<5)){ _ in
+                    RoutineCardView()
+                }
+            }
+            .listStyle(.plain)
+            
+        }
     }
 }
 

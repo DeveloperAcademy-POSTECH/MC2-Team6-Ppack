@@ -9,41 +9,33 @@ import SwiftUI
 
 struct RoutineCardView: View {
     var body: some View {
-        
-        VStack(alignment: .leading){
-            
-            HStack{
-                Text("Wake-up")
+
+        ZStack{
+            VStack(alignment: .leading,spacing: 25){
+                Text("Wake-up").font(.preB(21))
+                    
                 
-            }
-            .padding(.vertical,20)
-            
-            HStack{
-                Text("25 m")
-                
-                Rectangle()
-                    .frame(width: 1,height: 30)
-                
-                
-                ForEach(0..<10) { i in
-                    Text("\(i)")
+                HStack(spacing:14){
+                    Text("60m").font(.preM(14))
+                    
+                    Rectangle()
+                        .frame(maxWidth: 1,maxHeight: 20)
+                    
+                    ForEach((0..<4)){ _ in
+                        Text("💄")
+                            .font(.system(size: 14))
+                    }
                     
                 }
+                
+                
             }
-            
-            
-                
-                
-            
-            
-            
-            
-            
-        }
-        .padding(.horizontal,20)
-        .background{
-            RoundedRectangle(cornerRadius: 24)
-                .fill(.red)
+            .frame(maxWidth: .infinity,alignment: .leading)
+            .padding(.leading,23)
+            .padding(.top,37)
+            .padding(.bottom,45)
+            PlayButton()
+                .frame(maxWidth: .infinity,alignment: .trailing).padding()
         }
      
         
