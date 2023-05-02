@@ -13,6 +13,18 @@
 		B0B4BDC929FB73C7000E6593 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B4BDC829FB73C7000E6593 /* Preview Assets.xcassets */; };
 		B0B4BDCB29FB73C7000E6593 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BDCA29FB73C7000E6593 /* Persistence.swift */; };
 		B0B4BDCE29FB73C7000E6593 /* iOS_Timerago.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BDCC29FB73C7000E6593 /* iOS_Timerago.xcdatamodeld */; };
+		B0B4BE1D29FFC7AC000E6593 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE1C29FFC7AC000E6593 /* HomeView.swift */; };
+		B0B4BE2029FFCA6E000E6593 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE1F29FFCA6E000E6593 /* Color+Extension.swift */; };
+		B0B4BE2629FFCB59000E6593 /* Jost-500-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0B4BE2229FFCB59000E6593 /* Jost-500-Medium.otf */; };
+		B0B4BE2729FFCB59000E6593 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0B4BE2329FFCB59000E6593 /* Pretendard-Bold.otf */; };
+		B0B4BE2829FFCB59000E6593 /* Jost-700-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0B4BE2429FFCB59000E6593 /* Jost-700-Bold.otf */; };
+		B0B4BE2929FFCB59000E6593 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0B4BE2529FFCB59000E6593 /* Pretendard-Medium.otf */; };
+		B0B4BE2C29FFCC6F000E6593 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE2B29FFCC6F000E6593 /* Font+Extension.swift */; };
+		B0B4BE2E29FFCDF2000E6593 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE2D29FFCDF2000E6593 /* UIScreen+Extension.swift */; };
+		B0B4BE3029FFCE0F000E6593 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE2F29FFCE0F000E6593 /* View+Extension.swift */; };
+		B0B4BE3229FFCE46000E6593 /* Extension+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE3129FFCE46000E6593 /* Extension+UIApplication.swift */; };
+		B0B4BE3529FFD14D000E6593 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE3429FFD14D000E6593 /* PlayButton.swift */; };
+		B0B4BE3729FFD67A000E6593 /* RoutineCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE3629FFD67A000E6593 /* RoutineCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +35,19 @@
 		B0B4BDC829FB73C7000E6593 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B0B4BDCA29FB73C7000E6593 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B0B4BDCD29FB73C7000E6593 /* iOS_Timerago.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOS_Timerago.xcdatamodel; sourceTree = "<group>"; };
+		B0B4BE1C29FFC7AC000E6593 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B0B4BE1F29FFCA6E000E6593 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		B0B4BE2229FFCB59000E6593 /* Jost-500-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-500-Medium.otf"; sourceTree = "<group>"; };
+		B0B4BE2329FFCB59000E6593 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		B0B4BE2429FFCB59000E6593 /* Jost-700-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-700-Bold.otf"; sourceTree = "<group>"; };
+		B0B4BE2529FFCB59000E6593 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		B0B4BE2A29FFCB89000E6593 /* iOS-Timerago-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "iOS-Timerago-Info.plist"; sourceTree = SOURCE_ROOT; };
+		B0B4BE2B29FFCC6F000E6593 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		B0B4BE2D29FFCDF2000E6593 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
+		B0B4BE2F29FFCE0F000E6593 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		B0B4BE3129FFCE46000E6593 /* Extension+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIApplication.swift"; sourceTree = "<group>"; };
+		B0B4BE3429FFD14D000E6593 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
+		B0B4BE3629FFD67A000E6593 /* RoutineCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +80,11 @@
 		B0B4BDC029FB73C6000E6593 /* iOS_Timerago */ = {
 			isa = PBXGroup;
 			children = (
+				B0B4BE2A29FFCB89000E6593 /* iOS-Timerago-Info.plist */,
+				B0B4BE1629FFC71D000E6593 /* Resources */,
+				B0B4BE1529FFC708000E6593 /* Sources */,
 				B0B4BDC129FB73C6000E6593 /* iOS_TimeragoApp.swift */,
 				B0B4BDC329FB73C6000E6593 /* ContentView.swift */,
-				B0B4BDC529FB73C7000E6593 /* Assets.xcassets */,
 				B0B4BDCA29FB73C7000E6593 /* Persistence.swift */,
 				B0B4BDCC29FB73C7000E6593 /* iOS_Timerago.xcdatamodeld */,
 				B0B4BDC729FB73C7000E6593 /* Preview Content */,
@@ -71,6 +98,89 @@
 				B0B4BDC829FB73C7000E6593 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B0B4BE1529FFC708000E6593 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B0B4BE1729FFC72F000E6593 /* Core */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B0B4BE1629FFC71D000E6593 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B0B4BE2129FFCB3B000E6593 /* Fonts */,
+				B0B4BDC529FB73C7000E6593 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B0B4BE1729FFC72F000E6593 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B0B4BE3329FFD13B000E6593 /* Component */,
+				B0B4BE1A29FFC75D000E6593 /* Home */,
+				B0B4BE1829FFC742000E6593 /* Utils */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B0B4BE1829FFC742000E6593 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B0B4BE1E29FFCA60000E6593 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B0B4BE1A29FFC75D000E6593 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B0B4BE1B29FFC763000E6593 /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B0B4BE1B29FFC763000E6593 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B0B4BE1C29FFC7AC000E6593 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B0B4BE1E29FFCA60000E6593 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B0B4BE1F29FFCA6E000E6593 /* Color+Extension.swift */,
+				B0B4BE2B29FFCC6F000E6593 /* Font+Extension.swift */,
+				B0B4BE2D29FFCDF2000E6593 /* UIScreen+Extension.swift */,
+				B0B4BE2F29FFCE0F000E6593 /* View+Extension.swift */,
+				B0B4BE3129FFCE46000E6593 /* Extension+UIApplication.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B0B4BE2129FFCB3B000E6593 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B0B4BE2229FFCB59000E6593 /* Jost-500-Medium.otf */,
+				B0B4BE2429FFCB59000E6593 /* Jost-700-Bold.otf */,
+				B0B4BE2329FFCB59000E6593 /* Pretendard-Bold.otf */,
+				B0B4BE2529FFCB59000E6593 /* Pretendard-Medium.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B0B4BE3329FFD13B000E6593 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B0B4BE3429FFD14D000E6593 /* PlayButton.swift */,
+				B0B4BE3629FFD67A000E6593 /* RoutineCardView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,7 +242,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0B4BDC929FB73C7000E6593 /* Preview Assets.xcassets in Resources */,
+				B0B4BE2829FFCB59000E6593 /* Jost-700-Bold.otf in Resources */,
+				B0B4BE2729FFCB59000E6593 /* Pretendard-Bold.otf in Resources */,
+				B0B4BE2629FFCB59000E6593 /* Jost-500-Medium.otf in Resources */,
 				B0B4BDC629FB73C7000E6593 /* Assets.xcassets in Resources */,
+				B0B4BE2929FFCB59000E6593 /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,8 +258,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0B4BDCB29FB73C7000E6593 /* Persistence.swift in Sources */,
+				B0B4BE2E29FFCDF2000E6593 /* UIScreen+Extension.swift in Sources */,
+				B0B4BE2029FFCA6E000E6593 /* Color+Extension.swift in Sources */,
 				B0B4BDC429FB73C6000E6593 /* ContentView.swift in Sources */,
+				B0B4BE3229FFCE46000E6593 /* Extension+UIApplication.swift in Sources */,
+				B0B4BE3529FFD14D000E6593 /* PlayButton.swift in Sources */,
 				B0B4BDC229FB73C6000E6593 /* iOS_TimeragoApp.swift in Sources */,
+				B0B4BE1D29FFC7AC000E6593 /* HomeView.swift in Sources */,
+				B0B4BE3729FFD67A000E6593 /* RoutineCardView.swift in Sources */,
+				B0B4BE2C29FFCC6F000E6593 /* Font+Extension.swift in Sources */,
+				B0B4BE3029FFCE0F000E6593 /* View+Extension.swift in Sources */,
 				B0B4BDCE29FB73C7000E6593 /* iOS_Timerago.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +400,7 @@
 				DEVELOPMENT_TEAM = 28NL63HBTJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS-Timerago-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -307,6 +430,7 @@
 				DEVELOPMENT_TEAM = 28NL63HBTJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS-Timerago-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

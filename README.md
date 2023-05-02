@@ -45,7 +45,7 @@
    <td align = "center"> 🐞 </td>
    <td align = "center"> : bug : </td>
     <td align = "center"> 버그 픽스 </td>
-     <td align = "left"> 🛠️ :: Color 버그 수정 </td>
+     <td align = "left"> 🐞 :: Color 버그 수정 </td>
  </tr>
  
  <tr>
