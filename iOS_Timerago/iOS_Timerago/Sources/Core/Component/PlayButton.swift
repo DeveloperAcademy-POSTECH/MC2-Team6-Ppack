@@ -15,9 +15,12 @@ struct PlayButton: View {
             .foregroundColor(.white)
             .padding()
             .background(
-                Circle()
-                    .fill(LinearGradient(colors: [.gradient1,.accent], startPoint: .leading, endPoint: .trailing))
-                    .shadow(color:.accent,radius: 1,x: 0,y: 3)
+            
+                    Circle()
+                        .fill(LinearGradient(colors: [.gradient1,.accent], startPoint: .leading, endPoint: .trailing))
+                        .shadow(color:.accent.opacity(0.4),radius: 3,x: 0,y: 3)
+                
+                  
             )
         
         
