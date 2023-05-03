@@ -17,15 +17,41 @@ struct HomeView: View {
                 ForEach((0..<5)){ _ in
                     RoutineCardView()
                 }
+                .onDelete { indexSet in
+                    
+                }
+                .onMove { indexSet, int in
+                    
+                }
             }
             .listStyle(.plain)
             
+        }
+        .navigationTitle("Timers")
+        .toolbar{
+            ToolbarItem(placement:.navigationBarLeading) {
+                    EditButton()
+        }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "plus")
+                        .font(.headline)
+                        .foregroundColor(.blue)
+                }
+
+            }
+        
         }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        NavigationStack{
+            HomeView()
+        }
+        
     }
 }

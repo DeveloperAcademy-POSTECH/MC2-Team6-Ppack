@@ -11,8 +11,10 @@ struct RoutineCardView: View {
     var body: some View {
 
         ZStack{
-            VStack(alignment: .leading,spacing: 25){
+            
+            VStack(alignment: .leading,spacing: 23){
                 Text("Wake-up").font(.preB(21))
+                    
                     
                 
                 HStack(spacing:14){
@@ -32,11 +34,12 @@ struct RoutineCardView: View {
             }
             .frame(maxWidth: .infinity,alignment: .leading)
             .padding(.leading,23)
-            .padding(.top,37)
-            .padding(.bottom,45)
+            .padding(.top,20)
+            .padding(.bottom,25)
             PlayButton()
                 .frame(maxWidth: .infinity,alignment: .trailing).padding()
         }
+        
      
         
     }
