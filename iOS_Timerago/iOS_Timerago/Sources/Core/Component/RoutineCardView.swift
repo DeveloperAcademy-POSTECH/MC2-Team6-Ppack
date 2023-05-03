@@ -8,23 +8,29 @@
 import SwiftUI
 
 struct RoutineCardView: View {
+    
+    
+    var routine:RoutineModel
+    
+    
     var body: some View {
 
         ZStack{
             
             VStack(alignment: .leading,spacing: 23){
-                Text("Wake-up").font(.preB(21))
+                Text("\(routine.title)").font(.preB(21))
                     
                     
                 
                 HStack(spacing:14){
-                    Text("60m").font(.preM(14))
+                    Text("\(routine.totalTime)m").font(.preM(14))
                     
                     Rectangle()
                         .frame(maxWidth: 1,maxHeight: 20)
                     
-                    ForEach((0..<4)){ _ in
-                        Text("💄")
+                
+                    ForEach(routine.task.count > 4 ? (0..<4) : routine.task.indices){ index  in
+                        Text(routine.task[index].emoji)
                             .font(.system(size: 14))
                     }
                     
@@ -47,7 +53,7 @@ struct RoutineCardView: View {
 
 struct RoutineCardView_Previews: PreviewProvider {
     static var previews: some View {
-        RoutineCardView()
+        RoutineCardView(routine:RoutineModel(id:UUID().uuidString ,task: [TaskModel(emoji: "✅", interval: 10),TaskModel(emoji: "💄", interval: 10),TaskModel(emoji: "✏️", interval: 10)], title:"Wake-up" , totalTime: 30))
             .previewLayout(.sizeThatFits)
     }
 }

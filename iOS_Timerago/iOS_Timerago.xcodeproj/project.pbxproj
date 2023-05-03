@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B00B5DB22A01DCD900ABA945 /* RoutineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DB12A01DCD900ABA945 /* RoutineModel.swift */; };
 		B00B5DB42A01DE8E00ABA945 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DB32A01DE8E00ABA945 /* TaskModel.swift */; };
+		B00B5DB62A01E0A700ABA945 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DB52A01E0A700ABA945 /* TimeInterval+Extension.swift */; };
+		B00B5DBB2A01E1CC00ABA945 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DBA2A01E1CC00ABA945 /* HomeViewModel.swift */; };
 		B0B4BDC229FB73C6000E6593 /* iOS_TimeragoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BDC129FB73C6000E6593 /* iOS_TimeragoApp.swift */; };
 		B0B4BDC429FB73C6000E6593 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BDC329FB73C6000E6593 /* ContentView.swift */; };
 		B0B4BDC629FB73C7000E6593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B4BDC529FB73C7000E6593 /* Assets.xcassets */; };
@@ -24,7 +26,7 @@
 		B0B4BE2C29FFCC6F000E6593 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE2B29FFCC6F000E6593 /* Font+Extension.swift */; };
 		B0B4BE2E29FFCDF2000E6593 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE2D29FFCDF2000E6593 /* UIScreen+Extension.swift */; };
 		B0B4BE3029FFCE0F000E6593 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE2F29FFCE0F000E6593 /* View+Extension.swift */; };
-		B0B4BE3229FFCE46000E6593 /* Extension+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE3129FFCE46000E6593 /* Extension+UIApplication.swift */; };
+		B0B4BE3229FFCE46000E6593 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE3129FFCE46000E6593 /* UIApplication+Extension.swift */; };
 		B0B4BE3529FFD14D000E6593 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE3429FFD14D000E6593 /* PlayButton.swift */; };
 		B0B4BE3729FFD67A000E6593 /* RoutineCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE3629FFD67A000E6593 /* RoutineCardView.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 /* Begin PBXFileReference section */
 		B00B5DB12A01DCD900ABA945 /* RoutineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineModel.swift; sourceTree = "<group>"; };
 		B00B5DB32A01DE8E00ABA945 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		B00B5DB52A01E0A700ABA945 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
+		B00B5DBA2A01E1CC00ABA945 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B0B4BDBE29FB73C6000E6593 /* iOS_Timerago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Timerago.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B4BDC129FB73C6000E6593 /* iOS_TimeragoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_TimeragoApp.swift; sourceTree = "<group>"; };
 		B0B4BDC329FB73C6000E6593 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,7 +53,7 @@
 		B0B4BE2B29FFCC6F000E6593 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		B0B4BE2D29FFCDF2000E6593 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 		B0B4BE2F29FFCE0F000E6593 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
-		B0B4BE3129FFCE46000E6593 /* Extension+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIApplication.swift"; sourceTree = "<group>"; };
+		B0B4BE3129FFCE46000E6593 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		B0B4BE3429FFD14D000E6593 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		B0B4BE3629FFD67A000E6593 /* RoutineCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +76,14 @@
 				B00B5DB32A01DE8E00ABA945 /* TaskModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B00B5DB92A01E1C100ABA945 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B00B5DBA2A01E1CC00ABA945 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		B0B4BDB529FB73C6000E6593 = {
@@ -117,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				B00B5DAE2A01DCA400ABA945 /* Models */,
+				B0B4BE1829FFC742000E6593 /* Utils */,
 				B0B4BE1729FFC72F000E6593 /* Core */,
 			);
 			path = Sources;
@@ -136,7 +149,6 @@
 			children = (
 				B0B4BE3329FFD13B000E6593 /* Component */,
 				B0B4BE1A29FFC75D000E6593 /* Home */,
-				B0B4BE1829FFC742000E6593 /* Utils */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -152,6 +164,7 @@
 		B0B4BE1A29FFC75D000E6593 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B00B5DB92A01E1C100ABA945 /* ViewModels */,
 				B0B4BE1B29FFC763000E6593 /* Views */,
 			);
 			path = Home;
@@ -172,7 +185,8 @@
 				B0B4BE2B29FFCC6F000E6593 /* Font+Extension.swift */,
 				B0B4BE2D29FFCDF2000E6593 /* UIScreen+Extension.swift */,
 				B0B4BE2F29FFCE0F000E6593 /* View+Extension.swift */,
-				B0B4BE3129FFCE46000E6593 /* Extension+UIApplication.swift */,
+				B0B4BE3129FFCE46000E6593 /* UIApplication+Extension.swift */,
+				B00B5DB52A01E0A700ABA945 /* TimeInterval+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -273,9 +287,11 @@
 			files = (
 				B0B4BDCB29FB73C7000E6593 /* Persistence.swift in Sources */,
 				B0B4BE2E29FFCDF2000E6593 /* UIScreen+Extension.swift in Sources */,
+				B00B5DB62A01E0A700ABA945 /* TimeInterval+Extension.swift in Sources */,
+				B00B5DBB2A01E1CC00ABA945 /* HomeViewModel.swift in Sources */,
 				B0B4BE2029FFCA6E000E6593 /* Color+Extension.swift in Sources */,
 				B0B4BDC429FB73C6000E6593 /* ContentView.swift in Sources */,
-				B0B4BE3229FFCE46000E6593 /* Extension+UIApplication.swift in Sources */,
+				B0B4BE3229FFCE46000E6593 /* UIApplication+Extension.swift in Sources */,
 				B0B4BE3529FFD14D000E6593 /* PlayButton.swift in Sources */,
 				B0B4BDC229FB73C6000E6593 /* iOS_TimeragoApp.swift in Sources */,
 				B0B4BE1D29FFC7AC000E6593 /* HomeView.swift in Sources */,

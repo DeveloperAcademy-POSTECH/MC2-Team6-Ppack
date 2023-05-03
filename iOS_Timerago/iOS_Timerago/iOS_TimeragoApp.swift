@@ -9,12 +9,15 @@ import SwiftUI
 
 @main
 struct iOS_TimeragoApp: App {
-
+    
+    @StateObject private var vm:HomeViewModel = HomeViewModel()
+    
 
     var body: some Scene {
         WindowGroup {
             NavigationStack{
                 HomeView()
+                    .environmentObject(vm)
    
             }  
         }

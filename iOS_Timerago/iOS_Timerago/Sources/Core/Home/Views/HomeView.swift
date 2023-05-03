@@ -8,20 +8,17 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @EnvironmentObject private var vm:HomeViewModel
+    
     var body: some View {
         ZStack{
             
             Color.background.ignoresSafeArea()
             
             List{
-                ForEach((0..<5)){ _ in
-                    RoutineCardView()
-                }
-                .onDelete { indexSet in
-                    
-                }
-                .onMove { indexSet, int in
-                    
+                ForEach(vm.routines) { routine in
+                    RoutineCardView(routine: routine)
                 }
             }
             .listStyle(.plain)
@@ -51,6 +48,7 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
             HomeView()
+                .environmentObject(HomeViewModel())
         }
         
     }

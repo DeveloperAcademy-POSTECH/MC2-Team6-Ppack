@@ -10,8 +10,7 @@ import Foundation
 struct TaskModel: Codable {
     
     let emoji:String
-    let order:Int
-    let interval:TimeInterval
+    let interval:Int
     
     
 }
