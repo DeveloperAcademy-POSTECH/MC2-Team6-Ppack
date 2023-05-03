@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B00B5DB22A01DCD900ABA945 /* RoutineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DB12A01DCD900ABA945 /* RoutineModel.swift */; };
+		B00B5DB42A01DE8E00ABA945 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DB32A01DE8E00ABA945 /* TaskModel.swift */; };
 		B0B4BDC229FB73C6000E6593 /* iOS_TimeragoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BDC129FB73C6000E6593 /* iOS_TimeragoApp.swift */; };
 		B0B4BDC429FB73C6000E6593 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BDC329FB73C6000E6593 /* ContentView.swift */; };
 		B0B4BDC629FB73C7000E6593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B4BDC529FB73C7000E6593 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B00B5DB12A01DCD900ABA945 /* RoutineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineModel.swift; sourceTree = "<group>"; };
+		B00B5DB32A01DE8E00ABA945 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		B0B4BDBE29FB73C6000E6593 /* iOS_Timerago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Timerago.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B4BDC129FB73C6000E6593 /* iOS_TimeragoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_TimeragoApp.swift; sourceTree = "<group>"; };
 		B0B4BDC329FB73C6000E6593 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B00B5DAE2A01DCA400ABA945 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B00B5DB12A01DCD900ABA945 /* RoutineModel.swift */,
+				B00B5DB32A01DE8E00ABA945 /* TaskModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		B0B4BDB529FB73C6000E6593 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +116,7 @@
 		B0B4BE1529FFC708000E6593 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B00B5DAE2A01DCA400ABA945 /* Models */,
 				B0B4BE1729FFC72F000E6593 /* Core */,
 			);
 			path = Sources;
@@ -266,8 +280,10 @@
 				B0B4BDC229FB73C6000E6593 /* iOS_TimeragoApp.swift in Sources */,
 				B0B4BE1D29FFC7AC000E6593 /* HomeView.swift in Sources */,
 				B0B4BE3729FFD67A000E6593 /* RoutineCardView.swift in Sources */,
+				B00B5DB22A01DCD900ABA945 /* RoutineModel.swift in Sources */,
 				B0B4BE2C29FFCC6F000E6593 /* Font+Extension.swift in Sources */,
 				B0B4BE3029FFCE0F000E6593 /* View+Extension.swift in Sources */,
+				B00B5DB42A01DE8E00ABA945 /* TaskModel.swift in Sources */,
 				B0B4BDCE29FB73C7000E6593 /* iOS_Timerago.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
