@@ -10,6 +10,8 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject private var vm:HomeViewModel
+    @State var moveCreate:Bool = false
+    @State var moveEdit:Bool = false
     
     var body: some View {
         ZStack{
@@ -60,6 +62,7 @@ struct HomeView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     
+                    moveCreate.toggle()
                     
                 } label: {
                     Image(systemName: "plus")
@@ -70,6 +73,9 @@ struct HomeView: View {
             }
         
         }
+        .navigationDestination(isPresented: $moveCreate, destination: {
+            DetailView()
+        })
     }
 }
 

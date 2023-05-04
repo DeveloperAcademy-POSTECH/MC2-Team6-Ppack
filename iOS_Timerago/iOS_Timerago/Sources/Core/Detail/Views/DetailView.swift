@@ -9,15 +9,59 @@ import SwiftUI
 
 struct DetailView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @State var text:String = ""
+    var route:RoutineModel? 
     
     var body: some View {
-        ZStack{
+        ZStack(alignment: .topLeading){
             Color.background.ignoresSafeArea()
+            
+            VStack(spacing: 10){
+                backButton
+                    .padding(.top,20)
+                    .onTapGesture {
+                        dismiss()
+                    }
+                
+                Text("Name")
+                    .frame(maxWidth: .infinity,alignment: .leading)
+                    .padding(.horizontal,16)
+                    .font(.title)
+            }
+            
+            
+            
             
                         
             
         }
+        .toolbar(.hidden)
+        
+    }
+    
+
+}
+
+extension DetailView{
+    private var backButton: some View {
+        
+        HStack{
+            Image(systemName: "chevron.left")
+                .font(.title2)
+                .foregroundColor(.blue)
+                //.bold()
+            
+            Text("Timers")
+                .font(.title3)
+                .foregroundColor(.blue)
+                
+            
+            Spacer()
+        }
+        .padding(.leading,10)
+        
     }
 }
 
