@@ -7,17 +7,31 @@
 
 import SwiftUI
 
+struct DetailLoadingView : View {
+    
+    @Binding var routine: RoutineModel?
+    
+    var body: some View {
+        ZStack{
+            if let routine = routine {
+                DetailView(routine: routine)
+            }
+        }
+    }
+}
+
 struct DetailView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    var routine:RoutineModel?
+ 
     @State var text:String = ""
     @State var showEmojiKeyboard:Bool = false
     @StateObject var vm:DetailViewModel
    
     init(routine:RoutineModel){
         _vm = StateObject(wrappedValue: DetailViewModel(routine: routine))
+        
     }
     
     var body: some View {

@@ -37,7 +37,6 @@ struct HomeView: View {
                             .contentShape(Rectangle()) // 행 전체 클릭시 바로 재생되기 위해
                             .onTapGesture {
                                 selectedRoutine = routine
-                                print(selectedRoutine)
                                 moveEdit = true
                             }
                         
@@ -84,7 +83,7 @@ struct HomeView: View {
             DetailView(routine: RoutineModel(id: UUID().uuidString, task: [TaskModel(emoji: "", interval: 0)], title: "", totalTime: 0))
         })
         .navigationDestination(isPresented: $moveEdit, destination: {
-            DetailView(routine: selectedRoutine ?? RoutineModel(id: UUID().uuidString, task: [TaskModel(emoji: "", interval: 0)], title: "", totalTime: 0) )
+            DetailLoadingView(routine: $selectedRoutine)
         })
     }
 }
