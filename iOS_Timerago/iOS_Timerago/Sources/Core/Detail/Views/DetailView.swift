@@ -12,23 +12,68 @@ struct DetailView: View {
     @Environment(\.dismiss) var dismiss
     
     @State var text:String = ""
+    @State var showEmojiKeyboard:Bool = false
+    
     var route:RoutineModel? 
     
     var body: some View {
         ZStack(alignment: .topLeading){
             Color.background.ignoresSafeArea()
             
-            VStack(spacing: 10){
-                backButton
-                    .padding(.top,20)
-                    .onTapGesture {
-                        dismiss()
-                    }
+            VStack(spacing: 20){
                 
-                Text("Name")
+                header
+                    .padding(.top,10)
+                    
+                
+                TextField("Name", text: $text)
                     .frame(maxWidth: .infinity,alignment: .leading)
                     .padding(.horizontal,16)
-                    .font(.title)
+                    .font(.largeTitle)
+                    .bold()
+                
+                
+                VStack(spacing:0){
+                    
+                        
+                    
+                        Text("00:00")
+                            .font(.largeTitle)
+                            .bold()
+                            .padding(.vertical,25)
+                            .padding(.horizontal,UIScreen.width / 2 - 70)
+                            .background(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .fill(.white)
+                            )
+                    
+    
+                    
+                    List{
+                        ForEach((0..<3)){ _ in
+                            HStack{
+                                Image(systemName: "face.smiling.inverse")
+                                    .renderingMode(.template)
+                                    .foregroundColor(.white)
+                                    .font(.title3)
+                                    .padding(7)
+                                    .background(Circle().fill(Color.circle))
+                                
+                                
+                                TextField("Add task",text: $text)
+                                    .font(.title3)
+                            }
+                        }
+                        
+                        
+                    }
+                    .listStyle(.insetGrouped)
+                       
+                    
+                    
+                }
+                .padding(.top,25)
+                
             }
             
             
@@ -45,24 +90,42 @@ struct DetailView: View {
 }
 
 extension DetailView{
-    private var backButton: some View {
+    private var header: some View {
         
         HStack{
-            Image(systemName: "chevron.left")
-                .font(.title2)
-                .foregroundColor(.blue)
-                //.bold()
             
-            Text("Timers")
-                .font(.title3)
-                .foregroundColor(.blue)
+            HStack(spacing:5){
+                Image(systemName: "chevron.left")
+                    .font(.system(size: 22))
+                    .foregroundColor(.blue)
+                    //.bold()
+                
+                Text("Timers")
+                    .font(.preB(17))
+                    .foregroundColor(.blue)
+            }
+            .onTapGesture {
+                dismiss()
+            }
+            
                 
             
             Spacer()
+            
+            Image(systemName: "plus")
+                .foregroundColor(.blue)
+                .font(.system(size: 22))
+                .onTapGesture {
+                    print("Add")
+                }
+            
         }
-        .padding(.leading,10)
+        .padding(.horizontal,10)
         
     }
+    
+
+    
 }
 
 struct DetailView_Previews: PreviewProvider {
