@@ -36,8 +36,8 @@ struct KeyboardView: View{
             .padding()
                 
             
-            EmojiView(show: $show, txt: $txt,isSelectedEmoji: $isSelectedEmoji)
-                .offset(y:self.show ? safeArea.bottom : UIScreen.height)
+//            EmojiView(show: $show, txt: $txt,isSelectedEmoji: $isSelectedEmoji)
+//                .offset(y:self.show ? safeArea.bottom : UIScreen.height)
         }
         .background(Color.black.edgesIgnoringSafeArea(.all))
         .animation(.default, value: show)
@@ -52,7 +52,6 @@ struct EmojiView: View {
     
     @Binding var show: Bool
     @Binding var txt:String
-    @Binding var isSelectedEmoji:Bool
     
     var body: some View {
         
@@ -69,7 +68,6 @@ struct EmojiView: View {
                                 Button {
                                     self.txt = j
                                     self.show.toggle()
-                                    self.isSelectedEmoji = true
                                 } label: {
                                     Text(j).font(.system(size: 30))
                                 }
@@ -87,7 +85,7 @@ struct EmojiView: View {
                 
             }.frame(width: UIScreen.width,height: UIScreen.height/3)
                 .padding(.bottom,safeArea.bottom)
-                .background(.thinMaterial)
+                .background(.black.opacity(0.5))
                 .cornerRadius(25)
         }
         
@@ -108,6 +106,6 @@ struct KeyboardView_Previews: PreviewProvider {
 
 struct EmojiView_Previews: PreviewProvider {
     static var previews: some View {
-        EmojiView(show: .constant(false), txt: .constant(""),isSelectedEmoji: .constant(false))
+        EmojiView(show: .constant(false), txt: .constant(""))
     }
 }

@@ -14,6 +14,8 @@
 		B063EDD62A01F57B001613C9 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDD52A01F57B001613C9 /* DetailView.swift */; };
 		B063EDDA2A01FD3B001613C9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDD92A01FD3B001613C9 /* String+Extension.swift */; };
 		B063EDE12A020704001613C9 /* EmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDE02A020704001613C9 /* EmojiView.swift */; };
+		B063EDE62A0347FC001613C9 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDE52A0347FC001613C9 /* DetailViewModel.swift */; };
+		B063EDE82A035421001613C9 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDE72A035421001613C9 /* TaskRowView.swift */; };
 		B0B4BDC229FB73C6000E6593 /* iOS_TimeragoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BDC129FB73C6000E6593 /* iOS_TimeragoApp.swift */; };
 		B0B4BDC629FB73C7000E6593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B4BDC529FB73C7000E6593 /* Assets.xcassets */; };
 		B0B4BDC929FB73C7000E6593 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B4BDC829FB73C7000E6593 /* Preview Assets.xcassets */; };
@@ -39,6 +41,8 @@
 		B063EDD52A01F57B001613C9 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B063EDD92A01FD3B001613C9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		B063EDE02A020704001613C9 /* EmojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiView.swift; sourceTree = "<group>"; };
+		B063EDE52A0347FC001613C9 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		B063EDE72A035421001613C9 /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
 		B0B4BDBE29FB73C6000E6593 /* iOS_Timerago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Timerago.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B4BDC129FB73C6000E6593 /* iOS_TimeragoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_TimeragoApp.swift; sourceTree = "<group>"; };
 		B0B4BDC529FB73C7000E6593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 		B00B5DBC2A01EE1A00ABA945 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				B063EDE42A0347E8001613C9 /* ViewModels */,
 				B00B5DBD2A01EE7200ABA945 /* Views */,
 			);
 			path = Detail;
@@ -99,8 +104,17 @@
 			children = (
 				B063EDD52A01F57B001613C9 /* DetailView.swift */,
 				B063EDE02A020704001613C9 /* EmojiView.swift */,
+				B063EDE72A035421001613C9 /* TaskRowView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B063EDE42A0347E8001613C9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B063EDE52A0347FC001613C9 /* DetailViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		B0B4BDB529FB73C6000E6593 = {
@@ -305,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B063EDE62A0347FC001613C9 /* DetailViewModel.swift in Sources */,
 				B0B4BE2E29FFCDF2000E6593 /* UIScreen+Extension.swift in Sources */,
 				B063EDDA2A01FD3B001613C9 /* String+Extension.swift in Sources */,
 				B063EDD62A01F57B001613C9 /* DetailView.swift in Sources */,
@@ -314,6 +329,7 @@
 				B0B4BE3229FFCE46000E6593 /* UIApplication+Extension.swift in Sources */,
 				B063EDE12A020704001613C9 /* EmojiView.swift in Sources */,
 				B0B4BE3529FFD14D000E6593 /* PlayButton.swift in Sources */,
+				B063EDE82A035421001613C9 /* TaskRowView.swift in Sources */,
 				B0B4BDC229FB73C6000E6593 /* iOS_TimeragoApp.swift in Sources */,
 				B0B4BE1D29FFC7AC000E6593 /* HomeView.swift in Sources */,
 				B0B4BE3729FFD67A000E6593 /* RoutineCardView.swift in Sources */,

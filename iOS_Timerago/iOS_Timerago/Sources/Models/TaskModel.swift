@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct TaskModel: Codable {
-    
+struct TaskModel: Identifiable, Codable,Equatable {
+    var id: String = UUID().uuidString
     let emoji:String
     let interval:Int
     

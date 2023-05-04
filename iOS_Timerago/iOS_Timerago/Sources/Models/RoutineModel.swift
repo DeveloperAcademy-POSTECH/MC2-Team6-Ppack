@@ -9,10 +9,10 @@ import Foundation
 
 struct RoutineModel:Identifiable, Codable,Equatable {
     
-    let id:String
-    let task:[TaskModel]
-    let title:String
-    let totalTime:Int
+    var id:String
+    var task:[TaskModel]
+    var title:String
+    var totalTime:Int
     
     static func == (lhs: RoutineModel, rhs: RoutineModel) -> Bool {
         lhs.id == rhs.id // 아이디가 같으면 같은 객체로 인식

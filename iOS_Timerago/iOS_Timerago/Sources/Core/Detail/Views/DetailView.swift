@@ -11,13 +11,17 @@ struct DetailView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    var routine:RoutineModel?
     @State var text:String = ""
     @State var showEmojiKeyboard:Bool = false
-    
-    var route:RoutineModel? 
+    @StateObject var vm:DetailViewModel
+   
+    init(routine:RoutineModel){
+        _vm = StateObject(wrappedValue: DetailViewModel(routine: routine))
+    }
     
     var body: some View {
-        ZStack(alignment: .topLeading){
+        ZStack(alignment: .bottom){
             Color.background.ignoresSafeArea()
             
             VStack(spacing: 20){
@@ -26,7 +30,7 @@ struct DetailView: View {
                     .padding(.top,10)
                     
                 
-                TextField("Name", text: $text)
+                TextField("Name", text: $vm.title)
                     .frame(maxWidth: .infinity,alignment: .leading)
                     .padding(.horizontal,16)
                     .font(.largeTitle)
@@ -48,26 +52,19 @@ struct DetailView: View {
                             )
                     
     
-                    
-                    List{
-                        ForEach((0..<3)){ _ in
-                            HStack{
-                                Image(systemName: "face.smiling.inverse")
-                                    .renderingMode(.template)
-                                    .foregroundColor(.white)
-                                    .font(.title3)
-                                    .padding(7)
-                                    .background(Circle().fill(Color.circle))
-                                
-                                
-                                TextField("Add task",text: $text)
-                                    .font(.title3)
+                        List{
+                            
+                            ForEach(vm.routine.task){  task in
+                                TaskRowView(showEmojiKeyboard: $showEmojiKeyboard,task: task)
                             }
+                            
+                            
                         }
-                        
-                        
-                    }
-                    .listStyle(.insetGrouped)
+                        .listStyle(.insetGrouped)
+                    
+                    
+                    
+                   
                        
                     
                     
@@ -77,12 +74,15 @@ struct DetailView: View {
             }
             
             
-            
-            
+        
+            EmojiView(show: $showEmojiKeyboard, txt: $text)
+                .offset(y:self.showEmojiKeyboard ? safeArea.bottom : UIScreen.height)
+        
                         
             
         }
         .toolbar(.hidden)
+        .animation(.default, value: showEmojiKeyboard)
         
     }
     
@@ -130,6 +130,8 @@ extension DetailView{
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(routine: RoutineModel(id: UUID().uuidString, task: [TaskModel(emoji: "", interval: 0)], title: "", totalTime: 0))
     }
 }
+
+

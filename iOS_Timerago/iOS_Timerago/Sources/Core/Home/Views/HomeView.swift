@@ -12,6 +12,7 @@ struct HomeView: View {
     @EnvironmentObject private var vm:HomeViewModel
     @State var moveCreate:Bool = false
     @State var moveEdit:Bool = false
+    @State private var selectedRoutine:RoutineModel? = nil
     
     var body: some View {
         ZStack{
@@ -33,6 +34,12 @@ struct HomeView: View {
                 List{
                     ForEach(vm.routines) { routine in
                         RoutineCardView(routine: routine)
+                            .contentShape(Rectangle()) // 행 전체 클릭시 바로 재생되기 위해
+                            .onTapGesture {
+                                selectedRoutine = routine
+                                print(selectedRoutine)
+                                moveEdit = true
+                            }
                         
                     }
                     .onDelete { indexSet in
@@ -74,7 +81,10 @@ struct HomeView: View {
         
         }
         .navigationDestination(isPresented: $moveCreate, destination: {
-            DetailView()
+            DetailView(routine: RoutineModel(id: UUID().uuidString, task: [TaskModel(emoji: "", interval: 0)], title: "", totalTime: 0))
+        })
+        .navigationDestination(isPresented: $moveEdit, destination: {
+            DetailView(routine: selectedRoutine ?? RoutineModel(id: UUID().uuidString, task: [TaskModel(emoji: "", interval: 0)], title: "", totalTime: 0) )
         })
     }
 }
