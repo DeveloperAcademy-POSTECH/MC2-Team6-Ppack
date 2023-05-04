@@ -68,6 +68,7 @@ struct EmojiView: View {
                                 Button {
                                     self.txt = j
                                     self.show.toggle()
+                                    UIApplication.shared.endEditing()
                                 } label: {
                                     Text(j).font(.system(size: 30))
                                 }
@@ -85,7 +86,7 @@ struct EmojiView: View {
                 
             }.frame(width: UIScreen.width,height: UIScreen.height/3)
                 .padding(.bottom,safeArea.bottom)
-                .background(.black.opacity(0.5))
+                .background(.gray)
                 .cornerRadius(25)
         }
         

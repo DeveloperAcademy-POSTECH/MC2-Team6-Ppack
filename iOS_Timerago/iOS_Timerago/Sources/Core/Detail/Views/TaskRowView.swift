@@ -14,11 +14,6 @@ struct TaskRowView: View {
     var task:TaskModel
     @State var text:String = ""
     
-    init(showEmojiKeyboard: Binding<Bool>, task: TaskModel) {
-        self._showEmojiKeyboard = showEmojiKeyboard
-        self.task = task
-        self.text = String(task.interval)
-    }
     
     
     
@@ -34,6 +29,7 @@ struct TaskRowView: View {
                     .background(Circle().fill(Color.circle))
                     .onTapGesture {
                         showEmojiKeyboard = true
+                        UIApplication.shared.endEditing()
                     }
             }
             else {
@@ -43,6 +39,7 @@ struct TaskRowView: View {
                     .background(Circle().fill(Color.circle))
                     .onTapGesture {
                         showEmojiKeyboard = true
+                        UIApplication.shared.endEditing()
                     }
                 
             }
@@ -51,6 +48,10 @@ struct TaskRowView: View {
             
             TextField("Add task",text: $text)
                 .font(.title3)
+        }
+        .onAppear{
+            text = String(task.interval)
+            print(text)
         }
     }
 }

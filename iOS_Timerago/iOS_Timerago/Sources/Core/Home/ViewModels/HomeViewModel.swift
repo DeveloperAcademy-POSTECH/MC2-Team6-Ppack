@@ -9,7 +9,7 @@ import Foundation
 
 class HomeViewModel : ObservableObject {
     
-    @Published var routines: [RoutineModel] = [RoutineModel(id:UUID().uuidString,  task: [TaskModel(emoji: "✅", interval: 10),TaskModel(emoji: "💄", interval: 10),TaskModel(emoji: "✏️", interval: 10),TaskModel(emoji: "✏️", interval: 10),TaskModel(emoji: "✏️", interval: 10)], title:"Wake-up" , totalTime: 30),
+    @Published var routines: [RoutineModel] = [RoutineModel(id:UUID().uuidString,  task: [TaskModel(emoji: "✅", interval: 10),TaskModel(emoji: "💄", interval: 12),TaskModel(emoji: "✏️", interval: 10),TaskModel(emoji: "✏️", interval: 13),TaskModel(emoji: "✏️", interval: 10)], title:"Wake-up" , totalTime: 30),
                                                RoutineModel(id:UUID().uuidString,  task: [TaskModel(emoji: "✅", interval: 10),TaskModel(emoji: "💄", interval: 10),TaskModel(emoji: "✏️", interval: 10)], title:"Wake-down" , totalTime: 30),
                                                RoutineModel(id:UUID().uuidString,  task: [TaskModel(emoji: "✅", interval: 10),TaskModel(emoji: "💄", interval: 10),TaskModel(emoji: "✏️", interval: 10)], title:"Wake-up" , totalTime: 30)
     ]
