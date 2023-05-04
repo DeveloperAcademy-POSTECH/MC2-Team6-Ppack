@@ -39,7 +39,7 @@ struct RoutineCardView: View {
                 
             }
             .frame(maxWidth: .infinity,alignment: .leading)
-            .padding(.leading,23)
+            .padding(.leading,5)
             .padding(.top,20)
             .padding(.bottom,25)
             PlayButton()
