@@ -13,7 +13,9 @@ struct DetailView: View {
     
     @Environment(\.dismiss) var dismiss
     @Binding var routine:RoutineModel
-    @State var text:String = ""
+    @State var title:String = ""
+    @State var totalTime:Int = 0
+    @State var tasks:[TaskModel] = []
 
     
     var body: some View {
@@ -28,7 +30,7 @@ struct DetailView: View {
                     .padding(.top,10)
                     
                 
-                TextField("Name", text: $routine.title)
+                TextField("Name", text: $title)
                     .frame(maxWidth: .infinity,alignment: .leading)
                     .padding(.horizontal,16)
                     .font(.largeTitle)
@@ -37,10 +39,10 @@ struct DetailView: View {
                 
                 VStack(spacing:0){
  
-                       totalTime
+                        TimeView
                     
     
-                        taskList
+                        TaskListView
         
                     
                     
@@ -53,6 +55,11 @@ struct DetailView: View {
             
         }
         .toolbar(.hidden)
+        .onAppear{
+            title = routine.title
+            tasks = routine.task
+            totalTime = routine.totalTime
+        }
         
     }
     
@@ -64,30 +71,41 @@ extension DetailView{
         
         HStack{
             
-            HStack(spacing:5){
-                Image(systemName: "chevron.left")
-                    .font(.system(size: 22))
-                    .foregroundColor(.blue)
-                    //.bold()
-                
-                Text("Timers")
-                    .font(.preB(17))
-                    .foregroundColor(.blue)
-            }
-            .onTapGesture {
+            Button(action: {
                 dismiss()
+            }) {
+                HStack(spacing:5){
+                    
+                    
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 22))
+                        .foregroundColor(.blue)
+                        //.bold()
+                    
+                    Text("Timers")
+                        .font(.preB(17))
+                        .foregroundColor(.blue)
+                }
             }
+            
+            
+            
             
                 
             
             Spacer()
             
-            Image(systemName: "plus")
-                .foregroundColor(.blue)
-                .font(.system(size: 22))
-                .onTapGesture {
-                   
-                }
+            Button {
+                tasks.append(TaskModel(emoji: .defaultEmoji, interval: 0))
+            } label: {
+                Image(systemName: "plus")
+                    .foregroundColor(.blue)
+                    .font(.system(size: 22))
+            }
+
+            
+           
+
             
         }
         .padding(.horizontal,10)
@@ -95,8 +113,8 @@ extension DetailView{
     }
     
     
-    private var totalTime: some View {
-        Text("00:00")
+    private var TimeView: some View {
+        Text("\(totalTime):00")
             .font(.largeTitle)
             .bold()
             .padding(.vertical,25)
@@ -107,10 +125,11 @@ extension DetailView{
             )
     }
     
-    private var taskList: some View {
+    private var TaskListView: some View {
+    
         List{
-            ForEach(routine.task.indices){ index in
-                TaskRowView(task: routine.task[index])
+            ForEach(tasks){ task in
+                TaskRowView(task: task)
             }
             
         }

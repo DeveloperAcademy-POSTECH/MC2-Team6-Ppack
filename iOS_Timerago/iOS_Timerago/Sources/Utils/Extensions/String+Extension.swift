@@ -32,4 +32,7 @@ extension String {
     var emojis: [Character] { filter { $0.isEmoji } }
 
     var emojiScalars: [UnicodeScalar] { filter { $0.isEmoji }.flatMap { $0.unicodeScalars } }
+    
+    
+    static let defaultEmoji:String = "😀"
 }

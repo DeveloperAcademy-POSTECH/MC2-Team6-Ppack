@@ -67,7 +67,7 @@ struct HomeView: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    selectedRoutine = RoutineModel(task: [], title: "", totalTime: 0)
+                    selectedRoutine = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: 0)], title: "", totalTime: 0)
                     move.toggle()
                     
                 } label: {

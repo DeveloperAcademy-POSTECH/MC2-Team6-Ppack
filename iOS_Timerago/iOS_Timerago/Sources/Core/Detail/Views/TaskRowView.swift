@@ -24,31 +24,19 @@ struct TaskRowView: View {
     
     var body: some View {
         HStack{
-            if emoji.isEmpty {
-                Image(systemName: "face.smiling.inverse")
-                    .renderingMode(.template)
-                    .foregroundColor(.white)
-                    .font(.title3)
-                    .frame(width: 20,height: 20)
-                    .padding(7)
-                    .background(Circle().fill(Color.circle))
-            }
-            else {
-                EmojiTextField(text: $emoji)
-                    .font(.title3)
-                    .frame(width: 20,height: 20)
-                    .padding(7)
-                    .background(Circle().fill(Color.circle))
-                    
+            
+            EmojiTextField(text: $emoji)
+                .font(.title3)
+                .frame(width: 20,height: 20)
+                .padding(7)
+                .background(Circle().fill(Color.circle))
 
-                
-            }
             
             
             
             TextField("Add task",text: $text)
                 .font(.title3)
-                .keyboardType(.namePhonePad)
+                .keyboardType(.numberPad)
         }
         .onAppear{
             emoji = task.emoji
