@@ -23,11 +23,9 @@ struct DetailLoadingView : View {
 struct DetailView: View {
     
     @Environment(\.dismiss) var dismiss
-    
- 
-    @State var text:String = ""
-    @State var showEmojiKeyboard:Bool = false
+
     @StateObject var vm:DetailViewModel
+    @State var text:String = ""
    
     init(routine:RoutineModel){
         _vm = StateObject(wrappedValue: DetailViewModel(routine: routine))
@@ -37,6 +35,8 @@ struct DetailView: View {
     var body: some View {
         ZStack(alignment: .bottom){
             Color.background.ignoresSafeArea()
+            
+            
             
             VStack(spacing: 20){
                 
@@ -52,51 +52,23 @@ struct DetailView: View {
                 
                 
                 VStack(spacing:0){
-                    
-                        
-                    
-                        Text("00:00")
-                            .font(.largeTitle)
-                            .bold()
-                            .padding(.vertical,25)
-                            .padding(.horizontal,UIScreen.width / 2 - 70)
-                            .background(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .fill(.white)
-                            )
+ 
+                       totalTime
                     
     
-                        List{
-                            
-                            ForEach(vm.routine.task){  task in
-                                TaskRowView(showEmojiKeyboard: $showEmojiKeyboard,task: task)
-                            }
-                            
-                            
-                        }
-                        .listStyle(.insetGrouped)
-                    
-                    
-                    
-                   
-                       
+                        taskList
+        
                     
                     
                 }
                 .padding(.top,25)
                 
             }
-            
-            
-        
-            EmojiView(show: $showEmojiKeyboard, txt: $text)
-                .offset(y:self.showEmojiKeyboard ? safeArea.bottom : UIScreen.height)
         
                         
             
         }
         .toolbar(.hidden)
-        .animation(.default, value: showEmojiKeyboard)
         
     }
     
@@ -130,12 +102,35 @@ extension DetailView{
                 .foregroundColor(.blue)
                 .font(.system(size: 22))
                 .onTapGesture {
-                    print("Add")
+                    vm.routine.task.append(TaskModel(emoji: "", interval: 0))
                 }
             
         }
         .padding(.horizontal,10)
         
+    }
+    
+    
+    private var totalTime: some View {
+        Text("00:00")
+            .font(.largeTitle)
+            .bold()
+            .padding(.vertical,25)
+            .padding(.horizontal,UIScreen.width / 2 - 70)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(.white)
+            )
+    }
+    
+    private var taskList: some View {
+        List{
+            ForEach(vm.routine.task){ task in
+                TaskRowView(task: task)
+            }
+            
+        }
+        .listStyle(.insetGrouped)
     }
     
 

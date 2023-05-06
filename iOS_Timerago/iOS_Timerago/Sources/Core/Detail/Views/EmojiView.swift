@@ -6,107 +6,76 @@
 //
 
 import SwiftUI
+import UIKit
+import Foundation
 
-struct KeyboardView: View{
+class UIEmojiTextField: UITextField {
     
-    @State var txt:String = ""
-    @State var show = false
-    @State var isSelectedEmoji:Bool = false
+    var isEmoji = false {
+        didSet {
+            setEmoji()
+        }
+    }
     
-    var body: some View {
-        
-        ZStack(alignment: .bottom) {
-            
-            Button {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    private func setEmoji() {
+        self.reloadInputViews()
+    }
+    
+    override var textInputContextIdentifier: String? {
+        return ""
+    }
+    
+    override var textInputMode: UITextInputMode? {
+        for mode in UITextInputMode.activeInputModes {
+            if mode.primaryLanguage == "emoji" && self.isEmoji{
+                self.keyboardType = .default
+                return mode
                 
-                    show.toggle()
-                
-            } label: {
-                if isSelectedEmoji {
-                    Text(txt)
-                        .font(.title)
-                }
-                else {
-                    Image(systemName: "face.smiling.inverse")
-                        .renderingMode(.template)
-                        .foregroundColor(.blue)
-                        .font(.title)
-                }
+            } else if !self.isEmoji {
+                return mode
             }
-            .padding()
-                
-            
-//            EmojiView(show: $show, txt: $txt,isSelectedEmoji: $isSelectedEmoji)
-//                .offset(y:self.show ? safeArea.bottom : UIScreen.height)
         }
-        .background(Color.black.edgesIgnoringSafeArea(.all))
-        .animation(.default, value: show)
-        
-        
+        return nil
     }
     
 }
 
-
-struct EmojiView: View {
+struct EmojiTextField: UIViewRepresentable {
+    @Binding var text: String
+    var placeholder: String = ""
+    let isEmoji: Bool = true
     
-    @Binding var show: Bool
-    @Binding var txt:String
+    func makeUIView(context: Context) -> UIEmojiTextField {
+        let emojiTextField = UIEmojiTextField()
+        emojiTextField.placeholder = placeholder
+        emojiTextField.text = text
+        emojiTextField.delegate = context.coordinator
+        emojiTextField.isEmoji = self.isEmoji
+        return emojiTextField
+    }
     
-    var body: some View {
+    func updateUIView(_ uiView: UIEmojiTextField, context: Context) {
+        uiView.text = text
+        uiView.isEmoji = isEmoji
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(parent: self)
+    }
+    
+    class Coordinator: NSObject, UITextFieldDelegate {
+        var parent: EmojiTextField
         
-        ZStack(alignment: .topLeading){
-            ScrollView(.horizontal,showsIndicators: false){
-                
-                HStack(spacing:15){
-                    
-                    ForEach(self.getImojiList(),id: \.self){ i in
-                        
-                        VStack(spacing:20){
-                            ForEach(i,id:\.self) { j in
-                             
-                                Button {
-                                    self.txt = j
-                                    self.show.toggle()
-                                    UIApplication.shared.endEditing()
-                                } label: {
-                                    Text(j).font(.system(size: 30))
-                                }
-
-                                
-                            }
-                        }
-                    
-                        
-                    }
-                    
-                }
-                .padding(.top)
-                .padding(.horizontal)
-                
-            }.frame(width: UIScreen.width,height: UIScreen.height/3)
-                .padding(.bottom,safeArea.bottom)
-                .background(.gray)
-                .cornerRadius(25)
+        init(parent: EmojiTextField) {
+            self.parent = parent
         }
         
-    }
-    
-    func getImojiList() -> [[String]] {
-        
-        
-        return [["🍚", "🍫", "🥛"],["🚿", "🧻", "🧖"],["💄", "🧢","🕶️"],["👕","👔", "👠"],["📚", "💻", "📝"],["🪴", "🐶", "🐱"],["🎶","🚬", "🕹️"],["💊","💪", "🧘‍♀️"],["🚌","📞","⛅️"]]
-    }
-}
-
-struct KeyboardView_Previews: PreviewProvider {
-    static var previews: some View {
-        KeyboardView()
-    }
-}
-
-struct EmojiView_Previews: PreviewProvider {
-    static var previews: some View {
-        EmojiView(show: .constant(false), txt: .constant(""))
+        func textFieldDidChangeSelection(_ textField: UITextField) {
+            parent.text = textField.text ?? ""
+        }
     }
 }

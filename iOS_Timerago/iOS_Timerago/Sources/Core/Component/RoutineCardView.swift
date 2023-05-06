@@ -10,7 +10,7 @@ import SwiftUI
 struct RoutineCardView: View {
     
     
-    var routine:RoutineModel
+    @Binding var routine:RoutineModel
     
     
     var body: some View {
@@ -51,9 +51,3 @@ struct RoutineCardView: View {
     }
 }
 
-struct RoutineCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        RoutineCardView(routine:RoutineModel(id:UUID().uuidString ,task: [TaskModel(emoji: "✅", interval: 10),TaskModel(emoji: "💄", interval: 10),TaskModel(emoji: "✏️", interval: 10)], title:"Wake-up" , totalTime: 30))
-            .previewLayout(.sizeThatFits)
-    }
-}

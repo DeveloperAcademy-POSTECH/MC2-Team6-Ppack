@@ -16,6 +16,7 @@
 		B063EDE12A020704001613C9 /* EmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDE02A020704001613C9 /* EmojiView.swift */; };
 		B063EDE62A0347FC001613C9 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDE52A0347FC001613C9 /* DetailViewModel.swift */; };
 		B063EDE82A035421001613C9 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDE72A035421001613C9 /* TaskRowView.swift */; };
+		B063EDEA2A051E2D001613C9 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDE92A051E2D001613C9 /* SwiftUIView.swift */; };
 		B0B4BDC229FB73C6000E6593 /* iOS_TimeragoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BDC129FB73C6000E6593 /* iOS_TimeragoApp.swift */; };
 		B0B4BDC629FB73C7000E6593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B4BDC529FB73C7000E6593 /* Assets.xcassets */; };
 		B0B4BDC929FB73C7000E6593 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B4BDC829FB73C7000E6593 /* Preview Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		B063EDE02A020704001613C9 /* EmojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiView.swift; sourceTree = "<group>"; };
 		B063EDE52A0347FC001613C9 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		B063EDE72A035421001613C9 /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
+		B063EDE92A051E2D001613C9 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		B0B4BDBE29FB73C6000E6593 /* iOS_Timerago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Timerago.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B4BDC129FB73C6000E6593 /* iOS_TimeragoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_TimeragoApp.swift; sourceTree = "<group>"; };
 		B0B4BDC529FB73C7000E6593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				B063EDD52A01F57B001613C9 /* DetailView.swift */,
 				B063EDE02A020704001613C9 /* EmojiView.swift */,
 				B063EDE72A035421001613C9 /* TaskRowView.swift */,
+				B063EDE92A051E2D001613C9 /* SwiftUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				B0B4BE2029FFCA6E000E6593 /* Color+Extension.swift in Sources */,
 				B0B4BE3229FFCE46000E6593 /* UIApplication+Extension.swift in Sources */,
 				B063EDE12A020704001613C9 /* EmojiView.swift in Sources */,
+				B063EDEA2A051E2D001613C9 /* SwiftUIView.swift in Sources */,
 				B0B4BE3529FFD14D000E6593 /* PlayButton.swift in Sources */,
 				B063EDE82A035421001613C9 /* TaskRowView.swift in Sources */,
 				B0B4BDC229FB73C6000E6593 /* iOS_TimeragoApp.swift in Sources */,

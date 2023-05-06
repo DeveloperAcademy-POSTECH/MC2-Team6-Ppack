@@ -32,11 +32,11 @@ struct HomeView: View {
             }
             else {
                 List{
-                    ForEach(vm.routines) { routine in
-                        RoutineCardView(routine: routine)
+                    ForEach(vm.routines.indices) { index in
+                        RoutineCardView(routine: $vm.routines[index])
                             .contentShape(Rectangle()) // 행 전체 클릭시 바로 재생되기 위해
                             .onTapGesture {
-                                selectedRoutine = routine
+                                selectedRoutine = vm.routines[index]
                                 moveEdit = true
                             }
                         
