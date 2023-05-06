@@ -7,30 +7,14 @@
 
 import SwiftUI
 
-struct DetailLoadingView : View {
-    
-    @Binding var routine: RoutineModel?
-    
-    var body: some View {
-        ZStack{
-            if let routine = routine {
-                DetailView(routine: routine)
-            }
-        }
-    }
-}
+
 
 struct DetailView: View {
     
     @Environment(\.dismiss) var dismiss
-
-    @StateObject var vm:DetailViewModel
+    @Binding var routine:RoutineModel
     @State var text:String = ""
-   
-    init(routine:RoutineModel){
-        _vm = StateObject(wrappedValue: DetailViewModel(routine: routine))
-        
-    }
+
     
     var body: some View {
         ZStack(alignment: .bottom){
@@ -44,7 +28,7 @@ struct DetailView: View {
                     .padding(.top,10)
                     
                 
-                TextField("Name", text: $vm.title)
+                TextField("Name", text: $routine.title)
                     .frame(maxWidth: .infinity,alignment: .leading)
                     .padding(.horizontal,16)
                     .font(.largeTitle)
@@ -102,7 +86,7 @@ extension DetailView{
                 .foregroundColor(.blue)
                 .font(.system(size: 22))
                 .onTapGesture {
-                    vm.routine.task.append(TaskModel(emoji: "", interval: 0))
+                   
                 }
             
         }
@@ -125,8 +109,8 @@ extension DetailView{
     
     private var taskList: some View {
         List{
-            ForEach(vm.routine.task){ task in
-                TaskRowView(task: task)
+            ForEach(routine.task.indices){ index in
+                TaskRowView(task: routine.task[index])
             }
             
         }
@@ -139,7 +123,7 @@ extension DetailView{
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(routine: RoutineModel(id: UUID().uuidString, task: [TaskModel(emoji: "", interval: 0)], title: "", totalTime: 0))
+        DetailView(routine: .constant(RoutineModel(id: UUID().uuidString, task: [TaskModel(emoji: "", interval: 0)], title: "", totalTime: 0)))
     }
 }
 

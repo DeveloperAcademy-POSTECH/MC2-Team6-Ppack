@@ -10,9 +10,9 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject private var vm:HomeViewModel
-    @State var moveCreate:Bool = false
-    @State var moveEdit:Bool = false
-    @State private var selectedRoutine:RoutineModel? = nil
+    @State var move:Bool = false
+
+    @State private var selectedRoutine:RoutineModel = RoutineModel(task: [], title: "0", totalTime: 0)
     
     var body: some View {
         ZStack{
@@ -37,7 +37,7 @@ struct HomeView: View {
                             .contentShape(Rectangle()) // 행 전체 클릭시 바로 재생되기 위해
                             .onTapGesture {
                                 selectedRoutine = vm.routines[index]
-                                moveEdit = true
+                                move.toggle()
                             }
                         
                     }
@@ -67,8 +67,8 @@ struct HomeView: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    
-                    moveCreate.toggle()
+                    selectedRoutine = RoutineModel(task: [], title: "", totalTime: 0)
+                    move.toggle()
                     
                 } label: {
                     Image(systemName: "plus")
@@ -79,11 +79,8 @@ struct HomeView: View {
             }
         
         }
-        .navigationDestination(isPresented: $moveCreate, destination: {
-            DetailView(routine: RoutineModel(id: UUID().uuidString, task: [TaskModel(emoji: "", interval: 0)], title: "", totalTime: 0))
-        })
-        .navigationDestination(isPresented: $moveEdit, destination: {
-            DetailLoadingView(routine: $selectedRoutine)
+        .navigationDestination(isPresented: $move, destination: {
+            DetailView(routine: $selectedRoutine)
         })
     }
 }
