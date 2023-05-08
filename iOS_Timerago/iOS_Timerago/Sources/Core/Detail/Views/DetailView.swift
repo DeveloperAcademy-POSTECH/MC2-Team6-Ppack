@@ -131,45 +131,14 @@ extension DetailView{
     private var TaskListView: some View {
     
         List{
-            ForEach(vm.routines[index].task.indices){ taskIndex in
-                //TaskRowView(routineIndex: index,task:task,total: $totalTime)
+            ForEach(vm.routines[index].task){ task in
+                TaskRowView(routineIndex: index,task:task,total: $totalTime)
             }
             
         }
         .listStyle(.insetGrouped)
     }
     
-    private var TaskRowView: some View {
-        
-        
-        var taskIndex:Int
-        
-        var body: some View {
-            HStack{
-                
-                EmojiTextField(text: $vm.routines[index].task[taskIndex].emoji)
-                    .font(.title3)
-                    .frame(width: 20,height: 20)
-                    .padding(7)
-                    .background(Circle().fill(Color.circle))
-
-                
-                
-                
-                TextField("Add task",text: $vm.routines[index].task[taskIndex].interval)
-                    .font(.title3)
-                    .keyboardType(.numberPad)
-                    
-            }
-            .onAppear{
-                emoji = task.emoji
-                time = String(task.interval)
-            }
-            
-
-
-        }
-    }
     
 
     
