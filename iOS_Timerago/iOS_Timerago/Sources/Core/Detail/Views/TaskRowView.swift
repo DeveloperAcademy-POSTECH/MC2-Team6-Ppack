@@ -10,14 +10,13 @@ import SwiftUI
 
 struct TaskRowView: View {
     
+    var routineIndex:Int
     var task:TaskModel
-    @State var text:String = "" {
-        didSet{
-            
-        }
-    }
+    @State var time:String = ""
     @State var emoji:String = ""
     @State var showError:Bool = false
+    @Binding var total:Int
+    
     
     
     
@@ -34,14 +33,16 @@ struct TaskRowView: View {
             
             
             
-            TextField("Add task",text: $text)
+            TextField("Add task",text: $time)
                 .font(.title3)
                 .keyboardType(.numberPad)
+                
         }
         .onAppear{
             emoji = task.emoji
-            text = String(task.interval)
+            time = String(task.interval)
         }
+        
 
 
     }

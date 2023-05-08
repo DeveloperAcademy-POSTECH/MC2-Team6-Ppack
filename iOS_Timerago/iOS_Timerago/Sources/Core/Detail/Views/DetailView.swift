@@ -10,12 +10,12 @@ import SwiftUI
 
 
 struct DetailView: View {
-    
+
     @Environment(\.dismiss) var dismiss
-    @Binding var routine:RoutineModel
+    @ObservedObject var vm:HomeViewModel
+    @Binding var index:Int
     @State var title:String = ""
     @State var totalTime:Int = 0
-    @State var tasks:[TaskModel] = []
 
     
     var body: some View {
@@ -56,9 +56,10 @@ struct DetailView: View {
         }
         .toolbar(.hidden)
         .onAppear{
-            title = routine.title
-            tasks = routine.task
-            totalTime = routine.totalTime
+
+            
+            title = vm.routines[index].title
+            totalTime = vm.routines[index].task.map{$0.interval}.reduce(0, {$0 + $1})
         }
         
     }
@@ -96,7 +97,9 @@ extension DetailView{
             Spacer()
             
             Button {
-                tasks.append(TaskModel(emoji: .defaultEmoji, interval: 0))
+                
+                vm.routines[index].task.append(TaskModel(emoji: .defaultEmoji, interval: 0))
+    
             } label: {
                 Image(systemName: "plus")
                     .foregroundColor(.blue)
@@ -114,7 +117,7 @@ extension DetailView{
     
     
     private var TimeView: some View {
-        Text("\(totalTime):00")
+        Text("\(String(totalTime).count > 1 ? String(totalTime) : "0\(totalTime)"  ):00")
             .font(.largeTitle)
             .bold()
             .padding(.vertical,25)
@@ -128,12 +131,44 @@ extension DetailView{
     private var TaskListView: some View {
     
         List{
-            ForEach(tasks){ task in
-                TaskRowView(task: task)
+            ForEach(vm.routines[index].task.indices){ taskIndex in
+                //TaskRowView(routineIndex: index,task:task,total: $totalTime)
             }
             
         }
         .listStyle(.insetGrouped)
+    }
+    
+    private var TaskRowView: some View {
+        
+        
+        var taskIndex:Int
+        
+        var body: some View {
+            HStack{
+                
+                EmojiTextField(text: $vm.routines[index].task[taskIndex].emoji)
+                    .font(.title3)
+                    .frame(width: 20,height: 20)
+                    .padding(7)
+                    .background(Circle().fill(Color.circle))
+
+                
+                
+                
+                TextField("Add task",text: $vm.routines[index].task[taskIndex].interval)
+                    .font(.title3)
+                    .keyboardType(.numberPad)
+                    
+            }
+            .onAppear{
+                emoji = task.emoji
+                time = String(task.interval)
+            }
+            
+
+
+        }
     }
     
 
@@ -142,7 +177,7 @@ extension DetailView{
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(routine: .constant(RoutineModel(id: UUID().uuidString, task: [TaskModel(emoji: "", interval: 0)], title: "", totalTime: 0)))
+        DetailView(vm: HomeViewModel(), index: .constant(0) )
     }
 }
 

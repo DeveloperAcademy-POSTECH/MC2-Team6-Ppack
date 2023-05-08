@@ -23,7 +23,7 @@ struct RoutineCardView: View {
                     
                 
                 HStack(spacing:14){
-                    Text("\(routine.totalTime)m").font(.preM(14))
+                    Text("\(routine.task.map{$0.interval}.reduce(0, {$0 + $1}))m").font(.preM(14))
                     
                     Rectangle()
                         .frame(maxWidth: 1,maxHeight: 20)
