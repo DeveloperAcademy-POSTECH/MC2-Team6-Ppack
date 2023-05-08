@@ -43,6 +43,7 @@ struct DetailView: View {
     @State var tmpList:[TaskModel] = []
     @State var error:EmojiError = .noError
     @State var showAlert:Bool = false
+    @State var pass:Bool = false
     
     var body: some View {
         ZStack(alignment: .bottom){
@@ -61,9 +62,10 @@ struct DetailView: View {
                     .padding(.horizontal,16)
                     .font(.largeTitle)
                     .bold()
+                    .autocorrectionDisabled(true)
                 
                 
-                VStack(spacing:0){
+                VStack(spacing:20){
  
                         TimeView
                     
@@ -75,9 +77,37 @@ struct DetailView: View {
                 }
                 .padding(.top,25)
                 
+                
+                Button {
+                    
+                } label: {
+                    Text("Complete")
+                        .font(.preB(16))
+                        .foregroundColor(.white)
+                        .frame(height: 55)
+                        .frame(maxWidth: .infinity)
+//                        .padding(.horizontal,UIScreen.width / 2 - 70)
+//                        .padding(.vertical,18)
+                        .background{
+                            if pass {
+                                LinearGradient(colors: [.accent,.gradient1], startPoint: .leading, endPoint: .trailing)
+                            }
+                            else {
+                                Color(hex: 0xCACACA)
+                            }
+                            
+                            
+                        }
+                }
+                .padding(.bottom,safeArea.bottom)
+
+                
             }
         
-                        
+                  
+            
+            
+            
             
         }
         .toolbar(.hidden)
@@ -132,7 +162,7 @@ extension DetailView{
             
             Button {
                 
-                tmpList.append(TaskModel(emoji: .defaultEmoji, interval: "0"))
+                tmpList.append(TaskModel(emoji: .defaultEmoji, interval: ""))
     
             } label: {
                 Image(systemName: "plus")
