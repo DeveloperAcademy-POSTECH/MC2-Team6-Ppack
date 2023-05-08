@@ -10,9 +10,9 @@ import Foundation
 struct TaskModel: Identifiable, Codable,Equatable {
     var id: String
     var emoji:String
-    var interval:Int
+    var interval:String
     
-    init(id:String =  UUID().uuidString ,emoji: String, interval: Int) {
+    init(id:String =  UUID().uuidString ,emoji: String, interval: String) {
         self.id = id
         self.emoji = emoji
         self.interval = interval
@@ -22,7 +22,7 @@ struct TaskModel: Identifiable, Codable,Equatable {
         self.emoji = emoji
     }
     
-    mutating func updateInterval(interval:Int) {
+    mutating func updateInterval(interval:String) {
         self.interval = interval
     }
     

@@ -67,7 +67,7 @@ struct HomeView: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    vm.routines.append(RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: 0)], title: ""))
+                    vm.routines.append(RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "0")], title: ""))
                     
                     selectedInex = vm.routines.count - 1
                     

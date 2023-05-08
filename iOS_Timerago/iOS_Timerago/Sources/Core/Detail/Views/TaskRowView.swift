@@ -10,12 +10,7 @@ import SwiftUI
 
 struct TaskRowView: View {
     
-    var routineIndex:Int
-    var task:TaskModel
-    @State var time:String = ""
-    @State var emoji:String = ""
-    @State var showError:Bool = false
-    @Binding var total:Int
+    @Binding var task:TaskModel
     
     
     
@@ -24,7 +19,7 @@ struct TaskRowView: View {
     var body: some View {
         HStack{
             
-            EmojiTextField(text: $emoji)
+            EmojiTextField(text: $task.emoji)
                 .font(.title3)
                 .frame(width: 20,height: 20)
                 .padding(7)
@@ -33,15 +28,12 @@ struct TaskRowView: View {
             
             
             
-            TextField("Add task",text: $time)
+            TextField("Add task",text: $task.interval)
                 .font(.title3)
                 .keyboardType(.numberPad)
                 
         }
-        .onAppear{
-            emoji = task.emoji
-            time = String(task.interval)
-        }
+
         
 
 

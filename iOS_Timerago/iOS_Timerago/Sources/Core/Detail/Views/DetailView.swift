@@ -16,6 +16,7 @@ struct DetailView: View {
     @Binding var index:Int
     @State var title:String = ""
     @State var totalTime:Int = 0
+    @State var tmpList:[TaskModel] = []
 
     
     var body: some View {
@@ -56,10 +57,10 @@ struct DetailView: View {
         }
         .toolbar(.hidden)
         .onAppear{
-
-            
+        
+            tmpList = vm.routines[index].task
             title = vm.routines[index].title
-            totalTime = vm.routines[index].task.map{$0.interval}.reduce(0, {$0 + $1})
+            totalTime = tmpList.map{Int($0.interval)!}.reduce(0, {$0 + $1})
         }
         
     }
@@ -98,7 +99,7 @@ extension DetailView{
             
             Button {
                 
-                vm.routines[index].task.append(TaskModel(emoji: .defaultEmoji, interval: 0))
+                tmpList.append(TaskModel(emoji: .defaultEmoji, interval: "0"))
     
             } label: {
                 Image(systemName: "plus")
@@ -131,9 +132,14 @@ extension DetailView{
     private var TaskListView: some View {
     
         List{
-            ForEach(vm.routines[index].task){ task in
-                TaskRowView(routineIndex: index,task:task,total: $totalTime)
+            ForEach($tmpList){ $task in //바인딩 , 바인딩..
+                TaskRowView(task:$task)
+                    .onChange(of: task) { _ in
+                            totalTime = tmpList.map{Int($0.interval) ?? 0}.reduce(0, {$0 + $1})
+                         
+                    }
             }
+            
             
         }
         .listStyle(.insetGrouped)
