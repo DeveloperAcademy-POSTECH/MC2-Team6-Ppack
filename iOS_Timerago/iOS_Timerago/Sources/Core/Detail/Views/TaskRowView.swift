@@ -21,6 +21,8 @@ struct TaskRowView: View {
                 .frame(width: 20,height: 20)
                 .padding(7)
                 .background(Circle().fill(Color.circle))
+                .keyboardShortcut(.return)
+                .keyboardShortcut(.cancelAction)
 
                 
 
@@ -30,6 +32,8 @@ struct TaskRowView: View {
             TextField("Add task",text: $task.interval)
                 .font(.title3)
                 .keyboardType(.numberPad)
+                .keyboardShortcut(.return)
+                .keyboardShortcut(.cancelAction)
                 
                 
         }

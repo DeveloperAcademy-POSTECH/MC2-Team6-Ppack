@@ -91,7 +91,9 @@ struct DetailView: View {
             tmpList = vm.routines[index].task
             title = vm.routines[index].title
             totalTime = tmpList.map{Int($0.interval)!}.reduce(0, {$0 + $1})
+            UIApplication.shared.hideKeyboard()
         }
+        
         
         
     }
