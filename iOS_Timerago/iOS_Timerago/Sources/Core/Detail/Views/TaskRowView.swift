@@ -6,14 +6,11 @@
 //
 
 import SwiftUI
-
+import Combine
 
 struct TaskRowView: View {
     
     @Binding var task:TaskModel
-    
-    
-    
     
     
     var body: some View {
@@ -25,12 +22,15 @@ struct TaskRowView: View {
                 .padding(7)
                 .background(Circle().fill(Color.circle))
 
+                
+
             
             
             
             TextField("Add task",text: $task.interval)
                 .font(.title3)
                 .keyboardType(.numberPad)
+                
                 
         }
 

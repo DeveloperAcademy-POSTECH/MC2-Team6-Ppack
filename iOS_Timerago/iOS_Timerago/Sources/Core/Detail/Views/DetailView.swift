@@ -7,6 +7,30 @@
 
 import SwiftUI
 
+enum EmojiError {
+    case notEmoji
+    case blank
+    case noError
+    case overLimit
+    
+    var errorMessage:String {
+        
+        switch self {
+            
+        case .notEmoji:
+            return "이모지가 아닙니다."
+        case .blank:
+            return "비어있는 칸이 있습니다."
+            
+        case .noError:
+            return ""
+        case .overLimit:
+            return "1글자를 초과했습니다."
+        }
+        
+    }
+    
+}
 
 
 struct DetailView: View {
@@ -17,7 +41,8 @@ struct DetailView: View {
     @State var title:String = ""
     @State var totalTime:Int = 0
     @State var tmpList:[TaskModel] = []
-
+    @State var error:EmojiError = .noError
+    @State var showAlert:Bool = false
     
     var body: some View {
         ZStack(alignment: .bottom){
@@ -56,12 +81,18 @@ struct DetailView: View {
             
         }
         .toolbar(.hidden)
+        .alert(error.errorMessage, isPresented: $showAlert, actions: {
+            Button("OK",role: .cancel){
+                
+            }
+        })
         .onAppear{
         
             tmpList = vm.routines[index].task
             title = vm.routines[index].title
             totalTime = tmpList.map{Int($0.interval)!}.reduce(0, {$0 + $1})
         }
+        
         
     }
     
@@ -134,8 +165,26 @@ extension DetailView{
         List{
             ForEach($tmpList){ $task in //바인딩 , 바인딩..
                 TaskRowView(task:$task)
-                    .onChange(of: task) { _ in
+                    .onChange(of: task) { newValue in
                             totalTime = tmpList.map{Int($0.interval) ?? 0}.reduce(0, {$0 + $1})
+                        
+                        
+                        if newValue.emoji.count == 0 {
+                            error = .blank
+                            return
+                        }
+                        
+                        if newValue.emoji.count > 1 {
+                            error = .overLimit
+                            showAlert = true
+                            return
+                        }
+                        
+                        if !newValue.emoji.isSingleEmoji {
+                            error = .notEmoji
+                            showAlert = true
+                        }
+                        
                          
                     }
             }
