@@ -10,10 +10,14 @@ import CoreData
 
 class CoreDataService : ObservableObject {
     
+    static let shared:CoreDataService = CoreDataService()
+    
     private let container: NSPersistentContainer
     private let containerName: String = "RoutineContainer"
-    private let routineEntityName:String = "RoutineEnitity"
+    private let routineEntityName:String = "RoutineEntity"
     private let taskEntityName:String = "TaskEntity"
+    
+    @Published var savedEntities: [RoutineEntity] = []
     
     init() {
         self.container = NSPersistentContainer(name: containerName)
@@ -24,9 +28,21 @@ class CoreDataService : ObservableObject {
                 print("Error loading Core Data! \(error)")
             }
             
-            print("Success")
+            self.getRoutines()
         }
         
     }
+    
+    func getRoutines() {
+            let request = NSFetchRequest<RoutineEntity>(entityName: routineEntityName)
+            
+            do {
+                savedEntities = try container.viewContext.fetch(request)
+            } catch let error {
+                print("Error fetching Portfolio Entities. \(error)")
+            }
+            
+            
+        }
     
 }

@@ -9,18 +9,26 @@ import Foundation
 
 class HomeViewModel : ObservableObject {
     
-    private let coreDataService = CoreDataService()
+
     
-    @Published var routines: [RoutineModel] = [RoutineModel(id:UUID().uuidString,  task: [TaskModel(emoji: "✅", interval: "10"),TaskModel(emoji: "💄", interval: "12"),TaskModel(emoji: "✏️", interval: "10"),TaskModel(emoji: "✏️", interval: "13"),TaskModel(emoji: "✏️", interval: "10")], title:"Wake-up"),
-                                               RoutineModel(id:UUID().uuidString,  task: [TaskModel(emoji: "✅", interval: "10"),TaskModel(emoji: "💄", interval: "12"),TaskModel(emoji: "✏️", interval: "10"),TaskModel(emoji: "✏️", interval: "13"),TaskModel(emoji: "✏️", interval: "10")], title:"Wake-up2")
-                                               
-                                               
-                                              
-    ]
     
-    init(){
-        print("Hello")
+    
+    private let coreDataService = CoreDataService.shared
+    
+    @Published var routines: [RoutineModel]
+    
+    init() {
+        self.routines = coreDataService.savedEntities.map({ RoutineModel(id: $0.id, task: $0.task.map({TaskModel(id:$0.id, emoji: $0.emoji, interval: $0.interval)}) , title: $0.title) })
     }
+    
+    
+    private func reloadData() {
+        coreDataService.getRoutines()
+        self.routines = coreDataService.savedEntities.map({ RoutineModel(id: $0.id, task: $0.task.map({TaskModel(id:$0.id, emoji: $0.emoji, interval: $0.interval)}) , title: $0.title) })
+    }
+    
+    
+    
     
     
     
