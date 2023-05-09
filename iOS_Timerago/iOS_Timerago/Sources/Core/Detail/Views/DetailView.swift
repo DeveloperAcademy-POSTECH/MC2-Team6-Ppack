@@ -37,7 +37,7 @@ struct DetailView: View {
 
     @Environment(\.dismiss) var dismiss
     @ObservedObject var vm:HomeViewModel
-    @Binding var index:Int
+    @Binding var routine:RoutineModel
     @State var title:String = ""
     @State var totalTime:Int = 0
     @State var tmpList:[TaskModel] = [] {
@@ -135,8 +135,8 @@ struct DetailView: View {
         })
         .onAppear{
         
-            tmpList = vm.routines[index].task
-            title = vm.routines[index].title
+            tmpList = routine.task
+            title = routine.title
             totalTime = tmpList.map{Int($0.interval)!}.reduce(0, {$0 + $1})
             UIApplication.shared.hideKeyboard()
         }
@@ -279,10 +279,5 @@ extension DetailView{
     
 }
 
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(vm: HomeViewModel(), index: .constant(0) )
-    }
-}
 
 
