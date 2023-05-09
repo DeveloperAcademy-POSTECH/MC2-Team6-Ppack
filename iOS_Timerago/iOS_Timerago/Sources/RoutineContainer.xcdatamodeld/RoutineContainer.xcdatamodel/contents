@@ -5,7 +5,7 @@
         <attribute name="task" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[TaskEntity]"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="TaskEntity" representedClassName="TaskEntity" syncable="YES" codeGenerationType="class">
+    <entity name="TaskEntity" representedClassName="TaskEntity" syncable="YES">
         <attribute name="emoji" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="interval" optional="YES" attributeType="String"/>

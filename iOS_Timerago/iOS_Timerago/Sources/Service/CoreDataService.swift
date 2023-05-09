@@ -6,8 +6,27 @@
 //
 
 import Foundation
+import CoreData
 
-class CoreDataService {
+class CoreDataService : ObservableObject {
     
+    private let container: NSPersistentContainer
+    private let containerName: String = "RoutineContainer"
+    private let routineEntityName:String = "RoutineEnitity"
+    private let taskEntityName:String = "TaskEntity"
+    
+    init() {
+        self.container = NSPersistentContainer(name: containerName)
+        
+        self.container.loadPersistentStores { _, error in
+            
+            if let error = error {
+                print("Error loading Core Data! \(error)")
+            }
+            
+            print("Success")
+        }
+        
+    }
     
 }

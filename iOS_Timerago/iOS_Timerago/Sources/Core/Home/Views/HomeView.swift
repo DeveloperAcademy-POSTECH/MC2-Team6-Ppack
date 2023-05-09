@@ -9,10 +9,12 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @StateObject private var vm:HomeViewModel = HomeViewModel()
+    @ObservedObject private var vm:HomeViewModel = HomeViewModel()
     @State var move:Bool = false
 
     @State private var selectedInex:Int = 0
+
+
     
     var body: some View {
         ZStack{
