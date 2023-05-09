@@ -20,7 +20,7 @@ enum EmojiError {
         case .notEmoji:
             return "이모지가 아닙니다."
         case .blank:
-            return "비어있는 칸이 있습니다."
+            return "잘못된 칸이 있습니다."
             
         case .noError:
             return ""
@@ -40,10 +40,16 @@ struct DetailView: View {
     @Binding var index:Int
     @State var title:String = ""
     @State var totalTime:Int = 0
-    @State var tmpList:[TaskModel] = []
+    @State var tmpList:[TaskModel] = [] {
+        didSet {
+            pass = !(checkBlank() || checkOverInput() || checkWrongInput() || checkIsSingleEmoji())
+            
+           
+        }
+    }
     @State var error:EmojiError = .noError
-    @State var showAlert:Bool = false
     @State var pass:Bool = false
+    @State var showAlert:Bool = false
     
     var body: some View {
         ZStack(alignment: .bottom){
@@ -59,7 +65,6 @@ struct DetailView: View {
                 
                 TextField("Name", text: $title)
                     .frame(maxWidth: .infinity,alignment: .leading)
-                    .padding(.horizontal,16)
                     .font(.largeTitle)
                     .bold()
                     .autocorrectionDisabled(true)
@@ -90,19 +95,23 @@ struct DetailView: View {
 //                        .padding(.vertical,18)
                         .background{
                             if pass {
-                                LinearGradient(colors: [.accent,.gradient1], startPoint: .leading, endPoint: .trailing)
+                                LinearGradient(colors: [.gradient1,.accent], startPoint: .leading, endPoint: .trailing)
+                                    
                             }
                             else {
                                 Color(hex: 0xCACACA)
+                                    
                             }
                             
                             
                         }
+                        .cornerRadius(12)
                 }
                 .padding(.bottom,safeArea.bottom)
 
                 
             }
+            .padding(.horizontal,18)
         
                   
             
@@ -175,7 +184,7 @@ extension DetailView{
 
             
         }
-        .padding(.horizontal,10)
+        .padding(.horizontal,-8)
         
     }
     
@@ -185,7 +194,9 @@ extension DetailView{
             .font(.largeTitle)
             .bold()
             .padding(.vertical,25)
-            .padding(.horizontal,UIScreen.width / 2 - 70)
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal,10)
+            //.padding(.horizontal,UIScreen.width / 2 - 70)
             .background(
                 RoundedRectangle(cornerRadius: 12)
                     .fill(.white)
@@ -200,8 +211,9 @@ extension DetailView{
                     .onChange(of: task) { newValue in
                             totalTime = tmpList.map{Int($0.interval) ?? 0}.reduce(0, {$0 + $1})
                         
+                        pass = !(checkBlank() || checkOverInput() || checkWrongInput() || checkIsSingleEmoji())
                         
-                        if newValue.emoji.count == 0 {
+                        if newValue.emoji.count == 0  {
                             error = .blank
                             return
                         }
@@ -210,23 +222,46 @@ extension DetailView{
                             error = .overLimit
                             showAlert = true
                             return
+                            
                         }
                         
                         if !newValue.emoji.isSingleEmoji {
                             error = .notEmoji
                             showAlert = true
+                            return
+                            
                         }
+                        
+                        
+                        
                         
                          
                     }
+                   
             }
             
             
         }
-        .listStyle(.insetGrouped)
+        .listStyle(.grouped)
     }
     
     
+    private func checkBlank () -> Bool {
+        return tmpList.filter{$0.emoji.count == 0 || $0.interval.count == 0 }.count > 0
+    }
+    
+    private func checkOverInput() -> Bool {
+        return tmpList.filter{$0.emoji.count > 1} .count > 0
+    }
+    
+    private func checkIsSingleEmoji() -> Bool {
+        return tmpList.filter{!$0.emoji.isSingleEmoji} .count > 0
+    }
+    
+    private func checkWrongInput() -> Bool {
+        return tmpList.filter{Int($0.interval) ?? -1 <= 0 || String($0.interval.prefix(1)) == "0"}.count > 0
+    }
+
 
     
 }
