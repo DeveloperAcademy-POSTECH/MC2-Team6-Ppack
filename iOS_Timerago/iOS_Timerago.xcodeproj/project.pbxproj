@@ -112,12 +112,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		B063EDEB2A065761001613C9 /* Srvice */ = {
+		B063EDEB2A065761001613C9 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				B063EDEC2A0657EC001613C9 /* CoreDataService.swift */,
 			);
-			path = Srvice;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		B0B4BDB529FB73C6000E6593 = {
@@ -159,7 +159,7 @@
 		B0B4BE1529FFC708000E6593 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				B063EDEB2A065761001613C9 /* Srvice */,
+				B063EDEB2A065761001613C9 /* Service */,
 				B00B5DAE2A01DCA400ABA945 /* Models */,
 				B0B4BE1829FFC742000E6593 /* Utils */,
 				B0B4BE1729FFC72F000E6593 /* Core */,

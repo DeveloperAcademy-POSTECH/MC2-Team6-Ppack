@@ -12,7 +12,6 @@ struct TaskModel: Identifiable, Codable,Equatable {
     var emoji:String
     var interval:String
     
-    
     init(id:String =  UUID().uuidString ,emoji: String, interval: String) {
         self.id = id
         self.emoji = emoji
