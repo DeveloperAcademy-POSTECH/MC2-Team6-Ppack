@@ -44,7 +44,7 @@ struct DetailView: View {
         didSet {
             pass = !(checkBlank() || checkOverInput() || checkWrongInput() || checkIsSingleEmoji())
             
-           
+            totalTime = tmpList.map{Int($0.interval) ?? 0}.reduce(0, {$0 + $1})
         }
     }
     @State var error:EmojiError = .noError
@@ -74,8 +74,15 @@ struct DetailView: View {
  
                         TimeView
                     
-    
+                    if tmpList.isEmpty {
+                        Spacer()
+                        Text("일정이 없습니다.")
+                        Spacer()
+                    }
+                    else {
                         TaskListView
+                    }
+                        
         
                     
                     
@@ -107,6 +114,7 @@ struct DetailView: View {
                         }
                         .cornerRadius(12)
                 }
+                .disabled(!pass)
                 .padding(.bottom,safeArea.bottom)
 
                 
@@ -196,7 +204,6 @@ extension DetailView{
             .padding(.vertical,25)
             .frame(maxWidth: .infinity)
             .padding(.horizontal,10)
-            //.padding(.horizontal,UIScreen.width / 2 - 70)
             .background(
                 RoundedRectangle(cornerRadius: 12)
                     .fill(.white)
@@ -239,10 +246,16 @@ extension DetailView{
                     }
                    
             }
-            
+            .onDelete { indexSet in
+                tmpList.remove(atOffsets: indexSet)
+            }
+            .onMove { from, to in
+                tmpList.move(fromOffsets: from, toOffset: to)
+            }
             
         }
         .listStyle(.grouped)
+        
     }
     
     
