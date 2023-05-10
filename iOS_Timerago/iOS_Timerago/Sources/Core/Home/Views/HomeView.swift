@@ -46,10 +46,8 @@ struct HomeView: View {
                         
                     }
                     .onDelete { indexSet in
-                        
-                    }
-                    .onMove { indexSet, row in
-                        
+                        vm.routines.remove(atOffsets: indexSet)
+                        vm.save()
                     }
                 }
                 .listStyle(.plain)
