@@ -11,7 +11,7 @@ struct PlayButton: View {
     var body: some View {
         
         Image(systemName: "play.fill")
-            .font(.title)
+            .font(.title2)
             .foregroundColor(.white)
             .padding()
             .background(

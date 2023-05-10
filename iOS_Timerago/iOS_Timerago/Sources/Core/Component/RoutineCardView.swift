@@ -8,21 +8,29 @@
 import SwiftUI
 
 struct RoutineCardView: View {
+    
+    
+    @Binding var routine:RoutineModel
+    
+    
     var body: some View {
 
         ZStack{
-            VStack(alignment: .leading,spacing: 25){
-                Text("Wake-up").font(.preB(21))
+            
+            VStack(alignment: .leading,spacing: 23){
+                Text("\(routine.title)").font(.preB(21))
+                    
                     
                 
                 HStack(spacing:14){
-                    Text("60m").font(.preM(14))
+                    Text("\(routine.task.map{Int($0.interval)!}.reduce(0, {$0 + $1}))m").font(.preM(14))
                     
                     Rectangle()
                         .frame(maxWidth: 1,maxHeight: 20)
                     
-                    ForEach((0..<4)){ _ in
-                        Text("💄")
+                
+                    ForEach(routine.task){ task   in
+                        Text(task.emoji)
                             .font(.system(size: 14))
                     }
                     
@@ -31,20 +39,15 @@ struct RoutineCardView: View {
                 
             }
             .frame(maxWidth: .infinity,alignment: .leading)
-            .padding(.leading,23)
-            .padding(.top,37)
-            .padding(.bottom,45)
+            .padding(.leading,5)
+            .padding(.top,20)
+            .padding(.bottom,25)
             PlayButton()
                 .frame(maxWidth: .infinity,alignment: .trailing).padding()
         }
+        
      
         
     }
 }
 
-struct RoutineCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        RoutineCardView()
-            .previewLayout(.sizeThatFits)
-    }
-}

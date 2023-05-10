@@ -20,6 +20,7 @@ extension Color {
     static let gradient1 = Color("Gradient1")
     static let negative = Color("Negative")
     static let text = Color("Text")
+    static let circle = Color("CircleBackground")
     
 }
 

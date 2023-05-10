@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B00B5DB22A01DCD900ABA945 /* RoutineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DB12A01DCD900ABA945 /* RoutineModel.swift */; };
+		B00B5DB42A01DE8E00ABA945 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DB32A01DE8E00ABA945 /* TaskModel.swift */; };
+		B00B5DB62A01E0A700ABA945 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DB52A01E0A700ABA945 /* TimeInterval+Extension.swift */; };
+		B00B5DBB2A01E1CC00ABA945 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DBA2A01E1CC00ABA945 /* HomeViewModel.swift */; };
+		B051488B2A09C2FD009998E8 /* TransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B051488A2A09C2FD009998E8 /* TransitionView.swift */; };
+		B063EDD62A01F57B001613C9 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDD52A01F57B001613C9 /* DetailView.swift */; };
+		B063EDDA2A01FD3B001613C9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDD92A01FD3B001613C9 /* String+Extension.swift */; };
+		B063EDE12A020704001613C9 /* EmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDE02A020704001613C9 /* EmojiView.swift */; };
+		B063EDE82A035421001613C9 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDE72A035421001613C9 /* TaskRowView.swift */; };
+		B063EDED2A0657EC001613C9 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDEC2A0657EC001613C9 /* DataService.swift */; };
 		B0B4BDC229FB73C6000E6593 /* iOS_TimeragoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BDC129FB73C6000E6593 /* iOS_TimeragoApp.swift */; };
-		B0B4BDC429FB73C6000E6593 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BDC329FB73C6000E6593 /* ContentView.swift */; };
 		B0B4BDC629FB73C7000E6593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B4BDC529FB73C7000E6593 /* Assets.xcassets */; };
 		B0B4BDC929FB73C7000E6593 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B4BDC829FB73C7000E6593 /* Preview Assets.xcassets */; };
-		B0B4BDCB29FB73C7000E6593 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BDCA29FB73C7000E6593 /* Persistence.swift */; };
-		B0B4BDCE29FB73C7000E6593 /* iOS_Timerago.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BDCC29FB73C7000E6593 /* iOS_Timerago.xcdatamodeld */; };
 		B0B4BE1D29FFC7AC000E6593 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE1C29FFC7AC000E6593 /* HomeView.swift */; };
 		B0B4BE2029FFCA6E000E6593 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE1F29FFCA6E000E6593 /* Color+Extension.swift */; };
 		B0B4BE2629FFCB59000E6593 /* Jost-500-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0B4BE2229FFCB59000E6593 /* Jost-500-Medium.otf */; };
@@ -22,19 +29,26 @@
 		B0B4BE2C29FFCC6F000E6593 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE2B29FFCC6F000E6593 /* Font+Extension.swift */; };
 		B0B4BE2E29FFCDF2000E6593 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE2D29FFCDF2000E6593 /* UIScreen+Extension.swift */; };
 		B0B4BE3029FFCE0F000E6593 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE2F29FFCE0F000E6593 /* View+Extension.swift */; };
-		B0B4BE3229FFCE46000E6593 /* Extension+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE3129FFCE46000E6593 /* Extension+UIApplication.swift */; };
+		B0B4BE3229FFCE46000E6593 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE3129FFCE46000E6593 /* UIApplication+Extension.swift */; };
 		B0B4BE3529FFD14D000E6593 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE3429FFD14D000E6593 /* PlayButton.swift */; };
 		B0B4BE3729FFD67A000E6593 /* RoutineCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BE3629FFD67A000E6593 /* RoutineCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B00B5DB12A01DCD900ABA945 /* RoutineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineModel.swift; sourceTree = "<group>"; };
+		B00B5DB32A01DE8E00ABA945 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		B00B5DB52A01E0A700ABA945 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
+		B00B5DBA2A01E1CC00ABA945 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B051488A2A09C2FD009998E8 /* TransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionView.swift; sourceTree = "<group>"; };
+		B063EDD52A01F57B001613C9 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		B063EDD92A01FD3B001613C9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		B063EDE02A020704001613C9 /* EmojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiView.swift; sourceTree = "<group>"; };
+		B063EDE72A035421001613C9 /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
+		B063EDEC2A0657EC001613C9 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		B0B4BDBE29FB73C6000E6593 /* iOS_Timerago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Timerago.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B4BDC129FB73C6000E6593 /* iOS_TimeragoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_TimeragoApp.swift; sourceTree = "<group>"; };
-		B0B4BDC329FB73C6000E6593 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B0B4BDC529FB73C7000E6593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0B4BDC829FB73C7000E6593 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B0B4BDCA29FB73C7000E6593 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		B0B4BDCD29FB73C7000E6593 /* iOS_Timerago.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOS_Timerago.xcdatamodel; sourceTree = "<group>"; };
 		B0B4BE1C29FFC7AC000E6593 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B0B4BE1F29FFCA6E000E6593 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		B0B4BE2229FFCB59000E6593 /* Jost-500-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-500-Medium.otf"; sourceTree = "<group>"; };
@@ -45,7 +59,7 @@
 		B0B4BE2B29FFCC6F000E6593 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		B0B4BE2D29FFCDF2000E6593 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 		B0B4BE2F29FFCE0F000E6593 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
-		B0B4BE3129FFCE46000E6593 /* Extension+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIApplication.swift"; sourceTree = "<group>"; };
+		B0B4BE3129FFCE46000E6593 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		B0B4BE3429FFD14D000E6593 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		B0B4BE3629FFD67A000E6593 /* RoutineCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +75,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B00B5DAE2A01DCA400ABA945 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B00B5DB12A01DCD900ABA945 /* RoutineModel.swift */,
+				B00B5DB32A01DE8E00ABA945 /* TaskModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B00B5DB92A01E1C100ABA945 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B00B5DBA2A01E1CC00ABA945 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B00B5DBC2A01EE1A00ABA945 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B00B5DBD2A01EE7200ABA945 /* Views */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		B00B5DBD2A01EE7200ABA945 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B063EDD52A01F57B001613C9 /* DetailView.swift */,
+				B063EDE02A020704001613C9 /* EmojiView.swift */,
+				B063EDE72A035421001613C9 /* TaskRowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B063EDEB2A065761001613C9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B063EDEC2A0657EC001613C9 /* DataService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		B0B4BDB529FB73C6000E6593 = {
 			isa = PBXGroup;
 			children = (
@@ -84,9 +141,6 @@
 				B0B4BE1629FFC71D000E6593 /* Resources */,
 				B0B4BE1529FFC708000E6593 /* Sources */,
 				B0B4BDC129FB73C6000E6593 /* iOS_TimeragoApp.swift */,
-				B0B4BDC329FB73C6000E6593 /* ContentView.swift */,
-				B0B4BDCA29FB73C7000E6593 /* Persistence.swift */,
-				B0B4BDCC29FB73C7000E6593 /* iOS_Timerago.xcdatamodeld */,
 				B0B4BDC729FB73C7000E6593 /* Preview Content */,
 			);
 			path = iOS_Timerago;
@@ -103,6 +157,9 @@
 		B0B4BE1529FFC708000E6593 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B063EDEB2A065761001613C9 /* Service */,
+				B00B5DAE2A01DCA400ABA945 /* Models */,
+				B0B4BE1829FFC742000E6593 /* Utils */,
 				B0B4BE1729FFC72F000E6593 /* Core */,
 			);
 			path = Sources;
@@ -120,9 +177,9 @@
 		B0B4BE1729FFC72F000E6593 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B00B5DBC2A01EE1A00ABA945 /* Detail */,
 				B0B4BE3329FFD13B000E6593 /* Component */,
 				B0B4BE1A29FFC75D000E6593 /* Home */,
-				B0B4BE1829FFC742000E6593 /* Utils */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -138,6 +195,7 @@
 		B0B4BE1A29FFC75D000E6593 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B00B5DB92A01E1C100ABA945 /* ViewModels */,
 				B0B4BE1B29FFC763000E6593 /* Views */,
 			);
 			path = Home;
@@ -147,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				B0B4BE1C29FFC7AC000E6593 /* HomeView.swift */,
+				B051488A2A09C2FD009998E8 /* TransitionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -158,7 +217,9 @@
 				B0B4BE2B29FFCC6F000E6593 /* Font+Extension.swift */,
 				B0B4BE2D29FFCDF2000E6593 /* UIScreen+Extension.swift */,
 				B0B4BE2F29FFCE0F000E6593 /* View+Extension.swift */,
-				B0B4BE3129FFCE46000E6593 /* Extension+UIApplication.swift */,
+				B0B4BE3129FFCE46000E6593 /* UIApplication+Extension.swift */,
+				B00B5DB52A01E0A700ABA945 /* TimeInterval+Extension.swift */,
+				B063EDD92A01FD3B001613C9 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -199,6 +260,8 @@
 			dependencies = (
 			);
 			name = iOS_Timerago;
+			packageProductDependencies = (
+			);
 			productName = iOS_Timerago;
 			productReference = B0B4BDBE29FB73C6000E6593 /* iOS_Timerago.app */;
 			productType = "com.apple.product-type.application";
@@ -227,6 +290,8 @@
 				Base,
 			);
 			mainGroup = B0B4BDB529FB73C6000E6593;
+			packageReferences = (
+			);
 			productRefGroup = B0B4BDBF29FB73C6000E6593 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,18 +322,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0B4BDCB29FB73C7000E6593 /* Persistence.swift in Sources */,
 				B0B4BE2E29FFCDF2000E6593 /* UIScreen+Extension.swift in Sources */,
+				B063EDDA2A01FD3B001613C9 /* String+Extension.swift in Sources */,
+				B063EDD62A01F57B001613C9 /* DetailView.swift in Sources */,
+				B00B5DB62A01E0A700ABA945 /* TimeInterval+Extension.swift in Sources */,
+				B00B5DBB2A01E1CC00ABA945 /* HomeViewModel.swift in Sources */,
+				B051488B2A09C2FD009998E8 /* TransitionView.swift in Sources */,
 				B0B4BE2029FFCA6E000E6593 /* Color+Extension.swift in Sources */,
-				B0B4BDC429FB73C6000E6593 /* ContentView.swift in Sources */,
-				B0B4BE3229FFCE46000E6593 /* Extension+UIApplication.swift in Sources */,
+				B063EDED2A0657EC001613C9 /* DataService.swift in Sources */,
+				B0B4BE3229FFCE46000E6593 /* UIApplication+Extension.swift in Sources */,
+				B063EDE12A020704001613C9 /* EmojiView.swift in Sources */,
 				B0B4BE3529FFD14D000E6593 /* PlayButton.swift in Sources */,
+				B063EDE82A035421001613C9 /* TaskRowView.swift in Sources */,
 				B0B4BDC229FB73C6000E6593 /* iOS_TimeragoApp.swift in Sources */,
 				B0B4BE1D29FFC7AC000E6593 /* HomeView.swift in Sources */,
 				B0B4BE3729FFD67A000E6593 /* RoutineCardView.swift in Sources */,
+				B00B5DB22A01DCD900ABA945 /* RoutineModel.swift in Sources */,
 				B0B4BE2C29FFCC6F000E6593 /* Font+Extension.swift in Sources */,
 				B0B4BE3029FFCE0F000E6593 /* View+Extension.swift in Sources */,
-				B0B4BDCE29FB73C7000E6593 /* iOS_Timerago.xcdatamodeld in Sources */,
+				B00B5DB42A01DE8E00ABA945 /* TaskModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,19 +543,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		B0B4BDCC29FB73C7000E6593 /* iOS_Timerago.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				B0B4BDCD29FB73C7000E6593 /* iOS_Timerago.xcdatamodel */,
-			);
-			currentVersion = B0B4BDCD29FB73C7000E6593 /* iOS_Timerago.xcdatamodel */;
-			path = iOS_Timerago.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = B0B4BDB629FB73C6000E6593 /* Project object */;
 }
