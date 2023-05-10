@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject private var vm:HomeViewModel = HomeViewModel()
-    @State var move:Bool = false
+    @State var isPresented:Bool = false
 
     @State private var selectedRoutine:RoutineModel = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "0")], title: "")
 
@@ -34,12 +34,14 @@ struct HomeView: View {
             }
             else {
                 List{
-                    ForEach($vm.routines.indices) { index in
-                        RoutineCardView(routine: $vm.routines[index])
+                    ForEach($vm.routines) { $rotuine in
+                        RoutineCardView(routine: $rotuine)
                             .contentShape(Rectangle()) // 행 전체 클릭시 바로 재생되기 위해
                             .onTapGesture {
-                                selectedRoutine = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "0")], title: "")
-                                move.toggle()
+                                
+                                selectedRoutine = rotuine
+                                
+                                isPresented.toggle()
                             }
                         
                     }
@@ -69,9 +71,9 @@ struct HomeView: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                   
+                    selectedRoutine = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "0")], title: "")
                     
-                    move.toggle()
+                    isPresented.toggle()
                     
                 } label: {
                     Image(systemName: "plus")
@@ -82,10 +84,13 @@ struct HomeView: View {
             }
         
         }
-        .navigationDestination(isPresented: $move, destination: {
+        .navigationDestination(isPresented: $isPresented, destination: {
             DetailView(vm:vm,routine: $selectedRoutine)
                
         })
+        .onAppear{
+            selectedRoutine = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "0")], title: "")
+        }
     }
 }
 

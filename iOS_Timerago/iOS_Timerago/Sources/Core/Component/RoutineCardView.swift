@@ -29,8 +29,8 @@ struct RoutineCardView: View {
                         .frame(maxWidth: 1,maxHeight: 20)
                     
                 
-                    ForEach(routine.task.count > 4 ? (0..<4) : routine.task.indices){ index  in
-                        Text(routine.task[index].emoji)
+                    ForEach(routine.task){ task   in
+                        Text(task.emoji)
                             .font(.system(size: 14))
                     }
                     

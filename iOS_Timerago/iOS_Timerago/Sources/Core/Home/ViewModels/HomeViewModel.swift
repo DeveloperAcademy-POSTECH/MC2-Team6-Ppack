@@ -10,24 +10,47 @@ import Foundation
 class HomeViewModel : ObservableObject {
     
 
-    
-    
-    
-    private let coreDataService = CoreDataService.shared
+    let dataService = DataService()
+
     
     @Published var routines: [RoutineModel]
     
     init() {
-        self.routines = coreDataService.savedEntities.map({ RoutineModel(id: $0.id, task: $0.task.map({TaskModel(id:$0.id, emoji: $0.emoji, interval: $0.interval)}) , title: $0.title) })
+        self.routines = dataService.loadJsonFile() ?? []
+        
     }
     
     
-    private func reloadData() {
-        coreDataService.getRoutines()
-        self.routines = coreDataService.savedEntities.map({ RoutineModel(id: $0.id, task: $0.task.map({TaskModel(id:$0.id, emoji: $0.emoji, interval: $0.interval)}) , title: $0.title) })
+    
+   
+
+    func addOrUpdate(routine:RoutineModel){
+        
+        if let index = routines.firstIndex(where: {$0.id == routine.id}) {
+            print("FIND")
+            routines[index] = routine
+            
+        } else {
+            print("NEW")
+            routines.append(routine)
+        }
+        
+       
+        applyChange()
     }
     
+    func save() {
+        dataService.saveJsonData(data: routines)
+    }
     
+    func applyChange() {
+        save()
+        load()
+    }
+    
+    func load()  {
+        self.routines = dataService.loadJsonFile() ?? []
+    }
     
     
     

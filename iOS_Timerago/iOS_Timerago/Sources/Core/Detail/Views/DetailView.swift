@@ -51,6 +51,7 @@ struct DetailView: View {
     @State var pass:Bool = false
     @State var showAlert:Bool = false
     
+    
     var body: some View {
         ZStack(alignment: .bottom){
             Color.background.ignoresSafeArea()
@@ -91,6 +92,10 @@ struct DetailView: View {
                 
                 
                 Button {
+                    var finalRoutine = RoutineModel(id: routine.id, task: tmpList, title: title)
+                    vm.addOrUpdate(routine: finalRoutine)
+                    dismiss()
+                    routine = finalRoutine
                     
                 } label: {
                     Text("Complete")
@@ -140,6 +145,7 @@ struct DetailView: View {
             totalTime = tmpList.map{Int($0.interval)!}.reduce(0, {$0 + $1})
             UIApplication.shared.hideKeyboard()
         }
+
         
         
         
