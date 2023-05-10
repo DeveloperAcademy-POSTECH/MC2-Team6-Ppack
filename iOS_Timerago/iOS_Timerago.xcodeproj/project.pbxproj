@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC6134662A0B47EC00F9B223 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AC6134652A0B47EC00F9B223 /* SDWebImageSwiftUI */; };
+		AC6134682A0B481E00F9B223 /* logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = AC6134672A0B481E00F9B223 /* logo.gif */; };
+		AC61346B2A0B489000F9B223 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61346A2A0B489000F9B223 /* LaunchView.swift */; };
 		B00B5DB22A01DCD900ABA945 /* RoutineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DB12A01DCD900ABA945 /* RoutineModel.swift */; };
 		B00B5DB42A01DE8E00ABA945 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DB32A01DE8E00ABA945 /* TaskModel.swift */; };
 		B00B5DB62A01E0A700ABA945 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DB52A01E0A700ABA945 /* TimeInterval+Extension.swift */; };
@@ -35,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC6134672A0B481E00F9B223 /* logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = logo.gif; path = ../../../../logo.gif; sourceTree = "<group>"; };
+		AC61346A2A0B489000F9B223 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		B00B5DB12A01DCD900ABA945 /* RoutineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineModel.swift; sourceTree = "<group>"; };
 		B00B5DB32A01DE8E00ABA945 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		B00B5DB52A01E0A700ABA945 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
@@ -69,12 +74,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC6134662A0B47EC00F9B223 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC6134692A0B488300F9B223 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				AC61346A2A0B489000F9B223 /* LaunchView.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 		B00B5DAE2A01DCA400ABA945 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +182,7 @@
 		B0B4BE1629FFC71D000E6593 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AC6134672A0B481E00F9B223 /* logo.gif */,
 				B0B4BE2129FFCB3B000E6593 /* Fonts */,
 				B0B4BDC529FB73C7000E6593 /* Assets.xcassets */,
 			);
@@ -177,6 +192,7 @@
 		B0B4BE1729FFC72F000E6593 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				AC6134692A0B488300F9B223 /* Launch */,
 				B00B5DBC2A01EE1A00ABA945 /* Detail */,
 				B0B4BE3329FFD13B000E6593 /* Component */,
 				B0B4BE1A29FFC75D000E6593 /* Home */,
@@ -261,6 +277,7 @@
 			);
 			name = iOS_Timerago;
 			packageProductDependencies = (
+				AC6134652A0B47EC00F9B223 /* SDWebImageSwiftUI */,
 			);
 			productName = iOS_Timerago;
 			productReference = B0B4BDBE29FB73C6000E6593 /* iOS_Timerago.app */;
@@ -291,6 +308,7 @@
 			);
 			mainGroup = B0B4BDB529FB73C6000E6593;
 			packageReferences = (
+				AC6134642A0B47EC00F9B223 /* XCRemoteSwiftPackageReference "SDWebImageswiftui" */,
 			);
 			productRefGroup = B0B4BDBF29FB73C6000E6593 /* Products */;
 			projectDirPath = "";
@@ -308,6 +326,7 @@
 			files = (
 				B0B4BDC929FB73C7000E6593 /* Preview Assets.xcassets in Resources */,
 				B0B4BE2829FFCB59000E6593 /* Jost-700-Bold.otf in Resources */,
+				AC6134682A0B481E00F9B223 /* logo.gif in Resources */,
 				B0B4BE2729FFCB59000E6593 /* Pretendard-Bold.otf in Resources */,
 				B0B4BE2629FFCB59000E6593 /* Jost-500-Medium.otf in Resources */,
 				B0B4BDC629FB73C7000E6593 /* Assets.xcassets in Resources */,
@@ -323,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0B4BE2E29FFCDF2000E6593 /* UIScreen+Extension.swift in Sources */,
+				AC61346B2A0B489000F9B223 /* LaunchView.swift in Sources */,
 				B063EDDA2A01FD3B001613C9 /* String+Extension.swift in Sources */,
 				B063EDD62A01F57B001613C9 /* DetailView.swift in Sources */,
 				B00B5DB62A01E0A700ABA945 /* TimeInterval+Extension.swift in Sources */,
@@ -543,6 +563,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AC6134642A0B47EC00F9B223 /* XCRemoteSwiftPackageReference "SDWebImageswiftui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageswiftui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC6134652A0B47EC00F9B223 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC6134642A0B47EC00F9B223 /* XCRemoteSwiftPackageReference "SDWebImageswiftui" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B0B4BDB629FB73C6000E6593 /* Project object */;
 }
