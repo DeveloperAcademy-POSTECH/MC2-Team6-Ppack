@@ -69,16 +69,19 @@ struct DetailView: View {
                     .frame(maxWidth: .infinity,alignment: .leading)
                     .font(.largeTitle)
                     .bold()
-                    .autocorrectionDisabled(true)
+                    .autocorrectionDisabled()
+                    
                 
                 
-                VStack(spacing:20){
+                VStack(spacing:5){
  
                         TimeView
                     
                     if tmpList.isEmpty {
                         Spacer()
-                        Text("일정이 없습니다.")
+                        Text("작업을 추가해주세요.")
+                            .font(.preM(18))
+                            .foregroundColor(.black.opacity(0.5))
                         Spacer()
                     }
                     else {
@@ -172,7 +175,7 @@ extension DetailView{
                         //.bold()
                     
                     Text("Timers")
-                        .font(.preB(17))
+                        .font(.preM(17))
                         .foregroundColor(.blue)
                 }
             }
@@ -206,8 +209,7 @@ extension DetailView{
     
     private var TimeView: some View {
         Text("\(String(totalTime).count > 1 ? String(totalTime) : "0\(totalTime)"  ):00")
-            .font(.largeTitle)
-            .bold()
+            .font(.j500B(40))
             .padding(.vertical,25)
             .frame(maxWidth: .infinity)
             .padding(.horizontal,10)

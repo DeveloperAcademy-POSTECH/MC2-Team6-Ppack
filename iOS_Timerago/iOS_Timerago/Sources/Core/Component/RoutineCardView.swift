@@ -27,6 +27,7 @@ struct RoutineCardView: View {
                     
                     Rectangle()
                         .frame(maxWidth: 1,maxHeight: 20)
+                        .opacity(0.5)
                     
                 
                     ForEach(routine.task){ task   in

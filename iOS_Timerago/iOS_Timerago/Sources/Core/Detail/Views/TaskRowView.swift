@@ -29,8 +29,8 @@ struct TaskRowView: View {
             
             
             
-            TextField("Add task",text: $task.interval)
-                .font(.title3)
+            TextField("시간을 입력해주세요.",text: $task.interval)
+                .font(.preM(18))
                 .keyboardType(.numberPad)
                 .keyboardShortcut(.return)
                 .keyboardShortcut(.cancelAction)
