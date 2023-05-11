@@ -8,122 +8,122 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    @ObservedObject private var vm:HomeViewModel = HomeViewModel()
-    @State var isPresented:Bool = false
 
-    @State private var selectedRoutine:RoutineModel = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "0")], title: "")
-    
-    @State private var showIntro:Bool = true
+@ObservedObject private var vm:HomeViewModel = HomeViewModel()
+@State var isPresented:Bool = false
 
+@State private var selectedRoutine:RoutineModel = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "0")], title: "")
+
+@State private var showIntro:Bool = true
+
+
+var body: some View {
     
-    var body: some View {
-        
-        ZStack{
-            if showIntro {
-                LaunchView().onAppear{
+    ZStack{
+        if showIntro {
+            LaunchView().onAppear{
+                
+                DispatchQueue.main.asyncAfter(deadline: .now()+5){
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now()+5){
-                        
-                        withAnimation(.easeOut){
-                            showIntro.toggle()
-                        }
-                        
+                    withAnimation(.easeOut){
+                        showIntro.toggle()
                     }
                     
                 }
                 
             }
-            else {
-                ZStack{
+            
+        }
+        else {
+            ZStack{
+                
+                
+                Color.background.ignoresSafeArea()
+                
+                
+                if $vm.routines.isEmpty {
                     
-                    
-                    Color.background.ignoresSafeArea()
-                    
-                    
-                    if $vm.routines.isEmpty {
-                        
 
-                        Text("등록된 타이머가 없습니다.")
-                            .font(.preB(18))
-                            .foregroundColor(.init(hex: 0x545454,alpha: 0.5))
-                            .padding(.bottom,UIScreen.height/4)
-                            
+                    Text("등록된 타이머가 없습니다.")
+                        .font(.preB(18))
+                        .foregroundColor(.init(hex: 0x545454,alpha: 0.5))
+                        .padding(.bottom,UIScreen.height/4)
                         
                     
-                    }
-                    else {
-                        List{
-                            ForEach($vm.routines) { $rotuine in
-                                RoutineCardView(routine: $rotuine)
-                                    .contentShape(Rectangle()) // 행 전체 클릭시 바로 재생되기 위해
-                                    .onTapGesture {
-                                        
-                                        selectedRoutine = rotuine
-                                        
-                                        isPresented.toggle()
-                                    }
-                                
-                            }
-                    .onDelete { indexSet in
-                        vm.routines.remove(atOffsets: indexSet)
-                        vm.save()
+                
+                }
+                else {
+                    List{
+                        ForEach($vm.routines) { $rotuine in
+                            RoutineCardView(routine: $rotuine)
+                                .contentShape(Rectangle()) // 행 전체 클릭시 바로 재생되기 위해
+                                .onTapGesture {
+                                    
+                                    selectedRoutine = rotuine
+                                    
+                                    isPresented.toggle()
+                                }
+                            
+                        }
+                        .onDelete { indexSet in
+                            vm.routines.remove(atOffsets: indexSet)
+                            vm.save()
                         }
                         .listStyle(.plain)
-
+                        
                     }
                     
                     
                     
-                    
-                }
-                .navigationTitle("Timers")
-                .toolbar{
-                    if !vm.routines.isEmpty {
-                        ToolbarItem(placement:.navigationBarLeading) {
-                            
-                            EditButton()
-                        }
-                    }
-                    
-                    
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            selectedRoutine = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "0")], title: "")
-                            
-                            isPresented.toggle()
-                            
-                        } label: {
-                            Image(systemName: "plus")
-                                .font(.headline)
-                                .foregroundColor(.blue)
-                        }
-
-                    }
-                
-                }
-                .navigationDestination(isPresented: $isPresented, destination: {
-                    DetailView(vm:vm,routine: $selectedRoutine)
-                       
-                })
-                .onAppear{
-                    selectedRoutine = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "0")], title: "")
                 }
             }
+            .navigationTitle("Timers")
+            .toolbar{
+                if !vm.routines.isEmpty {
+                    ToolbarItem(placement:.navigationBarLeading) {
+                        
+                        EditButton()
+                    }
+                }
+                
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        selectedRoutine = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "0")], title: "")
+                        
+                        isPresented.toggle()
+                        
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.headline)
+                            .foregroundColor(.blue)
+                    }
+
+                }
+            
+            }
+            .navigationDestination(isPresented: $isPresented, destination: {
+                DetailView(vm:vm,routine: $selectedRoutine)
+                   
+            })
+            .onAppear{
+                selectedRoutine = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "0")], title: "")
+            }
         }
-        
-        
     }
+    
+    
+}
 }
 
 struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack{
-            HomeView()
-                .environmentObject(HomeViewModel())
-        }
-        
+static var previews: some View {
+    NavigationStack{
+        HomeView()
+            .environmentObject(HomeViewModel())
     }
+    
+}
 }
 
 
