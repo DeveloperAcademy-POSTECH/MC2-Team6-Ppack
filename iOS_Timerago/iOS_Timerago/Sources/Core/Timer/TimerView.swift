@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TimerView: View {
     
+    @Environment(\.dismiss) var dismiss
     @Binding var routine:RoutineModel
     @State var time:String = ""
     @State var width:CGFloat = 0
@@ -106,7 +107,7 @@ struct TimerView: View {
             Color.background.ignoresSafeArea()
             
             Button {
-                
+                dismiss()
             } label: {
                 Image(systemName: "stop.fill")
                     .font(.largeTitle)

@@ -11,7 +11,7 @@ struct RoutineCardView: View {
     
     
     @Binding var routine:RoutineModel
-    
+    @State var showTimer:Bool = false
     
     var body: some View {
 
@@ -46,8 +46,11 @@ struct RoutineCardView: View {
             PlayButton()
                 .frame(maxWidth: .infinity,alignment: .trailing).padding()
                 .onTapGesture {
-                    print(routine)
+                    showTimer.toggle()
                 }
+        }
+        .fullScreenCover(isPresented: $showTimer) {
+            TimerView(routine: $routine)
         }
         
      
