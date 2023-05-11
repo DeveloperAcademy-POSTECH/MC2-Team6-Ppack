@@ -43,6 +43,7 @@ struct HomeView: View {
                     
                     if $vm.routines.isEmpty {
                         
+
                         Text("등록된 타이머가 없습니다.")
                             .font(.preB(18))
                             .foregroundColor(.init(hex: 0x545454,alpha: 0.5))
@@ -64,14 +65,12 @@ struct HomeView: View {
                                     }
                                 
                             }
-                            .onDelete { indexSet in
-                                
-                            }
-                            .onMove { indexSet, row in
-                                
-                            }
+                    .onDelete { indexSet in
+                        vm.routines.remove(atOffsets: indexSet)
+                        vm.save()
                         }
                         .listStyle(.plain)
+
                     }
                     
                     
