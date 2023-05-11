@@ -10,6 +10,7 @@ import Foundation
 
 class DataService : ObservableObject {
    
+    // TODO: 파일 생성 ..
     @Published var routines:[RoutineModel]? 
     
     let fileManager = FileManager.default
@@ -22,16 +23,27 @@ class DataService : ObservableObject {
         
         directoryPath = documentPath.appendingPathComponent("Routine")
         
+        
+        
         routines = loadJsonFile()
     }
     
     func saveJsonData(data:[RoutineModel]) {
+        
+        do {
+            // 아까 만든 디렉토리 경로에 디렉토리 생성 (폴더가 만들어진다.)
+            try fileManager.createDirectory(at: directoryPath, withIntermediateDirectories: false, attributes: nil)
+        } catch let e {
+            print(e.localizedDescription)
+        }
+        
         
         let jsonEncoder = JSONEncoder()
         
         
         do {
             let encodedData = try jsonEncoder.encode(data)
+            
             
             let fileURL = directoryPath.appendingPathComponent("routineData.json")
             
@@ -63,6 +75,8 @@ class DataService : ObservableObject {
             return decodeRoutines
         } catch {
             print("load Error \(error.localizedDescription)")
+            saveJsonData(data: [])
+            
             return nil
         }
         
