@@ -26,26 +26,51 @@ struct TimerView: View {
                 
                 VStack(spacing:10){
                     
-                    HStack(spacing:0){
-                        ForEach(routine.task){ task in
+                    HStack(spacing: 0){
+                        ForEach(routine.task.indices){ index in
                             
-                            Text("\(task.emoji)")
-                                .font(.system(size: 24))
-                                .frame(maxWidth: .infinity)
+                            if index == 0 {
+                                Text("\(routine.task[index].emoji)")
+                                    .font(.system(size: 24))
+                                    .frame(maxWidth: .infinity)
+                                Spacer()
+                            }
+                            
+                            
+                            else if index == routine.task.count - 1 {
+                                
+                                Spacer()
+                                
+                                Text("\(routine.task[index].emoji)")
+                                    .font(.system(size: 24))
+                                    .frame(maxWidth: .infinity)
+                                
+                            }
+                            
+                            else {
+                                
+                                Spacer()
+                                Text("\(routine.task[index].emoji)")
+                                    .font(.system(size: 24))
+                                    .frame(maxWidth: .infinity)
+                                Spacer()
+                            }
+                                
+                            
+                                
                             
                         }
                     }
-                    .frame(width:.infinity,height:30,alignment: .leading)
+                    .frame(width:geometry.size.width,height:30)
+                   
                     
                     RoundedRectangle(cornerRadius:12)
                         .fill(Color.white)
-                        .frame(width:.infinity,height:20)
-                        .padding(.horizontal,20)
+                        .frame(width:geometry.size.width - 40,height:20)
                         .overlay(alignment:.leading){
                             RoundedRectangle(cornerRadius:12)
                                 .fill(Color.accent)
                                 .frame(width:width)
-                                .padding(.horizontal,20)
                         }
                         .shadow(color: .black.opacity(0.12), radius: 5, x: 0, y: 3)
 
@@ -130,7 +155,7 @@ struct TimerView: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView(routine: .constant(RoutineModel(task: [TaskModel(emoji: "✅", interval: "5"),TaskModel(emoji: "✅", interval: "10"),TaskModel(emoji: "✅", interval: "5"),TaskModel(emoji: "✅", interval: "20"),TaskModel(emoji: "✅", interval: "20"),TaskModel(emoji: "✅", interval: "20")], title: "Hello")))
+        TimerView(routine: .constant(RoutineModel(task: [TaskModel(emoji: "✅", interval: "5"),TaskModel(emoji: "✅", interval: "10"),TaskModel(emoji: "✅", interval: "5")], title: "Hello")))
             .previewLayout(.sizeThatFits)
     }
 }
