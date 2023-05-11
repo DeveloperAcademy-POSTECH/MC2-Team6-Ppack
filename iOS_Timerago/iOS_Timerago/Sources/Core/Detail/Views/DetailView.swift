@@ -42,9 +42,10 @@ struct DetailView: View {
     @State var totalTime:Int = 0
     @State var tmpList:[TaskModel] = [] {
         didSet {
-            pass = !(checkBlank() || checkOverInput() || checkWrongInput() || checkIsSingleEmoji())
+            pass = !(checkBlank() || checkOverInput() || checkWrongInput() || checkIsSingleEmoji() || tmpList.isEmpty)
             
             totalTime = tmpList.map{Int($0.interval) ?? 0}.reduce(0, {$0 + $1})
+            
         }
     }
     @State var error:EmojiError = .noError

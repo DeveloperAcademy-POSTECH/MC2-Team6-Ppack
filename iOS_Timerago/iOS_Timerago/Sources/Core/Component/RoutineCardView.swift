@@ -44,6 +44,9 @@ struct RoutineCardView: View {
             .padding(.bottom,25)
             PlayButton()
                 .frame(maxWidth: .infinity,alignment: .trailing).padding()
+                .onTapGesture {
+                    print(routine)
+                }
         }
         
      
