@@ -47,7 +47,7 @@ var body: some View {
                     Text("등록된 타이머가 없습니다.")
                         .font(.preB(18))
                         .foregroundColor(.init(hex: 0x545454,alpha: 0.5))
-                        .padding(.bottom,UIScreen.height/4)
+                        .padding(.bottom,UIScreen.height/6)
                         
                     
                 
