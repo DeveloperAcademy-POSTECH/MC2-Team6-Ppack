@@ -104,8 +104,10 @@ struct TimerView: View {
         .onAppear{
             viewModel.minutes = Double(self.time) * 60
             viewModel.tasks = self.tasks
+            viewModel.isActive.toggle()
             viewModel.countdownArrayElements()
             viewModel.start()
+            viewModel.setTasksNotification()
             viewModel.registerNotification()
         }
         
@@ -114,7 +116,15 @@ struct TimerView: View {
                 width += 1
             }
         }
-        
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+            viewModel.backgroundTime = Date()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            if let backgroundTime = viewModel.backgroundTime {
+                let timeInterval = Date().timeIntervalSince(backgroundTime)
+                viewModel.timeInterval += Int(timeInterval)
+            }
+        }
         
         
     }
@@ -139,6 +149,7 @@ struct TimerView: View {
             
             Button {
                 dismiss()
+                viewModel.tapStopButton()
             } label: {
                 Image(systemName: "stop.fill")
                     .font(.largeTitle)

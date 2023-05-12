@@ -20,11 +20,13 @@ final class TimerViewModel: ObservableObject {
             self.minutes -= Double(self.timeInterval)
         }
     }
-    var currentIndex = 0
+    private let notificationCenter = UNUserNotificationCenter.current()
+    private var currentIndex = 0
     
     func start() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { Timer in
-            print(self.minutes)
+            guard self.isActive != false else { return }
+           
             if self.minutes > 0 {
                 self.minutes -= 1
             } else {
@@ -55,6 +57,7 @@ final class TimerViewModel: ObservableObject {
         
         Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { [weak self] Timer in
             guard let self = self else { return }
+            guard self.isActive != false else { return }
             
             self.countdown(timeLeft: timeLeft - 1, completion: completion)
            
@@ -79,7 +82,7 @@ final class TimerViewModel: ObservableObject {
     private func requestNotificationAuthorization() {
         let authOptions: UNAuthorizationOptions = [.alert, .sound]
         
-        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { success, error in
+        notificationCenter.requestAuthorization(options: authOptions) { success, error in
             
         }
     }
@@ -94,14 +97,13 @@ final class TimerViewModel: ObservableObject {
         
         let totalRequest = UNNotificationRequest(identifier: "total", content: totalContent, trigger: totalTrigger)
         
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        UNUserNotificationCenter.current().add(totalRequest)
+        notificationCenter.add(totalRequest)
     }
     
     func setTasksNotification() {
         let fiveMinsTimeIntervals = getFiveMinsNotificationTimeIntervals()
         
-        for timeInterval in fiveMinsTimeIntervals {
+        for timeInterval in fiveMinsTimeIntervals {)
             let fiveMinsContent = UNMutableNotificationContent()
             let fiveMinsTrigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(timeInterval), repeats: false)
             
@@ -111,7 +113,7 @@ final class TimerViewModel: ObservableObject {
             
             let fiveMinsRequest = UNNotificationRequest(identifier: "task\(timeInterval)", content: fiveMinsContent, trigger: fiveMinsTrigger)
             
-            UNUserNotificationCenter.current().add(fiveMinsRequest)
+            notificationCenter.add(fiveMinsRequest)
         }
         
         var count = 1
@@ -127,7 +129,7 @@ final class TimerViewModel: ObservableObject {
             
             let fiveMinsRequest = UNNotificationRequest(identifier: "fiveMins\(timeInterval)", content: fiveMinsContent, trigger: fiveMinsTrigger)
             
-            UNUserNotificationCenter.current().add(fiveMinsRequest)
+            notificationCenter.add(fiveMinsRequest)
             count += 1
         }
     }
@@ -149,4 +151,8 @@ final class TimerViewModel: ObservableObject {
         return result
     }
     
+    func tapStopButton() {
+        self.isActive = false
+        notificationCenter.removeAllPendingNotificationRequests()
+    }
 }
