@@ -16,8 +16,10 @@ final class RoutineCardViewModel: ObservableObject {
     }
     @Published var intervals: [String] = [] {
         didSet {
-            self.time = intervals.map { Int(String($0)) ?? 0 }.reduce(0) { $0 + $1 }
-            self.taskTime = intervals.map { (Int($0) ?? 0) * 60 }
+            if time == 0 && taskTime.isEmpty {
+                self.time = intervals.map { Int(String($0)) ?? 0 }.reduce(0) { $0 + $1 }
+                self.taskTime = intervals.map { (Int($0) ?? 0) * 60 }
+            }
         }
     }
     @Published var time: Int = 0
