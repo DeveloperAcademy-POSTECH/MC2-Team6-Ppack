@@ -75,7 +75,7 @@ struct DetailView: View {
                 
                 VStack(spacing:5){
  
-                        TimeView
+                       
                     
                     if tmpList.isEmpty {
                         Spacer()
@@ -94,6 +94,7 @@ struct DetailView: View {
                 }
                 .padding(.top,25)
                 
+                TimeView
                 
                 Button {
                     var finalRoutine = RoutineModel(id: routine.id, task: tmpList, title: title)
