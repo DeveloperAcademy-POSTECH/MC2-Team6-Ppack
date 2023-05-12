@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct TimerView: View {
-    @StateObject var viewModel = TimerViewModel()
+    @ObservedObject var viewModel = TimerViewModel()
     @Environment(\.dismiss) var dismiss
     @Binding var routine: RoutineModel
     @Binding var time: Int
     @Binding var tasks: [Int]
-    @State var width: CGFloat = 0
+    @State var width: CGFloat =  0
+    var totalWidth:CGFloat = UIScreen.width
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+
     
     var body: some View {
         
         GeometryReader{ geometry in
+            
             
             ZStack{
                 topArea
@@ -109,11 +113,12 @@ struct TimerView: View {
             viewModel.start()
             viewModel.setTasksNotification()
             viewModel.registerNotification()
+            
         }
         
-        .onReceive(timer) { _ in
+        .onReceive(timer) {  _ in
             withAnimation(.easeInOut){
-                width += 1
+                width += (CGFloat(totalWidth - 40) / (Double(self.time) * 60))
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
