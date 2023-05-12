@@ -103,7 +103,7 @@ final class TimerViewModel: ObservableObject {
     func setTasksNotification() {
         let fiveMinsTimeIntervals = getFiveMinsNotificationTimeIntervals()
         
-        for timeInterval in fiveMinsTimeIntervals {)
+        for timeInterval in fiveMinsTimeIntervals {
             let fiveMinsContent = UNMutableNotificationContent()
             let fiveMinsTrigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(timeInterval), repeats: false)
             
