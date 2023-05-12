@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct TimerView: View {
-    
+    @StateObject var viewModel = TimerViewModel()
     @Environment(\.dismiss) var dismiss
-    @Binding var routine:RoutineModel
-    @State var time:String = ""
-    @State var width:CGFloat = 0
+    @Binding var routine: RoutineModel
+    @Binding var time: Int
+    @Binding var tasks: [Int]
+    @State var width: CGFloat = 0
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -100,7 +102,11 @@ struct TimerView: View {
             
         }
         .onAppear{
-            time = String(routine.task.map{Int($0.interval) ?? 0}.reduce(0, {$0 + $1}))
+            viewModel.minutes = Double(self.time) * 60
+            viewModel.tasks = self.tasks
+            viewModel.countdownArrayElements()
+            viewModel.start()
+            viewModel.registerNotification()
         }
         
         .onReceive(timer) { _ in
@@ -117,7 +123,7 @@ struct TimerView: View {
         ZStack{
             Color.black.ignoresSafeArea()
             
-            Text("\(time):00")
+            Text(viewModel.getTimeString(time: Double(self.time * 60)))
                 .font(.j500B(90))
                 .foregroundColor(.white)
                 
@@ -150,12 +156,5 @@ struct TimerView: View {
 
             
         }
-    }
-}
-
-struct TimerView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimerView(routine: .constant(RoutineModel(task: [TaskModel(emoji: "✅", interval: "5"),TaskModel(emoji: "✅", interval: "10"),TaskModel(emoji: "✅", interval: "5")], title: "Hello")))
-            .previewLayout(.sizeThatFits)
     }
 }

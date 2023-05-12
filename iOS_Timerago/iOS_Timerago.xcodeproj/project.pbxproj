@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC06AAC02A0C8EAF0000C8C3 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06AABF2A0C8EAF0000C8C3 /* TimerViewModel.swift */; };
+		AC06AAC22A0C8FFD0000C8C3 /* MusicPlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06AAC12A0C8FFD0000C8C3 /* MusicPlayManager.swift */; };
+		AC06AAC62A0C902D0000C8C3 /* 타임오버.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC06AAC32A0C902D0000C8C3 /* 타임오버.mp3 */; };
+		AC06AAC72A0C902D0000C8C3 /* 5분알림.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC06AAC42A0C902D0000C8C3 /* 5분알림.mp3 */; };
+		AC06AAC82A0C902D0000C8C3 /* 다음알림.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC06AAC52A0C902D0000C8C3 /* 다음알림.mp3 */; };
+		AC06AACA2A0C91800000C8C3 /* RoutineCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06AAC92A0C91800000C8C3 /* RoutineCardViewModel.swift */; };
 		AC6134662A0B47EC00F9B223 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AC6134652A0B47EC00F9B223 /* SDWebImageSwiftUI */; };
 		AC61346B2A0B489000F9B223 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61346A2A0B489000F9B223 /* LaunchView.swift */; };
 		B00B5DB22A01DCD900ABA945 /* RoutineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DB12A01DCD900ABA945 /* RoutineModel.swift */; };
@@ -39,6 +45,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC06AABF2A0C8EAF0000C8C3 /* TimerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		AC06AAC12A0C8FFD0000C8C3 /* MusicPlayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayManager.swift; sourceTree = "<group>"; };
+		AC06AAC32A0C902D0000C8C3 /* 타임오버.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "타임오버.mp3"; sourceTree = "<group>"; };
+		AC06AAC42A0C902D0000C8C3 /* 5분알림.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "5분알림.mp3"; sourceTree = "<group>"; };
+		AC06AAC52A0C902D0000C8C3 /* 다음알림.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "다음알림.mp3"; sourceTree = "<group>"; };
+		AC06AAC92A0C91800000C8C3 /* RoutineCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCardViewModel.swift; sourceTree = "<group>"; };
 		AC61346A2A0B489000F9B223 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		B00B5DB12A01DCD900ABA945 /* RoutineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineModel.swift; sourceTree = "<group>"; };
 		B00B5DB32A01DE8E00ABA945 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
@@ -130,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				B037B96F2A0C788600F939FF /* TimerView.swift */,
+				AC06AABF2A0C8EAF0000C8C3 /* TimerViewModel.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -192,6 +205,9 @@
 		B0B4BE1629FFC71D000E6593 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AC06AAC42A0C902D0000C8C3 /* 5분알림.mp3 */,
+				AC06AAC52A0C902D0000C8C3 /* 다음알림.mp3 */,
+				AC06AAC32A0C902D0000C8C3 /* 타임오버.mp3 */,
 				B037B96C2A0C700100F939FF /* logo.gif */,
 				B0B4BE2129FFCB3B000E6593 /* Fonts */,
 				B0B4BDC529FB73C7000E6593 /* Assets.xcassets */,
@@ -202,6 +218,7 @@
 		B0B4BE1729FFC72F000E6593 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				AC06AAC12A0C8FFD0000C8C3 /* MusicPlayManager.swift */,
 				B037B96E2A0C787B00F939FF /* Timer */,
 				AC6134692A0B488300F9B223 /* Launch */,
 				B00B5DBC2A01EE1A00ABA945 /* Detail */,
@@ -267,6 +284,7 @@
 			children = (
 				B0B4BE3429FFD14D000E6593 /* PlayButton.swift */,
 				B0B4BE3629FFD67A000E6593 /* RoutineCardView.swift */,
+				AC06AAC92A0C91800000C8C3 /* RoutineCardViewModel.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -335,12 +353,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC06AAC72A0C902D0000C8C3 /* 5분알림.mp3 in Resources */,
 				B0B4BDC929FB73C7000E6593 /* Preview Assets.xcassets in Resources */,
 				B0B4BE2829FFCB59000E6593 /* Jost-700-Bold.otf in Resources */,
 				B037B96D2A0C700100F939FF /* logo.gif in Resources */,
+				AC06AAC62A0C902D0000C8C3 /* 타임오버.mp3 in Resources */,
 				B0B4BE2729FFCB59000E6593 /* Pretendard-Bold.otf in Resources */,
 				B0B4BE2629FFCB59000E6593 /* Jost-500-Medium.otf in Resources */,
 				B0B4BDC629FB73C7000E6593 /* Assets.xcassets in Resources */,
+				AC06AAC82A0C902D0000C8C3 /* 다음알림.mp3 in Resources */,
 				B0B4BE2929FFCB59000E6593 /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +381,7 @@
 				B00B5DB62A01E0A700ABA945 /* TimeInterval+Extension.swift in Sources */,
 				B00B5DBB2A01E1CC00ABA945 /* HomeViewModel.swift in Sources */,
 				B051488B2A09C2FD009998E8 /* TransitionView.swift in Sources */,
+				AC06AACA2A0C91800000C8C3 /* RoutineCardViewModel.swift in Sources */,
 				B0B4BE2029FFCA6E000E6593 /* Color+Extension.swift in Sources */,
 				B063EDED2A0657EC001613C9 /* DataService.swift in Sources */,
 				B0B4BE3229FFCE46000E6593 /* UIApplication+Extension.swift in Sources */,
@@ -370,9 +392,11 @@
 				B0B4BE1D29FFC7AC000E6593 /* HomeView.swift in Sources */,
 				B0B4BE3729FFD67A000E6593 /* RoutineCardView.swift in Sources */,
 				B00B5DB22A01DCD900ABA945 /* RoutineModel.swift in Sources */,
+				AC06AAC22A0C8FFD0000C8C3 /* MusicPlayManager.swift in Sources */,
 				B0B4BE2C29FFCC6F000E6593 /* Font+Extension.swift in Sources */,
 				B0B4BE3029FFCE0F000E6593 /* View+Extension.swift in Sources */,
 				B00B5DB42A01DE8E00ABA945 /* TaskModel.swift in Sources */,
+				AC06AAC02A0C8EAF0000C8C3 /* TimerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,7 +525,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iOS_Timerago/Preview Content\"";
-				DEVELOPMENT_TEAM = 28NL63HBTJ;
+				DEVELOPMENT_TEAM = 9437CXKXFS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS-Timerago-Info.plist";
@@ -531,7 +555,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iOS_Timerago/Preview Content\"";
-				DEVELOPMENT_TEAM = 28NL63HBTJ;
+				DEVELOPMENT_TEAM = 9437CXKXFS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS-Timerago-Info.plist";
