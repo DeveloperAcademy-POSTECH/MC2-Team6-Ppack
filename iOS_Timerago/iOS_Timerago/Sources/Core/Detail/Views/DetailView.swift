@@ -65,7 +65,7 @@ struct DetailView: View {
                     .padding(.top,10)
                     
                 
-                TextField("Name", text: $title)
+                TextField("타이머 이름", text: $title)
                     .frame(maxWidth: .infinity,alignment: .leading)
                     .font(.largeTitle)
                     .bold()
@@ -79,7 +79,7 @@ struct DetailView: View {
                     
                     if tmpList.isEmpty {
                         Spacer()
-                        Text("작업을 추가해주세요.")
+                        Text("시간을 입력하세요")
                             .font(.preM(18))
                             .foregroundColor(.black.opacity(0.5))
                         Spacer()
@@ -102,7 +102,7 @@ struct DetailView: View {
                     routine = finalRoutine
                     
                 } label: {
-                    Text("Complete")
+                    Text("타이머 추가하기")
                         .font(.preB(16))
                         .foregroundColor(.white)
                         .frame(height: 55)
@@ -146,7 +146,13 @@ struct DetailView: View {
         
             tmpList = routine.task
             title = routine.title
-            totalTime = tmpList.map{Int($0.interval)!}.reduce(0, {$0 + $1})
+            
+            
+            if tmpList.filter({$0.interval == ""}).count == 0 {
+                totalTime = tmpList.map{Int($0.interval)!}.reduce(0, {$0 + $1})
+            }
+            
+            
             UIApplication.shared.hideKeyboard()
         }
 
@@ -287,6 +293,7 @@ extension DetailView{
 
     
 }
+
 
 
 

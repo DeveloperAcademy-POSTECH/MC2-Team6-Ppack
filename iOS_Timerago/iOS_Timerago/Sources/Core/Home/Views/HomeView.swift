@@ -12,7 +12,7 @@ struct HomeView: View {
 @ObservedObject private var vm:HomeViewModel = HomeViewModel()
 @State var isPresented:Bool = false
 
-@State private var selectedRoutine:RoutineModel = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "0")], title: "")
+@State private var selectedRoutine:RoutineModel = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "")], title: "")
 
 @State private var showIntro:Bool = true
 
@@ -44,7 +44,7 @@ var body: some View {
                 if $vm.routines.isEmpty {
                     
 
-                    Text("등록된 타이머가 없습니다.")
+                    Text("타이머를 추가해주세요")
                         .font(.preB(18))
                         .foregroundColor(.init(hex: 0x545454,alpha: 0.5))
                         .padding(.bottom,UIScreen.height/6)
@@ -89,7 +89,7 @@ var body: some View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        selectedRoutine = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "0")], title: "")
+                        selectedRoutine = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "")], title: "")
                         
                         isPresented.toggle()
                         
@@ -107,7 +107,7 @@ var body: some View {
                    
             })
             .onAppear{
-                selectedRoutine = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "0")], title: "")
+                selectedRoutine = RoutineModel(task: [TaskModel(emoji: .defaultEmoji, interval: "")], title: "")
             }
         }
     }
@@ -118,13 +118,13 @@ var body: some View {
 }
 
 struct HomeView_Previews: PreviewProvider {
-static var previews: some View {
-    NavigationStack{
-        HomeView()
-            .environmentObject(HomeViewModel())
+    static var previews: some View {
+        NavigationStack{
+            HomeView()
+                .environmentObject(HomeViewModel())
+        }
+        
     }
-    
-}
 }
 
 
