@@ -42,7 +42,7 @@ struct DetailView: View {
     @State var totalTime:Int = 0
     @State var tmpList:[TaskModel] = [] {
         didSet {
-            pass = !(checkBlank() || checkOverInput() || checkWrongInput() || checkIsSingleEmoji() || tmpList.isEmpty)
+            pass = isPassAllRequire()
             
             totalTime = tmpList.map{Int($0.interval) ?? 0}.reduce(0, {$0 + $1})
             
@@ -155,6 +155,9 @@ struct DetailView: View {
             
             UIApplication.shared.hideKeyboard()
         }
+        .onChange(of: title) { newValue in
+            pass = isPassAllRequire()
+        }
 
         
         
@@ -233,7 +236,8 @@ extension DetailView{
                     .onChange(of: task) { newValue in
                             totalTime = tmpList.map{Int($0.interval) ?? 0}.reduce(0, {$0 + $1})
                         
-                        pass = !(checkBlank() || checkOverInput() || checkWrongInput() || checkIsSingleEmoji())
+                        pass = isPassAllRequire()
+
                         
                         if newValue.emoji.count == 0  {
                             error = .blank
@@ -290,6 +294,9 @@ extension DetailView{
         return tmpList.filter{Int($0.interval) ?? -1 <= 0 || String($0.interval.prefix(1)) == "0"}.count > 0
     }
 
+    private func isPassAllRequire() -> Bool {
+        return !(checkBlank() || checkOverInput() || checkWrongInput() || checkIsSingleEmoji() || tmpList.isEmpty || title.isEmpty)
+    }
 
     
 }
