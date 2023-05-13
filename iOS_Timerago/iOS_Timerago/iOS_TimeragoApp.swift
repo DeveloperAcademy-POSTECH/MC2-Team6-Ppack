@@ -12,15 +12,14 @@ struct iOS_TimeragoApp: App {
     
     
     
-
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack{
                 
             
                 HomeView()
-   
-            }  
+            }
         }
     }
 }
