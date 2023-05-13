@@ -27,6 +27,7 @@ final class TimerViewModel: ObservableObject {
             } else {
                 self.taskTime = self.getTaskTime(timeInterval: timeInterval)
             }
+            print(timeInterval)
         }
     }
     private let notificationCenter = UNUserNotificationCenter.current()
