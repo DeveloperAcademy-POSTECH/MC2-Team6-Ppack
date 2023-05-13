@@ -19,15 +19,8 @@ final class TimerViewModel: ObservableObject {
                 self.minutes -= Double(self.timeInterval)
             } else {
                 isActive = false
-                self.minutes = 0.1
+                self.minutes = 0
             }
-            
-            if self.taskTime > self.timeInterval {
-                self.taskTime -= self.timeInterval
-            } else {
-                self.taskTime = self.getTaskTime(timeInterval: timeInterval)
-            }
-            print(timeInterval)
         }
     }
     private let notificationCenter = UNUserNotificationCenter.current()
@@ -41,7 +34,6 @@ final class TimerViewModel: ObservableObject {
             if self.minutes > 0 {
                 self.minutes -= 1
             } else if self.minutes == 0 {
-                MusicPlayManager.shared.playSound(name: "타임오버")
                 Timer.invalidate()
             }
         })
@@ -53,46 +45,6 @@ final class TimerViewModel: ObservableObject {
         let seconds = Int(self.minutes) % 60
         
         return String(format: "%02i:%02i", minutes, seconds)
-    }
-    
-    private func countdown(completion: @escaping () -> Void) {
-        if currentIndex == self.tasks.count {
-            self.isActive = false
-        }
-        
-        guard self.taskTime > 0 else {
-            completion()
-            return
-        }
-        
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] Timer in
-            guard let self = self else { return }
-            guard self.isActive != false else { return }
-            
-            self.taskTime -= 1
-           
-            if self.taskTime == 40 {
-                MusicPlayManager.shared.playSound(name: "5분알림")
-            } else if self.taskTime == 0 {
-                self.countdown(completion: completion)
-                Timer.invalidate()
-            }
-            if self.minutes == 0.1 {
-                Timer.invalidate()
-            }
-        })
-    }
-    
-    func countdownArrayElements() {
-        self.taskTime = self.tasks[currentIndex]
-        countdown() {
-            self.currentIndex += 1
-            
-            if self.currentIndex < self.tasks.count {
-                self.countdownArrayElements()
-                MusicPlayManager.shared.playSound(name: "다음알림")
-            }
-        }
     }
     
     func registerNotification() {
@@ -165,22 +117,6 @@ final class TimerViewModel: ObservableObject {
                 result.append(sum)
             }
         }
-        
-        return result
-    }
-    
-    private func getTaskTime(timeInterval: Int) -> Int {
-        guard currentIndex < self.tasks.count - 1 else { return 0 }
-        
-        var time = timeInterval
-        self.currentIndex += 1
-        time -= self.taskTime
-        
-        while self.tasks[self.currentIndex] < time {
-            time = time - self.tasks[currentIndex]
-            currentIndex += 1
-        }
-        let result = self.tasks[currentIndex] - time
         
         return result
     }
