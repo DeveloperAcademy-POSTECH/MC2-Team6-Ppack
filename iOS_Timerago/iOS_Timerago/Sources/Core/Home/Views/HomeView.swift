@@ -77,6 +77,13 @@ var body: some View {
                     
                 }
             }
+            .onAppear{
+                let authOptions: UNAuthorizationOptions = [.alert, .sound]
+                
+                UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { success, error in
+                    
+                }
+            }
             .navigationTitle("Timers")
             .toolbar{
                 if !vm.routines.isEmpty {

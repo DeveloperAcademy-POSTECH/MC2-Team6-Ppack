@@ -113,7 +113,6 @@ struct TimerView: View {
             viewModel.start()
             viewModel.setTasksNotification()
             viewModel.registerNotification()
-            
         }
         
         .onReceive(timer) {  _ in
@@ -122,16 +121,20 @@ struct TimerView: View {
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+            viewModel.isActive = false
             viewModel.backgroundTime = Date()
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             if let backgroundTime = viewModel.backgroundTime {
                 let timeInterval = Date().timeIntervalSince(backgroundTime)
-                viewModel.timeInterval += Int(timeInterval)
+                viewModel.timeInterval = Int(timeInterval)
+                
             }
+            viewModel.isActive = true
         }
-        
-        
+        .onReceive(NotificationCenter.default.publisher(for: UIScene.didDisconnectNotification)) { _ in
+            viewModel.tapStopButton()
+        }
     }
     
     private var topArea: some View {
