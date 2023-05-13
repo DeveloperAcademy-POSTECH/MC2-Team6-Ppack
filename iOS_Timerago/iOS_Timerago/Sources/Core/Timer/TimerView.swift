@@ -132,14 +132,6 @@ struct TimerView: View {
             }
             viewModel.isActive = true
         }
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-            if let backgroundTime = viewModel.backgroundTime {
-                let timeInterval = Date().timeIntervalSince(backgroundTime)
-                viewModel.timeInterval = Int(timeInterval)
-                
-            }
-            viewModel.isActive = true
-        }
         .onReceive(NotificationCenter.default.publisher(for: UIScene.didDisconnectNotification)) { _ in
             viewModel.tapStopButton()
         }
