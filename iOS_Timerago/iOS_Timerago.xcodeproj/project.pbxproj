@@ -15,6 +15,7 @@
 		AC06AACA2A0C91800000C8C3 /* RoutineCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06AAC92A0C91800000C8C3 /* RoutineCardViewModel.swift */; };
 		AC6134662A0B47EC00F9B223 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AC6134652A0B47EC00F9B223 /* SDWebImageSwiftUI */; };
 		AC61346B2A0B489000F9B223 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61346A2A0B489000F9B223 /* LaunchView.swift */; };
+		ACD7795F2A0FDA5C00B86EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD7795E2A0FDA5C00B86EB0 /* AppDelegate.swift */; };
 		B00B5DB22A01DCD900ABA945 /* RoutineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DB12A01DCD900ABA945 /* RoutineModel.swift */; };
 		B00B5DB42A01DE8E00ABA945 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DB32A01DE8E00ABA945 /* TaskModel.swift */; };
 		B00B5DB62A01E0A700ABA945 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DB52A01E0A700ABA945 /* TimeInterval+Extension.swift */; };
@@ -52,6 +53,7 @@
 		AC06AAC52A0C902D0000C8C3 /* 다음알림.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "다음알림.mp3"; sourceTree = "<group>"; };
 		AC06AAC92A0C91800000C8C3 /* RoutineCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCardViewModel.swift; sourceTree = "<group>"; };
 		AC61346A2A0B489000F9B223 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		ACD7795E2A0FDA5C00B86EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B00B5DB12A01DCD900ABA945 /* RoutineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineModel.swift; sourceTree = "<group>"; };
 		B00B5DB32A01DE8E00ABA945 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		B00B5DB52A01E0A700ABA945 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				B0B4BE1629FFC71D000E6593 /* Resources */,
 				B0B4BE1529FFC708000E6593 /* Sources */,
 				B0B4BDC129FB73C6000E6593 /* iOS_TimeragoApp.swift */,
+				ACD7795E2A0FDA5C00B86EB0 /* AppDelegate.swift */,
 				B0B4BDC729FB73C7000E6593 /* Preview Content */,
 			);
 			path = iOS_Timerago;
@@ -386,6 +389,7 @@
 				B063EDED2A0657EC001613C9 /* DataService.swift in Sources */,
 				B0B4BE3229FFCE46000E6593 /* UIApplication+Extension.swift in Sources */,
 				B063EDE12A020704001613C9 /* EmojiView.swift in Sources */,
+				ACD7795F2A0FDA5C00B86EB0 /* AppDelegate.swift in Sources */,
 				B0B4BE3529FFD14D000E6593 /* PlayButton.swift in Sources */,
 				B063EDE82A035421001613C9 /* TaskRowView.swift in Sources */,
 				B0B4BDC229FB73C6000E6593 /* iOS_TimeragoApp.swift in Sources */,

@@ -109,7 +109,6 @@ struct TimerView: View {
             viewModel.minutes = Double(self.time) * 60
             viewModel.tasks = self.tasks
             viewModel.isActive.toggle()
-            viewModel.countdownArrayElements()
             viewModel.start()
             viewModel.setTasksNotification()
             viewModel.registerNotification()
@@ -128,7 +127,6 @@ struct TimerView: View {
             if let backgroundTime = viewModel.backgroundTime {
                 let timeInterval = Date().timeIntervalSince(backgroundTime)
                 viewModel.timeInterval = Int(timeInterval)
-                
             }
             viewModel.isActive = true
         }
