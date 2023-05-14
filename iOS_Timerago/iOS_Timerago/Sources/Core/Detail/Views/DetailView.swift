@@ -237,7 +237,7 @@ extension DetailView{
                         .foregroundColor(.blue)
                         //.bold()
                     
-                    Text("Timers")
+                    Text("타이머")
                         .font(.preM(17))
                         .foregroundColor(.blue)
                 }
@@ -272,15 +272,35 @@ extension DetailView{
     
     
     private var TimeView: some View {
-        Text("\(String(totalTime).count > 1 ? String(totalTime) : "0\(totalTime)"  ):00")
-            .font(.j500B(40))
-            .padding(.vertical,25)
-            .frame(maxWidth: .infinity)
-            .padding(.horizontal,10)
-            .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(.white)
-            )
+        
+        HStack{
+        
+            Text("총합계")
+                .font(.preB(12))
+                .padding(.vertical,8)
+                .padding(.horizontal,17)
+                .foregroundColor(Color(hex: 0x6F6F6F))
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color(hex: 0x818181,alpha: 0.15))
+                )
+            
+            Spacer()
+        
+            Text("\(String(totalTime))분")
+                .font(.j500B(40))
+        }
+        .padding(.vertical,25)
+        .padding(.horizontal,30)
+        .frame(maxWidth: .infinity)
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(.white)
+        )
+        
+        
+            
+            
     }
     
     private var TaskListView: some View {
