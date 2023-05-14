@@ -105,6 +105,7 @@ struct TimerView: View {
             
             
         }
+        .preferredColorScheme(.dark)
         .onAppear{
             viewModel.minutes = Double(self.time) * 60
             viewModel.tasks = self.tasks
