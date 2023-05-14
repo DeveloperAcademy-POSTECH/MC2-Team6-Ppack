@@ -44,7 +44,7 @@ var body: some View {
                 if $vm.routines.isEmpty {
                     
 
-                    Text("타이머를 추가해주세요")
+                    Text("앗! 타이머가 아직 없어요🥲")
                         .font(.preB(18))
                         .foregroundColor(.init(hex: 0x545454,alpha: 0.5))
                         .padding(.bottom,UIScreen.height/6)
@@ -77,7 +77,7 @@ var body: some View {
                     
                 }
             }
-            .navigationTitle("Timers")
+            .navigationTitle("타이머")
             .toolbar{
                 if !vm.routines.isEmpty {
                     ToolbarItem(placement:.navigationBarLeading) {
