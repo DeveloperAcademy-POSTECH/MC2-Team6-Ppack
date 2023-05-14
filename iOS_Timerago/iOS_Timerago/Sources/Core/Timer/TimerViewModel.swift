@@ -17,12 +17,18 @@ final class TimerViewModel: ObservableObject {
         didSet {
             if self.minutes > Double(self.timeInterval) {
                 self.minutes -= Double(self.timeInterval)
+                self.width += CGFloat((((self.totalWidth - 40) / self.minutes) * Double(Int(self.timeInterval))))
             } else {
                 isActive = false
                 self.minutes = 0
             }
+            
+            
+            self.width += CGFloat((((self.totalWidth - 40) / self.minutes) * Double(self.timeInterval)))
         }
     }
+    @Published var width: CGFloat = 0
+    @Published var totalWidth: CGFloat = 0
     private let notificationCenter = UNUserNotificationCenter.current()
     private var taskTime = 0
     private var currentIndex = 0
@@ -86,7 +92,6 @@ final class TimerViewModel: ObservableObject {
             finishContent.sound = UNNotificationSound(named: UNNotificationSoundName("다음알림.mp3"))
             
             let finishRequest = UNNotificationRequest(identifier: "fiveMins\(timeInterval)", content: finishContent, trigger: finishTrigger)
-            print(finishRequest)
             notificationCenter.add(finishRequest)
         }
     }
