@@ -10,20 +10,19 @@ import SwiftUI
 @main
 struct iOS_TimeragoApp: App {
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     
-
     var body: some Scene {
         WindowGroup {
             NavigationStack{
                 
             
                 HomeView()
-   
-            }  
+                }
+            }
         }
     }
-}
 
 //                        .onAppear{
 //                            for family in UIFont.familyNames {

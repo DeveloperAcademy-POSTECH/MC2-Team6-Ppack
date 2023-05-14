@@ -77,7 +77,14 @@ var body: some View {
                     
                 }
             }
-            .navigationTitle("타이머")
+            .onAppear{
+                let authOptions: UNAuthorizationOptions = [.alert, .sound]
+                
+                UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { success, error in
+                    
+                }
+            }
+           .navigationTitle("타이머")
             .toolbar{
                 if !vm.routines.isEmpty {
                     ToolbarItem(placement:.navigationBarLeading) {

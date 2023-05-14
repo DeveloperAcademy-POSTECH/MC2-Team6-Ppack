@@ -47,7 +47,10 @@ struct RoutineCardView: View {
             PlayButton()
                 .frame(maxWidth: .infinity,alignment: .trailing).padding()
                 .onTapGesture {
+                    var intervals: [String] = []
                     viewModel.tasks = self.routine.task
+                    self.routine.task.forEach { intervals.append( $0.interval ) }
+                    viewModel.intervals = intervals
                     viewModel.showingSheet.toggle()
                 
                 }
