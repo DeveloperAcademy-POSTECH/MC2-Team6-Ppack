@@ -112,18 +112,17 @@ struct DetailView: View {
                     header
                         .padding(.top,10)
                     
-                    VStack(spacing:0){
+                    VStack(spacing:20){
                         TextField("타이머 이름", text: $title)
                             .frame(maxWidth: .infinity,alignment: .leading)
                             .font(.largeTitle)
                             .bold()
                             .autocorrectionDisabled()
-                            
                         
-                        
+                    
                         VStack(spacing:5){
          
-                               
+                            TimeView
                             
                             if tmpList.isEmpty {
                                 Spacer()
@@ -144,7 +143,7 @@ struct DetailView: View {
                     
                     
                     
-                    TimeView
+                    
                     
                     Button {
                         var finalRoutine = RoutineModel(id: routine.id, task: tmpList, title: title)
