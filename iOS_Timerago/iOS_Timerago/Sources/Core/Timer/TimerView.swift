@@ -13,12 +13,7 @@ struct TimerView: View {
     @Binding var routine: RoutineModel
     @Binding var time: Int
     @Binding var tasks: [Int]
-    @State var width: CGFloat =  0
-    var totalWidth:CGFloat = UIScreen.width
-    
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
-
+    @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         
@@ -61,14 +56,14 @@ struct TimerView: View {
                                     .frame(maxWidth: .infinity)
                                 Spacer()
                             }
-                                
                             
-                                
+                            
+                            
                             
                         }
                     }
                     .frame(width:geometry.size.width,height:30)
-                   
+                    
                     
                     RoundedRectangle(cornerRadius:12)
                         .fill(Color.white)
@@ -76,10 +71,10 @@ struct TimerView: View {
                         .overlay(alignment:.leading){
                             RoundedRectangle(cornerRadius:12)
                                 .fill(Color.accent)
-                                .frame(width:width)
+                                .frame(width:viewModel.width)
                         }
                         .shadow(color: .black.opacity(0.12), radius: 5, x: 0, y: 3)
-
+                    
                     
                     
                     
@@ -91,7 +86,7 @@ struct TimerView: View {
                 
                 .zIndex(2.0)
                 
-
+                
                 bottomArea
                     .frame(height:geometry.size.height/2)
                     .position(x: geometry.size.width / 2,y:geometry.size.height / 4 + geometry.size.height / 2 )
@@ -106,6 +101,7 @@ struct TimerView: View {
             
         }
         .onAppear{
+            viewModel.totalWidth = UIScreen.width
             viewModel.minutes = Double(self.time) * 60
             viewModel.tasks = self.tasks
             viewModel.isActive.toggle()
@@ -114,24 +110,37 @@ struct TimerView: View {
             viewModel.registerNotification()
         }
         
-        .onReceive(timer) {  _ in
-            withAnimation(.easeInOut){
-                width += (CGFloat(totalWidth - 40) / (Double(self.time) * 60))
-            }
-        }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
             viewModel.isActive = false
             viewModel.backgroundTime = Date()
+            self.timer.upstream.connect().cancel()
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
             if let backgroundTime = viewModel.backgroundTime {
                 let timeInterval = Date().timeIntervalSince(backgroundTime)
                 viewModel.timeInterval = Int(timeInterval)
+                
+                if viewModel.minutes < timeInterval {
+                    viewModel.width = UIScreen.width - 40
+                }
             }
+            self.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
             viewModel.isActive = true
+            
         }
         .onReceive(NotificationCenter.default.publisher(for: UIScene.didDisconnectNotification)) { _ in
             viewModel.tapStopButton()
+        }
+        .onReceive(timer) { Timer in
+            withAnimation(.easeInOut){
+                viewModel.width += (CGFloat(viewModel.totalWidth - 40) / (Double(self.time) * 60))
+                
+                if viewModel.width + (CGFloat(viewModel.totalWidth - 40) / (Double(self.time) * 60)) > viewModel.totalWidth - 40 {
+                    viewModel.width = UIScreen.width - 40
+                    self.timer.upstream.connect().cancel()
+                }
+            }
+         
         }
     }
     
@@ -142,7 +151,7 @@ struct TimerView: View {
             Text(viewModel.getTimeString(time: Double(self.time * 60)))
                 .font(.j500B(90))
                 .foregroundColor(.white)
-                
+            
             
             
         }
@@ -162,15 +171,15 @@ struct TimerView: View {
                     .foregroundColor(.accent)
                     .padding(30)
                     .background(
-                    Circle()
-                        .fill(Color.white)
-                        .shadow(color:.black.opacity(0.1),radius: 5,x: 0,y: 4)
+                        Circle()
+                            .fill(Color.white)
+                            .shadow(color:.black.opacity(0.1),radius: 5,x: 0,y: 4)
                         
-                          
+                        
                     )
-                    
+                
             }.padding(.bottom,UIScreen.height/6)
-
+            
             
         }
     }
