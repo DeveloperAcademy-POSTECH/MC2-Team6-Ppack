@@ -113,7 +113,7 @@ struct DetailView: View {
                         .padding(.top,10)
                     
                     VStack(spacing:20){
-                        TextField("타이머 이름", text: $title)
+                        TextField("이름을 지어주세요", text: $title)
                             .frame(maxWidth: .infinity,alignment: .leading)
                             .font(.largeTitle)
                             .bold()
@@ -126,7 +126,7 @@ struct DetailView: View {
                             
                             if tmpList.isEmpty {
                                 Spacer()
-                                Text("시간을 입력하세요")
+                                Text("태스크를 추가해주세요")
                                     .font(.preM(18))
                                     .foregroundColor(.black.opacity(0.5))
                                 Spacer()
