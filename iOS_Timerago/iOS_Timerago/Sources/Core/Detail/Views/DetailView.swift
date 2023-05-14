@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MaterialShowcase
 
 enum EmojiError {
     case notEmoji
@@ -32,6 +33,48 @@ enum EmojiError {
     
 }
 
+enum ShowCaseStep {
+    case addButton
+    case title
+    case list
+    case totalTime
+    
+    
+    
+    
+    var headerText:String {
+        switch self {
+
+        case .addButton:
+            return "추가 버튼"
+        case .title:
+            return "타이머 제목"
+        case .list:
+            return "할 일 목록"
+        case .totalTime:
+            return "총 시간"
+        }
+    }
+    
+    var description:String {
+        switch self {
+
+        case .addButton:
+            return "클릭하여 할 일을 추가해주세요."
+        case .title:
+            return "타이머 제목을 설정해주세요."
+        case .list:
+            return "할 일에 해당하는 이모티콘과 분을 입력해주세요.\n스와이프를 통한 삭제와 롱탭을 통한 순서변경이 가능합니다."
+        case .totalTime:
+            return "타이머의 총 시간이 표시됩니다."
+        }
+    }
+    
+
+    
+    
+}
+
 
 struct DetailView: View {
 
@@ -51,115 +94,126 @@ struct DetailView: View {
     @State var error:EmojiError = .noError
     @State var pass:Bool = false
     @State var showAlert:Bool = false
-    
+    @State private var rectAddButton = CGRect()
+    @State private var rectTitle = CGRect()
+    @State private var rectTaskList = CGRect()
+    @State private var rectTotalTime = CGRect()
+    @State private var showCaseStep:ShowCaseStep = .addButton
     
     var body: some View {
-        ZStack(alignment: .bottom){
-            Color.background.ignoresSafeArea()
-            
-            
-            
-            VStack(spacing: 20){
+        GeometryReader { proxy in
+            ZStack(alignment: .bottom){
+                Color.background.ignoresSafeArea()
                 
-                header
-                    .padding(.top,10)
+                
+                
+                VStack(spacing: 20){
                     
-                
-                TextField("타이머 이름", text: $title)
-                    .frame(maxWidth: .infinity,alignment: .leading)
-                    .font(.largeTitle)
-                    .bold()
-                    .autocorrectionDisabled()
+                    header
+                        .padding(.top,10)
                     
-                
-                
-                VStack(spacing:5){
- 
-                       
-                    
-                    if tmpList.isEmpty {
-                        Spacer()
-                        Text("시간을 입력하세요")
-                            .font(.preM(18))
-                            .foregroundColor(.black.opacity(0.5))
-                        Spacer()
-                    }
-                    else {
-                        TaskListView
-                    }
+                    VStack(spacing:0){
+                        TextField("타이머 이름", text: $title)
+                            .frame(maxWidth: .infinity,alignment: .leading)
+                            .font(.largeTitle)
+                            .bold()
+                            .autocorrectionDisabled()
+                            
                         
-        
-                    
-                    
-                }
-                .padding(.top,25)
-                
-                TimeView
-                
-                Button {
-                    var finalRoutine = RoutineModel(id: routine.id, task: tmpList, title: title)
-                    vm.addOrUpdate(routine: finalRoutine)
-                    dismiss()
-                    routine = finalRoutine
-                    
-                } label: {
-                    Text("타이머 추가하기")
-                        .font(.preB(16))
-                        .foregroundColor(.white)
-                        .frame(height: 55)
-                        .frame(maxWidth: .infinity)
-//                        .padding(.horizontal,UIScreen.width / 2 - 70)
-//                        .padding(.vertical,18)
-                        .background{
-                            if pass {
-                                LinearGradient(colors: [.gradient1,.accent], startPoint: .leading, endPoint: .trailing)
-                                    
+                        
+                        VStack(spacing:5){
+         
+                               
+                            
+                            if tmpList.isEmpty {
+                                Spacer()
+                                Text("시간을 입력하세요")
+                                    .font(.preM(18))
+                                    .foregroundColor(.black.opacity(0.5))
+                                Spacer()
                             }
                             else {
-                                Color(hex: 0xCACACA)
+                                TaskListView
+                                    
                                     
                             }
-                            
+          
                             
                         }
-                        .cornerRadius(12)
+                    }
+                    
+                    
+                    
+                    TimeView
+                    
+                    Button {
+                        var finalRoutine = RoutineModel(id: routine.id, task: tmpList, title: title)
+                        vm.addOrUpdate(routine: finalRoutine)
+                        dismiss()
+                        routine = finalRoutine
+                        
+                    } label: {
+                        Text("타이머 추가하기")
+                            .font(.preB(16))
+                            .foregroundColor(.white)
+                            .frame(height: 55)
+                            .frame(maxWidth: .infinity)
+    //                        .padding(.horizontal,UIScreen.width / 2 - 70)
+    //                        .padding(.vertical,18)
+                            .background{
+                                if pass {
+                                    LinearGradient(colors: [.gradient1,.accent], startPoint: .leading, endPoint: .trailing)
+                                        
+                                }
+                                else {
+                                    Color(hex: 0xCACACA)
+                                        
+                                }
+                                
+                                
+                            }
+                            .cornerRadius(12)
+                    }
+                    .disabled(!pass)
+                    .padding(.bottom,safeArea.bottom)
+
+                    
                 }
-                .disabled(!pass)
-                .padding(.bottom,safeArea.bottom)
-
+                .padding(.horizontal,18)
+            
+                      
+                
+                
+                
                 
             }
-            .padding(.horizontal,18)
-        
-                  
+            .toolbar(.hidden)
+            .alert(error.errorMessage, isPresented: $showAlert, actions: {
+                Button("OK",role: .cancel){
+                    
+                }
+            })
+            .onAppear{
             
-            
-            
-            
-        }
-        .toolbar(.hidden)
-        .alert(error.errorMessage, isPresented: $showAlert, actions: {
-            Button("OK",role: .cancel){
+ 
                 
+                tmpList = routine.task
+                title = routine.title
+                
+                
+                if tmpList.filter({$0.interval == ""}).count == 0 {
+                    totalTime = tmpList.map{Int($0.interval)!}.reduce(0, {$0 + $1})
+                }
+                
+                
+                UIApplication.shared.hideKeyboard()
             }
-        })
-        .onAppear{
-        
-            tmpList = routine.task
-            title = routine.title
-            
-            
-            if tmpList.filter({$0.interval == ""}).count == 0 {
-                totalTime = tmpList.map{Int($0.interval)!}.reduce(0, {$0 + $1})
-            }
-            
-            
-            UIApplication.shared.hideKeyboard()
+            .onChange(of: title) { newValue in
+                pass = isPassAllRequire()
         }
-        .onChange(of: title) { newValue in
-            pass = isPassAllRequire()
         }
 
+    
         
         
         
@@ -198,14 +252,15 @@ extension DetailView{
             Spacer()
             
             Button {
-                
-                tmpList.append(TaskModel(emoji: .defaultEmoji, interval: ""))
+            tmpList.append(TaskModel(emoji: .defaultEmoji, interval: ""))
     
             } label: {
                 Image(systemName: "plus")
                     .foregroundColor(.blue)
                     .font(.system(size: 22))
+                    
             }
+            
 
             
            
@@ -300,8 +355,41 @@ extension DetailView{
     }
 
     
+    func startShowcase(_ rect: CGRect) {
+        // Start Help Tour
+        let showcase = MaterialShowcase()
+        let uiview = UIView()
+        uiview.frame = rect
+        uiview.layer.cornerRadius = 45
+        uiview.backgroundColor = .clear
+        uiview.tintColor = UIColor(Color.accent) // 쇼케이스 색깔 변경
+        
+        showcase.backgroundPromptColorAlpha = 0.9
+        showcase.setTargetView(view: uiview)
+        
+        showcase.primaryText = showCaseStep.headerText
+        showcase.primaryTextFont = UIFont(name: "Pretendard-Bold", size: 20)
+        
+        showcase.secondaryText = showCaseStep.description
+        showcase.secondaryTextFont = UIFont(name: "Pretendard-Medium", size: 14)
+        
+        showcase.show(completion: {
+
+        })
+        
+        
+    }
+    
 }
 
-
-
-
+struct GeometryGetterMod: ViewModifier {
+    @Binding var rect: CGRect
+    func body(content: Content) -> some View {
+        return GeometryReader { (g) -> Color in
+            DispatchQueue.main.async { // to avoid warning
+                self.rect = g.frame(in: .global)
+            }
+            return Color.clear
+        }
+    }
+}

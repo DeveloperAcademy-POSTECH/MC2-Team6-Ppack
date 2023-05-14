@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "material-showcase-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aromajoin/material-showcase-ios.git",
+      "state" : {
+        "revision" : "0a4be88526187c46dba58c1fd1c1cdb8ad1225c5",
+        "version" : "0.8.0"
+      }
+    },
+    {
       "identity" : "sdwebimage",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage.git",

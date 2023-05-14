@@ -21,6 +21,7 @@
 		B00B5DBB2A01E1CC00ABA945 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B5DBA2A01E1CC00ABA945 /* HomeViewModel.swift */; };
 		B037B96D2A0C700100F939FF /* logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = B037B96C2A0C700100F939FF /* logo.gif */; };
 		B037B9702A0C788600F939FF /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B037B96F2A0C788600F939FF /* TimerView.swift */; };
+		B037B9732A0DE83100F939FF /* MaterialShowcase in Frameworks */ = {isa = PBXBuildFile; productRef = B037B9722A0DE83100F939FF /* MaterialShowcase */; };
 		B063EDD62A01F57B001613C9 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDD52A01F57B001613C9 /* DetailView.swift */; };
 		B063EDDA2A01FD3B001613C9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDD92A01FD3B001613C9 /* String+Extension.swift */; };
 		B063EDE12A020704001613C9 /* EmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDE02A020704001613C9 /* EmojiView.swift */; };
@@ -86,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B037B9732A0DE83100F939FF /* MaterialShowcase in Frameworks */,
 				AC6134662A0B47EC00F9B223 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +306,7 @@
 			name = iOS_Timerago;
 			packageProductDependencies = (
 				AC6134652A0B47EC00F9B223 /* SDWebImageSwiftUI */,
+				B037B9722A0DE83100F939FF /* MaterialShowcase */,
 			);
 			productName = iOS_Timerago;
 			productReference = B0B4BDBE29FB73C6000E6593 /* iOS_Timerago.app */;
@@ -335,6 +338,7 @@
 			mainGroup = B0B4BDB529FB73C6000E6593;
 			packageReferences = (
 				AC6134642A0B47EC00F9B223 /* XCRemoteSwiftPackageReference "SDWebImageswiftui" */,
+				B037B9712A0DE83100F939FF /* XCRemoteSwiftPackageReference "material-showcase-ios" */,
 			);
 			productRefGroup = B0B4BDBF29FB73C6000E6593 /* Products */;
 			projectDirPath = "";
@@ -605,6 +609,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		B037B9712A0DE83100F939FF /* XCRemoteSwiftPackageReference "material-showcase-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aromajoin/material-showcase-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -612,6 +624,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AC6134642A0B47EC00F9B223 /* XCRemoteSwiftPackageReference "SDWebImageswiftui" */;
 			productName = SDWebImageSwiftUI;
+		};
+		B037B9722A0DE83100F939FF /* MaterialShowcase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B037B9712A0DE83100F939FF /* XCRemoteSwiftPackageReference "material-showcase-ios" */;
+			productName = MaterialShowcase;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
