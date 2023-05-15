@@ -113,7 +113,6 @@ struct TimerView: View {
         }
         .preferredColorScheme(.dark)
         .onAppear{
-            viewModel.totalWidth = UIScreen.width
             viewModel.minutes = Double(self.time) * 60
             viewModel.totalTime = Double(self.time) * 60
             viewModel.tasks = self.tasks
@@ -132,9 +131,6 @@ struct TimerView: View {
                 let timeInterval = Date().timeIntervalSince(backgroundTime)
                 let currentTime = viewModel.minutes - timeInterval
                 let width = (CGFloat(viewModel.totalWidth) / viewModel.totalTime)
-                
-                viewModel.timeInterval = Int(timeInterval)
-                viewModel.totalTimeDifference += timeInterval
                
                 if currentTime >= 0 {
                     withAnimation(.default) {
@@ -147,9 +143,7 @@ struct TimerView: View {
                     viewModel.width = viewModel.totalWidth
                     viewModel.isActive = false
                 }
-                if viewModel.minutes < timeInterval {
-                    
-                }
+                viewModel.count += timeInterval
             }
             viewModel.isActive = true
         }
