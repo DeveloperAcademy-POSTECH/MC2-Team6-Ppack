@@ -27,11 +27,9 @@ class HomeViewModel : ObservableObject {
     func addOrUpdate(routine:RoutineModel){
         
         if let index = routines.firstIndex(where: {$0.id == routine.id}) {
-            print("FIND")
             routines[index] = routine
             
         } else {
-            print("NEW")
             routines.append(routine)
         }
         

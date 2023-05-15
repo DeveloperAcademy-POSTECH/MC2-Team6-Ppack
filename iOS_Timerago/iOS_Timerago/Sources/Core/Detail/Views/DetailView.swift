@@ -115,17 +115,15 @@ struct DetailView: View {
                     header
                         .padding(.top,10)
                     
-                    VStack(spacing:20){
-                        TextField("이름을 지어주세요", text: $title)
-                            .frame(maxWidth: .infinity,alignment: .leading)
-                            .font(.largeTitle)
-                            .bold()
-                            .autocorrectionDisabled()
+                    VStack(spacing:0){
+                        
+                        secondaryHeader
+                        
                         
                     
                         VStack(spacing:5){
          
-                            timeView
+                            
                             
                             if tmpList.isEmpty {
                                 Spacer()
@@ -136,7 +134,8 @@ struct DetailView: View {
                             }
                             else {
                                 taskListView
-                                    
+                                
+
                                     
                             }
           
@@ -145,7 +144,7 @@ struct DetailView: View {
                     }
                     
                     
-                    
+                    timeView
                     
                     
                     Button {
@@ -196,7 +195,6 @@ struct DetailView: View {
             .onAppear{
                 
                 let tmp:[Bool] = PreferenceManager.firstApproach ?? [true]
-                print("Tmp :\(tmp)")
                 if let flag = tmp.first {
                     
                     showOnBoard = flag
@@ -272,11 +270,10 @@ extension DetailView{
             Spacer()
             
             Button {
-            tmpList.append(TaskModel(emoji: .defaultEmoji, interval: ""))
-    
+                showOnBoard = true
             } label: {
-                Image(systemName: "plus")
-                    .foregroundColor(.blue)
+                Image(systemName: "info.circle")
+                    .foregroundColor(Color(hex: 0x636366))
                     .font(.system(size: 22))
                     
             }
@@ -290,6 +287,24 @@ extension DetailView{
         }
         .padding(.horizontal,-8)
         
+    }
+    
+    private var secondaryHeader: some View {
+        HStack(alignment:.firstTextBaseline){
+            TextField("이름을 지어주세요", text: $title)
+                .frame(maxWidth: .infinity,alignment: .leading)
+                .font(.largeTitle)
+                .bold()
+                .autocorrectionDisabled()
+            Spacer()
+            Button {
+                tmpList.append(TaskModel(emoji: .defaultEmoji, interval: ""))
+            } label: {
+                Text("추가")
+                
+            }
+            
+        }
     }
 
     private var timeView: some View {
@@ -314,10 +329,7 @@ extension DetailView{
         .padding(.vertical,25)
         .padding(.horizontal,30)
         .frame(maxWidth: .infinity)
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(.white)
-        )
+
         
         
             

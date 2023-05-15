@@ -11,14 +11,15 @@ import Combine
 struct TaskRowView: View {
     
     @Binding var task:TaskModel
-    @FocusState var isFocus:Bool
+    @FocusState var isTimeFocused:Bool
+    @FocusState var isEmojiFocued:Bool
     
     
     var body: some View {
         
-        let text = Binding<String>(
+        let timeText = Binding<String>(
                 get: {
-                    if isFocus {
+                    if isTimeFocused {
                        return task.interval.isEmpty ? "" : "\(task.interval)"
                     } else {
                        return  task.interval.isEmpty ? "" : "\(task.interval)분"
@@ -32,25 +33,40 @@ struct TaskRowView: View {
                 }
             )
         
+        let emojiText = Binding<String>(
+                get: {
+                    task.emoji
+                    
+                },
+                set: { text in
+                    
+                    let suffix = String(text.suffix(1))
+                    task.emoji = suffix
+                    UIApplication.shared.endEditing()
+                    
+                }
+            )
+        
         
         HStack{
             
-            EmojiTextField(text: $task.emoji)
+            EmojiTextField(text: emojiText)
                 .font(.title3)
                 .frame(width: 20,height: 20)
                 .padding(7)
                 .background(Circle().fill(Color.circle))
                 .keyboardShortcut(.return)
                 .keyboardShortcut(.cancelAction)
+                .focused($isEmojiFocued)
 
                 
             
-            TextField("시간을 입력해주세요",text: text)
+            TextField("몇 분 걸리는 일인가요?",text: timeText)
                 .font(.preR(18))
                 .keyboardType(.numberPad)
                 .keyboardShortcut(.return)
                 .keyboardShortcut(.cancelAction)
-                .focused($isFocus)
+                .focused($isTimeFocused)
             
             
             
