@@ -183,6 +183,7 @@ struct TimerView: View {
         }
     }
     
+    
     private var bottomArea: some View {
         ZStack(alignment:.bottom){
             
