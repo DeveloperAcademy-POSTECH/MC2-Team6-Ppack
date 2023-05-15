@@ -15,20 +15,15 @@ final class TimerViewModel: ObservableObject {
     @Published var backgroundTime: Date? = nil
     @Published var timeInterval: Int = 0 {
         didSet {
-            if self.minutes > Double(self.timeInterval) {
-                self.minutes -= Double(self.timeInterval)
-                self.width += CGFloat((((self.totalWidth - 40) / self.minutes) * Double(Int(self.timeInterval))))
-            } else {
+            if self.minutes < Double(self.timeInterval) {
                 isActive = false
                 self.minutes = 0
             }
-            
-            
-            self.width += CGFloat((((self.totalWidth - 40) / self.minutes) * Double(self.timeInterval)))
         }
     }
     @Published var width: CGFloat = 0
     @Published var totalWidth: CGFloat = 0
+    @Published var count: Double = 0
     private let notificationCenter = UNUserNotificationCenter.current()
     private var taskTime = 0
     private var currentIndex = 0
@@ -36,8 +31,9 @@ final class TimerViewModel: ObservableObject {
     func start() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { Timer in
             guard self.isActive != false else { return }
-           
+            
             if self.minutes > 0 {
+                self.count += 1
                 self.minutes -= 1
             } else if self.minutes == 0 {
                 Timer.invalidate()

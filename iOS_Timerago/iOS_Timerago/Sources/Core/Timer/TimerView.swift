@@ -14,7 +14,7 @@ struct TimerView: View {
     @Binding var time: Int
     @Binding var tasks: [Int]
     @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
+    @State var totalTimeDifference: Double = 0
     var body: some View {
         
         GeometryReader{ geometry in
@@ -119,21 +119,30 @@ struct TimerView: View {
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
             if let backgroundTime = viewModel.backgroundTime {
                 let timeInterval = Date().timeIntervalSince(backgroundTime)
-                viewModel.timeInterval = Int(timeInterval)
+                let currentTime = viewModel.minutes - timeInterval
+                let width = (CGFloat(viewModel.totalWidth - 40) / (Double(self.time) * 60))
                 
+                viewModel.timeInterval = Int(timeInterval)
+                self.totalTimeDifference += timeInterval
+               
+                if currentTime >= 0 {
+                    withAnimation(.default) {
+                        viewModel.minutes = currentTime
+                        viewModel.width = width * ((self.totalTimeDifference) + viewModel.count)
+                    }
+                }
                 if viewModel.minutes < timeInterval {
                     viewModel.width = UIScreen.width - 40
                 }
             }
             self.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
             viewModel.isActive = true
-            
         }
         .onReceive(NotificationCenter.default.publisher(for: UIScene.didDisconnectNotification)) { _ in
             viewModel.tapStopButton()
         }
         .onReceive(timer) { Timer in
-            withAnimation(.easeInOut){
+            withAnimation(.default){
                 viewModel.width += (CGFloat(viewModel.totalWidth - 40) / (Double(self.time) * 60))
                 
                 if viewModel.width + (CGFloat(viewModel.totalWidth - 40) / (Double(self.time) * 60)) > viewModel.totalWidth - 40 {
@@ -141,7 +150,6 @@ struct TimerView: View {
                     self.timer.upstream.connect().cancel()
                 }
             }
-         
         }
     }
     
