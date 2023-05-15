@@ -177,7 +177,7 @@ struct DetailView: View {
                             .cornerRadius(12)
                     }
                     .disabled(!pass)
-                    .padding(.bottom,safeArea.bottom)
+                    .padding(.bottom,safeArea.bottom == .zero ? 34 : safeArea.bottom )
 
                     
                 }
@@ -203,7 +203,7 @@ struct DetailView: View {
                     
                     showOnBoard = flag
                     
-                    PreferenceManager.shared.addRecentState(bool: [false])
+                    PreferenceManager.shared.addRecentState(bool: [true])
                     
                 }
                 
@@ -221,6 +221,21 @@ struct DetailView: View {
             .onChange(of: title) { newValue in
                 pass = isPassAllRequire()
         }
+        }
+        .sheet(isPresented: $showOnBoard) {
+            ZStack{
+                Color.background
+                
+                Image("Onboard")
+                    .resizable()
+                    .scaledToFit()
+            }
+            .frame(maxWidth: .infinity,maxHeight: .infinity)
+            //.background(Color.black.opacity(0.4))
+            
+
+            
+                
         }
 
     

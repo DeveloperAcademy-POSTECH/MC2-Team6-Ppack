@@ -17,7 +17,7 @@ extension PreferenceManager {
                return
            }
            else {
-               PreferenceManager.firstApproach = [false]
+               PreferenceManager.firstApproach = bool
            }
 
            
