@@ -184,9 +184,7 @@ struct DetailView: View {
                 .padding(.horizontal,18)
             
                       
-                
-                
-                
+
                 
             }
             .toolbar(.hidden)
@@ -203,7 +201,7 @@ struct DetailView: View {
                     
                     showOnBoard = flag
                     
-                    PreferenceManager.shared.addRecentState(bool: [true])
+                    PreferenceManager.shared.addRecentState(bool: [false])
                     
                 }
                 
@@ -224,7 +222,9 @@ struct DetailView: View {
         }
         .sheet(isPresented: $showOnBoard) {
             ZStack{
-                Color.background
+                Color.background.ignoresSafeArea()
+                
+                Color.black.opacity(0.4).ignoresSafeArea()
                 
                 Image("Onboard")
                     .resizable()
