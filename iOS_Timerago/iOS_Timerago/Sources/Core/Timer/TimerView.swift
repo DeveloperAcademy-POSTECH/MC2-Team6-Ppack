@@ -123,7 +123,6 @@ struct TimerView: View {
             viewModel.tasks = self.tasks
             viewModel.isActive.toggle()
             viewModel.start()
-            viewModel.countdownArrayElements()
             viewModel.setTasksNotification()
             viewModel.registerNotification()
         }
