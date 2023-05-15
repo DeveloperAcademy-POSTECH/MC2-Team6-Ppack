@@ -64,16 +64,32 @@ struct TimerView: View {
                     }
                     .frame(width:geometry.size.width,height:30)
                     
+                    ZStack(alignment: .leading){
+                        
+//                        Color.white
+//                            .frame(width: geometry.s)
+                        
+                        Color.white
+                            .frame(width:geometry.size.width,height:20)
+                        
                     
-                    RoundedRectangle(cornerRadius:12)
-                        .fill(Color.white)
-                        .frame(width:geometry.size.width - 40,height:20)
-                        .overlay(alignment:.leading){
-                            RoundedRectangle(cornerRadius:12)
-                                .fill(Color.accent)
-                                .frame(width:viewModel.width)
-                        }
-                        .shadow(color: .black.opacity(0.12), radius: 5, x: 0, y: 3)
+                        LinearGradient(colors: [Color(hex: 0x4E94F8),Color(hex: 0x86C6FC)], startPoint: .leading, endPoint: .trailing)
+                            .frame(height: 20)
+                            .frame(width:viewModel.width)
+                            
+                        /*RoundedRectangle(cornerRadius:12)
+                            .fill(Color.white)
+                            .frame(width:geometry.size.width,height:20)
+                            .overlay(alignment:.leading){
+                                RoundedRectangle(cornerRadius:12)
+                                    .fill(Color.accent)
+                                    .frame(width:viewModel.width)
+                            }
+                            .shadow(color: .black.opacity(0.12), radius: 5, x: 0, y: 3)
+                         */
+                    }
+                    .shadow(color: .black.opacity(0.12), radius: 5, x: 0, y: 3)
+                    
                     
                     
                     
@@ -89,7 +105,7 @@ struct TimerView: View {
                 
                 bottomArea
                     .frame(height:geometry.size.height/2)
-                    .position(x: geometry.size.width / 2,y:geometry.size.height / 4 + geometry.size.height / 2 )
+                    .position(x: geometry.size.width / 2,y:geometry.size.height / 4 + geometry.size.height / 2)
             }
                 
                 
@@ -166,6 +182,7 @@ struct TimerView: View {
             
         }
     }
+    
     
     private var bottomArea: some View {
         ZStack(alignment:.bottom){
