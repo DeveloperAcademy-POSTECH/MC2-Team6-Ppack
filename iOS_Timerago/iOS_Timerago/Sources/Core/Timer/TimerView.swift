@@ -145,11 +145,14 @@ struct TimerView: View {
                         viewModel.minutes = currentTime
                         viewModel.width = 0
                         viewModel.width = width * (viewModel.totalTime - viewModel.minutes)
-                        print("NewValue\(width * (viewModel.totalTime - viewModel.minutes))")
                     }
+                } else {
+                    viewModel.minutes = 0
+                    viewModel.width = viewModel.totalWidth
+                    viewModel.isActive = false
                 }
                 if viewModel.minutes < timeInterval {
-                    viewModel.width = viewModel.totalWidth
+                    
                 }
             }
             viewModel.isActive = true
