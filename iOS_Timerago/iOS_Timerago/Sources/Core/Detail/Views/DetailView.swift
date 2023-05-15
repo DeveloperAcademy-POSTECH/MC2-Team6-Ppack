@@ -272,10 +272,10 @@ extension DetailView{
             Spacer()
             
             Button {
-            tmpList.append(TaskModel(emoji: .defaultEmoji, interval: ""))
-    
+           // tmpList.append(TaskModel(emoji: .defaultEmoji, interval: ""))
+                showOnBoard = true
             } label: {
-                Image(systemName: "plus")
+                Image(systemName: "info.circle")
                     .foregroundColor(.blue)
                     .font(.system(size: 22))
                     
