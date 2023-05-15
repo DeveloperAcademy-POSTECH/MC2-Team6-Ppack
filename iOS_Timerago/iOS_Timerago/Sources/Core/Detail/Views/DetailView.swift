@@ -273,7 +273,7 @@ extension DetailView{
                 showOnBoard = true
             } label: {
                 Image(systemName: "info.circle")
-                    .foregroundColor(.blue)
+                    .foregroundColor(Color(hex: 0x636366))
                     .font(.system(size: 22))
                     
             }
