@@ -19,12 +19,6 @@ final class TimerViewModel: ObservableObject {
                 isActive = false
                 self.minutes = 0
             }
-            
-            if self.taskTime > self.timeInterval {
-                self.taskTime -= self.timeInterval
-            } else {
-                self.taskTime = self.getTaskTime(timeInterval: timeInterval)
-            }
         }
     }
     @Published var width: CGFloat = 0
@@ -32,9 +26,9 @@ final class TimerViewModel: ObservableObject {
     @Published var count: Double = 0
     @Published var totalTimeDifference: Double = 0
     @Published var currentIndex = 0
+    @Published var taskTime = 0
     var totalTime: Double = 0
     private let notificationCenter = UNUserNotificationCenter.current()
-    private var taskTime = 0
     
     func start() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { Timer in
@@ -55,6 +49,15 @@ final class TimerViewModel: ObservableObject {
                     Timer.invalidate()
                 }
             }
+            
+            let finishTimeIntervals = self.getFinishNotificationTimeIntervals()
+            
+            for timeInterval in finishTimeIntervals {
+                if self.minutes == Double(timeInterval) {
+                    self.currentIndex += 1
+                    continue
+                }
+            }
         })
         
     }
@@ -64,43 +67,6 @@ final class TimerViewModel: ObservableObject {
         let seconds = Int(self.minutes) % 60
         
         return String(format: "%02i:%02i", minutes, seconds)
-    }
-    
-    private func countdown(completion: @escaping () -> Void) {
-        if currentIndex == self.tasks.count {
-            self.isActive = false
-        }
-        
-        guard self.taskTime > 0 else {
-            completion()
-            return
-        }
-        
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] Timer in
-            guard let self = self else { return }
-            guard self.isActive != false else { return }
-            
-            self.taskTime -= 1
-            
-           if self.taskTime == 0 {
-                self.countdown(completion: completion)
-                Timer.invalidate()
-            }
-            if self.minutes == 0 {
-                Timer.invalidate()
-            }
-        })
-    }
-    
-    func countdownArrayElements() {
-        self.taskTime = self.tasks[currentIndex]
-        countdown() {
-            self.currentIndex += 1
-            print(self.currentIndex)
-            if self.currentIndex < self.tasks.count {
-                self.countdownArrayElements()
-            }
-        }
     }
     
     func registerNotification() {
@@ -145,23 +111,6 @@ final class TimerViewModel: ObservableObject {
             notificationCenter.add(finishRequest)
         }
     }
-    
-    private func getTaskTime(timeInterval: Int) -> Int {
-        guard currentIndex < self.tasks.count - 1 else { return 0 }
-        
-        var time = timeInterval
-        self.currentIndex += 1
-        time -= self.taskTime
-        
-        while self.tasks[self.currentIndex] < time {
-            time = time - self.tasks[currentIndex]
-            currentIndex += 1
-        }
-        let result = self.tasks[currentIndex] - time
-        
-        return result
-    }
-    
     
     private func getFiveMinsNotificationTimeIntervals() -> [Int] {
         var result: [Int] = []
