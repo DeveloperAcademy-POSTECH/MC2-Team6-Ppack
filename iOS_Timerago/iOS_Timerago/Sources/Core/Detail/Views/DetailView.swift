@@ -100,6 +100,9 @@ struct DetailView: View {
     @State private var rectTotalTime = CGRect()
     @State private var showCaseStep:ShowCaseStep = .addButton
     
+    @State private var showOnBoard:Bool = false
+    
+    
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .bottom){
@@ -193,8 +196,16 @@ struct DetailView: View {
                 }
             })
             .onAppear{
-            
- 
+                
+                let tmp:[Bool] = PreferenceManager.firstApproach ?? [true]
+                print("Tmp :\(tmp)")
+                if let flag = tmp.first {
+                    
+                    showOnBoard = flag
+                    
+                    PreferenceManager.shared.addRecentState(bool: [false])
+                    
+                }
                 
                 tmpList = routine.task
                 title = routine.title
