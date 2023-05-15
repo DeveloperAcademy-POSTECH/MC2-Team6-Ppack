@@ -125,7 +125,7 @@ struct DetailView: View {
                     
                         VStack(spacing:5){
          
-                            TimeView
+                            timeView
                             
                             if tmpList.isEmpty {
                                 Spacer()
@@ -135,7 +135,7 @@ struct DetailView: View {
                                 Spacer()
                             }
                             else {
-                                TaskListView
+                                taskListView
                                     
                                     
                             }
@@ -221,15 +221,7 @@ struct DetailView: View {
         }
         }
         .sheet(isPresented: $showOnBoard) {
-            ZStack{
-                Color.background.ignoresSafeArea()
-                
-                Color.black.opacity(0.4).ignoresSafeArea()
-                
-                Image("Onboard")
-                    .resizable()
-                    .scaledToFit()
-            }
+            onBoard
             .frame(maxWidth: .infinity,maxHeight: .infinity)
             //.background(Color.black.opacity(0.4))
             
@@ -248,6 +240,9 @@ struct DetailView: View {
 }
 
 extension DetailView{
+    
+    //MARK: View
+    
     private var header: some View {
         
         HStack{
@@ -295,9 +290,8 @@ extension DetailView{
         .padding(.horizontal,-8)
         
     }
-    
-    
-    private var TimeView: some View {
+
+    private var timeView: some View {
         
         HStack{
         
@@ -329,7 +323,7 @@ extension DetailView{
             
     }
     
-    private var TaskListView: some View {
+    private var taskListView: some View {
     
         List{
             ForEach($tmpList){ $task in //바인딩 , 바인딩..
@@ -378,6 +372,20 @@ extension DetailView{
         
     }
     
+    private var onBoard: some View {
+        ZStack{
+            Color.background.ignoresSafeArea()
+            
+            Color.black.opacity(0.4).ignoresSafeArea()
+            
+            Image("Onboard")
+                .resizable()
+                .scaledToFit()
+        }
+    }
+    
+    
+    //MARK: Function
     
     private func checkBlank () -> Bool {
         return tmpList.filter{$0.emoji.count == 0 || $0.interval.count == 0 }.count > 0
