@@ -100,6 +100,9 @@ struct DetailView: View {
     @State private var rectTotalTime = CGRect()
     @State private var showCaseStep:ShowCaseStep = .addButton
     
+    @State private var showOnBoard:Bool = false
+    
+    
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .bottom){
@@ -122,17 +125,17 @@ struct DetailView: View {
                     
                         VStack(spacing:5){
          
-                            TimeView
+                            timeView
                             
                             if tmpList.isEmpty {
                                 Spacer()
                                 Text("태스크를 추가해주세요")
-                                    .font(.preM(18))
-                                    .foregroundColor(.black.opacity(0.5))
+                                    .font(.preR(18))
+                                    .foregroundColor(.init(hex: 0x545454,alpha: 0.5))
                                 Spacer()
                             }
                             else {
-                                TaskListView
+                                taskListView
                                     
                                     
                             }
@@ -152,7 +155,7 @@ struct DetailView: View {
                         routine = finalRoutine
                         
                     } label: {
-                        Text("타이머 추가하기")
+                        Text("완료")
                             .font(.preB(16))
                             .foregroundColor(.white)
                             .frame(height: 55)
@@ -174,16 +177,14 @@ struct DetailView: View {
                             .cornerRadius(12)
                     }
                     .disabled(!pass)
-                    .padding(.bottom,safeArea.bottom)
+                    .padding(.bottom,safeArea.bottom == .zero ? 34 : safeArea.bottom )
 
                     
                 }
                 .padding(.horizontal,18)
             
                       
-                
-                
-                
+
                 
             }
             .toolbar(.hidden)
@@ -193,8 +194,16 @@ struct DetailView: View {
                 }
             })
             .onAppear{
-            
- 
+                
+                let tmp:[Bool] = PreferenceManager.firstApproach ?? [true]
+                print("Tmp :\(tmp)")
+                if let flag = tmp.first {
+                    
+                    showOnBoard = flag
+                    
+                    PreferenceManager.shared.addRecentState(bool: [false])
+                    
+                }
                 
                 tmpList = routine.task
                 title = routine.title
@@ -211,6 +220,15 @@ struct DetailView: View {
                 pass = isPassAllRequire()
         }
         }
+        .sheet(isPresented: $showOnBoard) {
+            onBoard
+            .frame(maxWidth: .infinity,maxHeight: .infinity)
+            //.background(Color.black.opacity(0.4))
+            
+
+            
+                
+        }
 
     
         
@@ -222,6 +240,9 @@ struct DetailView: View {
 }
 
 extension DetailView{
+    
+    //MARK: View
+    
     private var header: some View {
         
         HStack{
@@ -238,7 +259,7 @@ extension DetailView{
                         //.bold()
                     
                     Text("타이머")
-                        .font(.preM(17))
+                        .font(.preR(17))
                         .foregroundColor(.blue)
                 }
             }
@@ -259,6 +280,7 @@ extension DetailView{
                     .font(.system(size: 22))
                     
             }
+            .padding(.trailing,5)
             
 
             
@@ -269,9 +291,8 @@ extension DetailView{
         .padding(.horizontal,-8)
         
     }
-    
-    
-    private var TimeView: some View {
+
+    private var timeView: some View {
         
         HStack{
         
@@ -303,7 +324,7 @@ extension DetailView{
             
     }
     
-    private var TaskListView: some View {
+    private var taskListView: some View {
     
         List{
             ForEach($tmpList){ $task in //바인딩 , 바인딩..
@@ -352,6 +373,20 @@ extension DetailView{
         
     }
     
+    private var onBoard: some View {
+        ZStack{
+            Color.background.ignoresSafeArea()
+            
+            Color.black.opacity(0.4).ignoresSafeArea()
+            
+            Image("Onboard")
+                .resizable()
+                .scaledToFit()
+        }
+    }
+    
+    
+    //MARK: Function
     
     private func checkBlank () -> Bool {
         return tmpList.filter{$0.emoji.count == 0 || $0.interval.count == 0 }.count > 0
