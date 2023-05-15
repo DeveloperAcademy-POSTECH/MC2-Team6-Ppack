@@ -45,8 +45,8 @@ struct TaskRowView: View {
 
                 
             
-            TextField("시간을 입력해주세요.",text: text)
-                .font(.preM(18))
+            TextField("시간을 입력해주세요",text: text)
+                .font(.preR(18))
                 .keyboardType(.numberPad)
                 .keyboardShortcut(.return)
                 .keyboardShortcut(.cancelAction)

@@ -45,7 +45,7 @@ var body: some View {
                     
 
                     Text("앗! 타이머가 아직 없어요🥲")
-                        .font(.preB(18))
+                        .font(.preR(18))
                         .foregroundColor(.init(hex: 0x545454,alpha: 0.5))
                         .padding(.bottom,UIScreen.height/6)
                         

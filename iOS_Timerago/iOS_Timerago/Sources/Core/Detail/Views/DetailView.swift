@@ -130,8 +130,8 @@ struct DetailView: View {
                             if tmpList.isEmpty {
                                 Spacer()
                                 Text("태스크를 추가해주세요")
-                                    .font(.preM(18))
-                                    .foregroundColor(.black.opacity(0.5))
+                                    .font(.preR(18))
+                                    .foregroundColor(.init(hex: 0x545454,alpha: 0.5))
                                 Spacer()
                             }
                             else {
@@ -155,7 +155,7 @@ struct DetailView: View {
                         routine = finalRoutine
                         
                     } label: {
-                        Text("타이머 추가하기")
+                        Text("완료")
                             .font(.preB(16))
                             .foregroundColor(.white)
                             .frame(height: 55)
@@ -259,7 +259,7 @@ extension DetailView{
                         //.bold()
                     
                     Text("타이머")
-                        .font(.preM(17))
+                        .font(.preR(17))
                         .foregroundColor(.blue)
                 }
             }
@@ -280,6 +280,7 @@ extension DetailView{
                     .font(.system(size: 22))
                     
             }
+            .padding(.trailing,5)
             
 
             
