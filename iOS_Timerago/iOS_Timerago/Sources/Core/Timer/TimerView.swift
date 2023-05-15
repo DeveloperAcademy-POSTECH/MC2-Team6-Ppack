@@ -20,9 +20,16 @@ struct TimerView: View {
             
             
             ZStack{
+                
+                
+                
                 topArea
                     .frame(height:geometry.size.height/2)
                     .position(x: geometry.size.width / 2,y: geometry.size.height/4)
+                
+                dismissButton
+                .position(x:geometry.size.width - 27,y:20)
+
                 
                 VStack(spacing:10){
                     
@@ -173,14 +180,24 @@ struct TimerView: View {
     }
     
     
+    private var dismissButton: some View {
+        Button {
+            dismiss()
+            viewModel.tapStopButton()
+        } label: {
+            Image(systemName: "xmark")
+                .font(.title2)
+                .foregroundColor(.white)
+        }
+    }
+    
     private var bottomArea: some View {
         ZStack(alignment:.bottom){
             
             Color.background.ignoresSafeArea()
             
             Button {
-                dismiss()
-                viewModel.tapStopButton()
+                
             } label: {
                 Image(systemName: "stop.fill")
                     .font(.largeTitle)
