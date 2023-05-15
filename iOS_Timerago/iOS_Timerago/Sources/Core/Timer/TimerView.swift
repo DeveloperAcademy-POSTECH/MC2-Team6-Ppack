@@ -38,8 +38,7 @@ struct TimerView: View {
                             
                             if index == 0 {
                                 Text("\(routine.task[index].emoji)")
-                                    .font(.system(size: 24))
-                                    .scaleEffect(index == viewModel.currentIndex ? 1.5 : 1)
+                                    .font(.system(size: index == viewModel.currentIndex ? 35 : 24))
                                     .frame(maxWidth: .infinity)
                                 
                                 Spacer()
@@ -51,8 +50,7 @@ struct TimerView: View {
                                 Spacer()
                                 
                                 Text("\(routine.task[index].emoji)")
-                                    .font(.system(size: 24))
-                                    .scaleEffect(index == viewModel.currentIndex ? 1.5 : 1)
+                                    .font(.system(size: index == viewModel.currentIndex ? 35 : 24))
                                     .frame(maxWidth: .infinity)
                                 
                             }
@@ -61,8 +59,7 @@ struct TimerView: View {
                                 
                                 Spacer()
                                 Text("\(routine.task[index].emoji)")
-                                    .font(.system(size: 24))
-                                    .scaleEffect(index == viewModel.currentIndex ? 1.5 : 1)
+                                    .font(.system(size: index == viewModel.currentIndex ? 35 : 24))
                                     .frame(maxWidth: .infinity)
                                 Spacer()
                             }
@@ -73,7 +70,7 @@ struct TimerView: View {
                         }
                     }
                     .frame(width:geometry.size.width,height:30)
-                    
+                    .animation(.easeInOut,value:viewModel.currentIndex)
                     ZStack(alignment: .leading){
                         
                         
@@ -192,6 +189,7 @@ struct TimerView: View {
             Text("\(routine.task[viewModel.currentIndex].emoji)")
                 .font(.system(size: 78))
                 .padding(38)
+                .animation(.easeInOut, value: viewModel.currentIndex)
                 .background(
                     Circle()
                         .fill(
