@@ -195,7 +195,6 @@ struct DetailView: View {
             .onAppear{
                 
                 let tmp:[Bool] = PreferenceManager.firstApproach ?? [true]
-                print("Tmp :\(tmp)")
                 if let flag = tmp.first {
                     
                     showOnBoard = flag

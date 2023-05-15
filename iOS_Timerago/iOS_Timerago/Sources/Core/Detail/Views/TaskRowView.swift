@@ -41,7 +41,6 @@ struct TaskRowView: View {
                 set: { text in
                     
                     let suffix = String(text.suffix(1))
-                    print(suffix)
                     task.emoji = suffix
                     UIApplication.shared.endEditing()
                     
@@ -62,7 +61,7 @@ struct TaskRowView: View {
 
                 
             
-            TextField("시간을 입력해주세요",text: timeText)
+            TextField("몇 분 걸리는 일인가요?",text: timeText)
                 .font(.preR(18))
                 .keyboardType(.numberPad)
                 .keyboardShortcut(.return)
