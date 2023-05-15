@@ -128,6 +128,7 @@ struct TimerView: View {
                 if currentTime >= 0 {
                     withAnimation(.default) {
                         viewModel.minutes = currentTime
+                        viewModel.width = 0
                         viewModel.width = width * ((self.totalTimeDifference) + viewModel.count)
                     }
                 }
