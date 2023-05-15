@@ -20,9 +20,16 @@ struct TimerView: View {
             
             
             ZStack{
+                
+                
+                
                 topArea
                     .frame(height:geometry.size.height/2)
                     .position(x: geometry.size.width / 2,y: geometry.size.height/4)
+                
+                dismissButton
+                .position(x:geometry.size.width - 27,y:20)
+
                 
                 VStack(spacing:10){
                     
@@ -31,8 +38,9 @@ struct TimerView: View {
                             
                             if index == 0 {
                                 Text("\(routine.task[index].emoji)")
-                                    .font(.system(size: 24))
+                                    .font(.system(size: index == viewModel.currentIndex ? 35 : 24))
                                     .frame(maxWidth: .infinity)
+                                
                                 Spacer()
                             }
                             
@@ -42,7 +50,7 @@ struct TimerView: View {
                                 Spacer()
                                 
                                 Text("\(routine.task[index].emoji)")
-                                    .font(.system(size: 24))
+                                    .font(.system(size: index == viewModel.currentIndex ? 35 : 24))
                                     .frame(maxWidth: .infinity)
                                 
                             }
@@ -51,7 +59,7 @@ struct TimerView: View {
                                 
                                 Spacer()
                                 Text("\(routine.task[index].emoji)")
-                                    .font(.system(size: 24))
+                                    .font(.system(size: index == viewModel.currentIndex ? 35 : 24))
                                     .frame(maxWidth: .infinity)
                                 Spacer()
                             }
@@ -62,11 +70,9 @@ struct TimerView: View {
                         }
                     }
                     .frame(width:geometry.size.width,height:30)
-                    
+                    .animation(.easeInOut,value:viewModel.currentIndex)
                     ZStack(alignment: .leading){
                         
-//                        Color.white
-//                            .frame(width: geometry.s)
                         
                         Color.white
                             .frame(width:geometry.size.width,height:20)
@@ -75,17 +81,7 @@ struct TimerView: View {
                         LinearGradient(colors: [Color(hex: 0x4E94F8),Color(hex: 0x86C6FC)], startPoint: .leading, endPoint: .trailing)
                             .frame(height: 20)
                             .frame(width:viewModel.width)
-                            
-                        /*RoundedRectangle(cornerRadius:12)
-                            .fill(Color.white)
-                            .frame(width:geometry.size.width,height:20)
-                            .overlay(alignment:.leading){
-                                RoundedRectangle(cornerRadius:12)
-                                    .fill(Color.accent)
-                                    .frame(width:viewModel.width)
-                            }
-                            .shadow(color: .black.opacity(0.12), radius: 5, x: 0, y: 3)
-                         */
+
                     }
                     .shadow(color: .black.opacity(0.12), radius: 5, x: 0, y: 3)
                     
@@ -176,28 +172,47 @@ struct TimerView: View {
     }
     
     
+    private var dismissButton: some View {
+        Button {
+            dismiss()
+            viewModel.tapStopButton()
+        } label: {
+            Image(systemName: "xmark")
+                .font(.title2)
+                .foregroundColor(.white)
+        }
+    }
+    
     private var bottomArea: some View {
         ZStack(alignment:.bottom){
             
             Color.background.ignoresSafeArea()
             
-            Button {
-                dismiss()
-                viewModel.tapStopButton()
-            } label: {
-                Image(systemName: "stop.fill")
-                    .font(.largeTitle)
-                    .foregroundColor(.accent)
-                    .padding(30)
-                    .background(
-                        Circle()
-                            .fill(Color.white)
-                            .shadow(color:.black.opacity(0.1),radius: 5,x: 0,y: 4)
-                        
-                        
-                    )
+            
+            Text("\(routine.task[viewModel.currentIndex].emoji)")
+                .font(.system(size: 78))
+                .padding(38)
+                .animation(.easeInOut, value: viewModel.currentIndex)
+                .background(
+                    Circle()
+                        .fill(
+                            LinearGradient(colors: [Color(hex: 0xCAE3FF),Color(hex: 0xB4D8FE)], startPoint: .top, endPoint: .bottom)
+                        )
+                       
+              
+                )
+                .padding(18)
+                .background(
+                    Circle()
+                        .fill(Color(hex: 0x4E94F8,alpha: 0.09))
+
+                )
                 
-            }.padding(.bottom,UIScreen.height/6)
+                .padding(.bottom,UIScreen.height/10)
+                
+                
+            
+
             
             
         }
