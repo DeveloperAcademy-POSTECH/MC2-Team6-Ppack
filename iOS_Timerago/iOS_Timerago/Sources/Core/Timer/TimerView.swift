@@ -13,8 +13,7 @@ struct TimerView: View {
     @Binding var routine: RoutineModel
     @Binding var time: Int
     @Binding var tasks: [Int]
-    @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State var totalTimeDifference: Double = 0
+    
     var body: some View {
         
         GeometryReader{ geometry in
@@ -120,9 +119,11 @@ struct TimerView: View {
         .onAppear{
             viewModel.totalWidth = UIScreen.width
             viewModel.minutes = Double(self.time) * 60
+            viewModel.totalTime = Double(self.time) * 60
             viewModel.tasks = self.tasks
             viewModel.isActive.toggle()
             viewModel.start()
+            viewModel.countdownArrayElements()
             viewModel.setTasksNotification()
             viewModel.registerNotification()
         }
@@ -130,43 +131,32 @@ struct TimerView: View {
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
             viewModel.isActive = false
             viewModel.backgroundTime = Date()
-            self.timer.upstream.connect().cancel()
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
             if let backgroundTime = viewModel.backgroundTime {
                 let timeInterval = Date().timeIntervalSince(backgroundTime)
                 let currentTime = viewModel.minutes - timeInterval
-                let width = (CGFloat(viewModel.totalWidth - 40) / (Double(self.time) * 60))
+                let width = (CGFloat(viewModel.totalWidth) / viewModel.totalTime)
                 
                 viewModel.timeInterval = Int(timeInterval)
-                self.totalTimeDifference += timeInterval
+                viewModel.totalTimeDifference += timeInterval
                
                 if currentTime >= 0 {
                     withAnimation(.default) {
                         viewModel.minutes = currentTime
                         viewModel.width = 0
-                        viewModel.width = width * ((self.totalTimeDifference) + viewModel.count)
+                        viewModel.width = width * (viewModel.totalTime - viewModel.minutes)
+                        print("NewValue\(width * (viewModel.totalTime - viewModel.minutes))")
                     }
                 }
                 if viewModel.minutes < timeInterval {
-                    viewModel.width = UIScreen.width - 40
+                    viewModel.width = viewModel.totalWidth
                 }
             }
-            self.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
             viewModel.isActive = true
         }
         .onReceive(NotificationCenter.default.publisher(for: UIScene.didDisconnectNotification)) { _ in
             viewModel.tapStopButton()
-        }
-        .onReceive(timer) { Timer in
-            withAnimation(.default){
-                viewModel.width += (CGFloat(viewModel.totalWidth - 40) / (Double(self.time) * 60))
-                
-                if viewModel.width + (CGFloat(viewModel.totalWidth - 40) / (Double(self.time) * 60)) > viewModel.totalWidth - 40 {
-                    viewModel.width = UIScreen.width - 40
-                    self.timer.upstream.connect().cancel()
-                }
-            }
         }
     }
     
