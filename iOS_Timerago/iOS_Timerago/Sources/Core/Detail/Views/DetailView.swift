@@ -115,17 +115,15 @@ struct DetailView: View {
                     header
                         .padding(.top,10)
                     
-                    VStack(spacing:20){
-                        TextField("이름을 지어주세요", text: $title)
-                            .frame(maxWidth: .infinity,alignment: .leading)
-                            .font(.largeTitle)
-                            .bold()
-                            .autocorrectionDisabled()
+                    VStack(spacing:0){
+                        
+                        secondaryHeader
+                        
                         
                     
                         VStack(spacing:5){
          
-                            timeView
+                            
                             
                             if tmpList.isEmpty {
                                 Spacer()
@@ -136,7 +134,8 @@ struct DetailView: View {
                             }
                             else {
                                 taskListView
-                                    
+                                
+
                                     
                             }
           
@@ -145,7 +144,7 @@ struct DetailView: View {
                     }
                     
                     
-                    
+                    timeView
                     
                     
                     Button {
@@ -272,7 +271,6 @@ extension DetailView{
             Spacer()
             
             Button {
-           // tmpList.append(TaskModel(emoji: .defaultEmoji, interval: ""))
                 showOnBoard = true
             } label: {
                 Image(systemName: "info.circle")
@@ -290,6 +288,24 @@ extension DetailView{
         }
         .padding(.horizontal,-8)
         
+    }
+    
+    private var secondaryHeader: some View {
+        HStack(alignment:.firstTextBaseline){
+            TextField("이름을 지어주세요", text: $title)
+                .frame(maxWidth: .infinity,alignment: .leading)
+                .font(.largeTitle)
+                .bold()
+                .autocorrectionDisabled()
+            Spacer()
+            Button {
+                tmpList.append(TaskModel(emoji: .defaultEmoji, interval: ""))
+            } label: {
+                Text("추가")
+                
+            }
+            
+        }
     }
 
     private var timeView: some View {
@@ -314,10 +330,7 @@ extension DetailView{
         .padding(.vertical,25)
         .padding(.horizontal,30)
         .frame(maxWidth: .infinity)
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(.white)
-        )
+
         
         
             

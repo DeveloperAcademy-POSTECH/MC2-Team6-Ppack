@@ -34,5 +34,5 @@ extension String {
     var emojiScalars: [UnicodeScalar] { filter { $0.isEmoji }.flatMap { $0.unicodeScalars } }
     
     
-    static let defaultEmoji:String = "🫥"
+    static let defaultEmoji:String = "➕"
 }
