@@ -39,7 +39,9 @@ struct TimerView: View {
                             if index == 0 {
                                 Text("\(routine.task[index].emoji)")
                                     .font(.system(size: 24))
+                                    .scaleEffect(index == viewModel.currentIndex ? 1.5 : 1)
                                     .frame(maxWidth: .infinity)
+                                
                                 Spacer()
                             }
                             
@@ -50,6 +52,7 @@ struct TimerView: View {
                                 
                                 Text("\(routine.task[index].emoji)")
                                     .font(.system(size: 24))
+                                    .scaleEffect(index == viewModel.currentIndex ? 1.5 : 1)
                                     .frame(maxWidth: .infinity)
                                 
                             }
@@ -59,6 +62,7 @@ struct TimerView: View {
                                 Spacer()
                                 Text("\(routine.task[index].emoji)")
                                     .font(.system(size: 24))
+                                    .scaleEffect(index == viewModel.currentIndex ? 1.5 : 1)
                                     .frame(maxWidth: .infinity)
                                 Spacer()
                             }
@@ -72,8 +76,6 @@ struct TimerView: View {
                     
                     ZStack(alignment: .leading){
                         
-//                        Color.white
-//                            .frame(width: geometry.s)
                         
                         Color.white
                             .frame(width:geometry.size.width,height:20)
@@ -82,17 +84,7 @@ struct TimerView: View {
                         LinearGradient(colors: [Color(hex: 0x4E94F8),Color(hex: 0x86C6FC)], startPoint: .leading, endPoint: .trailing)
                             .frame(height: 20)
                             .frame(width:viewModel.width)
-                            
-                        /*RoundedRectangle(cornerRadius:12)
-                            .fill(Color.white)
-                            .frame(width:geometry.size.width,height:20)
-                            .overlay(alignment:.leading){
-                                RoundedRectangle(cornerRadius:12)
-                                    .fill(Color.accent)
-                                    .frame(width:viewModel.width)
-                            }
-                            .shadow(color: .black.opacity(0.12), radius: 5, x: 0, y: 3)
-                         */
+
                     }
                     .shadow(color: .black.opacity(0.12), radius: 5, x: 0, y: 3)
                     
@@ -196,22 +188,30 @@ struct TimerView: View {
             
             Color.background.ignoresSafeArea()
             
-            Button {
+            
+            Text("\(routine.task[viewModel.currentIndex].emoji)")
+                .font(.system(size: 78))
+                .padding(38)
+                .background(
+                    Circle()
+                        .fill(
+                            LinearGradient(colors: [Color(hex: 0xCAE3FF),Color(hex: 0xB4D8FE)], startPoint: .top, endPoint: .bottom)
+                        )
+                       
+              
+                )
+                .padding(18)
+                .background(
+                    Circle()
+                        .fill(Color(hex: 0x4E94F8,alpha: 0.09))
+
+                )
                 
-            } label: {
-                Image(systemName: "stop.fill")
-                    .font(.largeTitle)
-                    .foregroundColor(.accent)
-                    .padding(30)
-                    .background(
-                        Circle()
-                            .fill(Color.white)
-                            .shadow(color:.black.opacity(0.1),radius: 5,x: 0,y: 4)
-                        
-                        
-                    )
+                .padding(.bottom,UIScreen.height/10)
                 
-            }.padding(.bottom,UIScreen.height/6)
+                
+            
+
             
             
         }
