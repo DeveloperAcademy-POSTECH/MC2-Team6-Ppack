@@ -37,10 +37,9 @@ struct TimerView: View {
                         
                         ForEach(routine.task.indices){ index in
 
-                            Spacer()
                             Text("\(routine.task[index].emoji)")
                                 .font(.system(size: index == viewModel.currentIndex ? 35 : 24))
-                               // .frame(maxWidth: .infinity)
+                                .frame(maxWidth: .infinity)
                      
                         }
                     }
