@@ -33,43 +33,18 @@ struct TimerView: View {
                 
                 VStack(spacing:10){
                     
-                    HStack(spacing: 0){
+                    HStack(spacing:0){
+                        
                         ForEach(routine.task.indices){ index in
-                            
-                            if index == 0 {
-                                Text("\(routine.task[index].emoji)")
-                                    .font(.system(size: index == viewModel.currentIndex ? 35 : 24))
-                                    .frame(maxWidth: .infinity)
-                                
-                                Spacer()
-                            }
-                            
-                            
-                            else if index == routine.task.count - 1 {
-                                
-                                Spacer()
-                                
-                                Text("\(routine.task[index].emoji)")
-                                    .font(.system(size: index == viewModel.currentIndex ? 35 : 24))
-                                    .frame(maxWidth: .infinity)
-                                
-                            }
-                            
-                            else {
-                                
-                                Spacer()
-                                Text("\(routine.task[index].emoji)")
-                                    .font(.system(size: index == viewModel.currentIndex ? 35 : 24))
-                                    .frame(maxWidth: .infinity)
-                                Spacer()
-                            }
-                            
-                            
-                            
-                            
+
+                            Spacer()
+                            Text("\(routine.task[index].emoji)")
+                                .font(.system(size: index == viewModel.currentIndex ? 35 : 24))
+                               // .frame(maxWidth: .infinity)
+                     
                         }
                     }
-                    .frame(width:geometry.size.width,height:30)
+                    .frame(width: geometry.size.width,height:30)
                     .animation(.easeInOut,value:viewModel.currentIndex)
                     ZStack(alignment: .leading){
                         
@@ -210,5 +185,7 @@ struct TimerView: View {
             
             
         }
+        
     }
+
 }
