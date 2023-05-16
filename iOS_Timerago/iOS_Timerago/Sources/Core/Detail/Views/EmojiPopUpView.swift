@@ -52,7 +52,7 @@ struct EmojiPopUpView: View {
             }
         }
         .frame(maxWidth:.infinity)
-        .background(.ultraThickMaterial)
+        .background(.white)
         
     }
 }
