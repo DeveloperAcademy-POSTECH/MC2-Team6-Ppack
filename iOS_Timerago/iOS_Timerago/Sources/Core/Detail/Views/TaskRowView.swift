@@ -40,7 +40,7 @@ struct TaskRowView: View {
                 .font(.system(size: 15))
                 .frame(width: 20,height: 20)
                 .padding(7)
-                .background(Circle().fill(Color.circle))
+                .background(Circle().fill(LinearGradient(colors: [Color(hex: 0xE3F0FF),Color(hex: 0xB2D3FF)], startPoint: .top, endPoint: .bottom)))
                 .onTapGesture {
                     showEmojiView = true
                 }
