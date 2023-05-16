@@ -29,6 +29,7 @@ final class TimerViewModel: ObservableObject {
                 self.count += 1
                 self.minutes -= 1
             } else if self.minutes == 0 {
+                self.currentIndex = self.tasks.count - 1
                 Timer.invalidate()
             }
             
