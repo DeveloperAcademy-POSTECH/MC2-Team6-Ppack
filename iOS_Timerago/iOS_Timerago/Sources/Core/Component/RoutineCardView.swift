@@ -23,17 +23,28 @@ struct RoutineCardView: View {
                 
                 
                 HStack(spacing:14){
-                    Text("\(routine.task.map{Int($0.interval)!}.reduce(0, {$0 + $1}))m").font(.preR(14))
+                    Text("\(routine.task.map{Int($0.interval)!}.reduce(0, {$0 + $1}))분").font(.preR(14))
                     
                     Rectangle()
                         .frame(maxWidth: 1,maxHeight: 20)
                         .opacity(0.5)
                     
                     
-                    ForEach(routine.task){ task   in
-                        Text(task.emoji)
-                            .font(.system(size: 14))
+                    if routine.task.count > 5 {
+                        ForEach((0..<5)){ index in
+                            Text(routine.task[index].emoji)
+                                .font(.system(size: 14))
+                        }
                     }
+                    else
+                    {
+                        ForEach(routine.task){ task   in
+                            Text(task.emoji)
+                                .font(.system(size: 14))
+                        }
+                    }
+                    
+                    
                     
                 }
                 
