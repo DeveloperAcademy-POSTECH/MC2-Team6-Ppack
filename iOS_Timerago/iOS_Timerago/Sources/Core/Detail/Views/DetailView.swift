@@ -346,29 +346,6 @@ extension DetailView{
                         
                         pass = isPassAllRequire()
 
-                        
-                        if newValue.emoji.count == 0  {
-                            error = .blank
-                            return
-                        }
-                        
-                        if newValue.emoji.count > 1 {
-                            error = .overLimit
-                            showAlert = true
-                            return
-                            
-                        }
-                        
-                        if !newValue.emoji.isSingleEmoji {
-                            error = .notEmoji
-                            showAlert = true
-                            return
-                            
-                        }
-                        
-                        
-                        
-                        
                          
                     }
                    
@@ -417,7 +394,7 @@ extension DetailView{
     }
 
     private func isPassAllRequire() -> Bool {
-        return !(checkBlank() || checkOverInput() || checkWrongInput() || checkIsSingleEmoji() || tmpList.isEmpty || title.isEmpty)
+        return !(checkBlank() || checkOverInput() || checkWrongInput()  || tmpList.isEmpty || title.isEmpty)
     }
 
     
