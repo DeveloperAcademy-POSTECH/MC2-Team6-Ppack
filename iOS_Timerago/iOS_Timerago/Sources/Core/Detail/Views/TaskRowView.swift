@@ -32,25 +32,12 @@ struct TaskRowView: View {
                 }
             )
         
-        let emojiText = Binding<String>(
-                get: {
-                    task.emoji
-                    
-                },
-                set: { text in
-                    print("newValue : \(text)")
-                    let suffix = String(text.suffix(1))
-                    task.emoji = suffix
-                    UIApplication.shared.endEditing()
-                    
-                }
-            )
         
         
         HStack{
             
-            Text(emojiText.wrappedValue)
-                .font(.title3)
+            Text(task.emoji)
+                .font(.system(size: 15))
                 .frame(width: 20,height: 20)
                 .padding(7)
                 .background(Circle().fill(Color.circle))
@@ -71,8 +58,8 @@ struct TaskRowView: View {
                 
         }
         .sheet(isPresented: $showEmojiView) {
-            EmojiPopUpView()
-                .presentationDetents([.fraction(0.4),])
+            EmojiPopUpView(str: $task.emoji)
+                .presentationDetents([.fraction(0.4)])
               
         }
 

@@ -11,6 +11,7 @@ struct EmojiPopUpView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @Binding var str:String
     let emojis:[[String]] =  [ ["🍚", "🍫", "🥛"],
                              ["🚿", "🧻", "🧖"],
                              ["💄", "🧢", "🕶️"],
@@ -34,7 +35,7 @@ struct EmojiPopUpView: View {
                     HStack(spacing: 25) {
                         ForEach(emojis[i].indices) { j in
                             Button {
-                                print(emojis[i][j])
+                                str = emojis[i][j]
                                 dismiss()
                                 
                             } label: {
@@ -58,6 +59,7 @@ struct EmojiPopUpView: View {
 
 struct EmojiPopUpView_Previews: PreviewProvider {
     static var previews: some View {
-        EmojiPopUpView()
+        EmojiPopUpView(str: .constant(""))
     }
 }
+    
