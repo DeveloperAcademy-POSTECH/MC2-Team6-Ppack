@@ -62,7 +62,7 @@ struct TaskRowView: View {
 
                 
             
-            TextField("몇 분 걸리는 일인가요",text: timeText)
+            TextField("몇 분 걸리는 일인가요?",text: timeText)
                 .font(.preR(18))
                 .keyboardType(.numberPad)
                 .keyboardShortcut(.return)
