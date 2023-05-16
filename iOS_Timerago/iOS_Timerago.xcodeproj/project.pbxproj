@@ -26,9 +26,9 @@
 		B037B97E2A12084300F939FF /* 다음알림.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B037B97B2A12084300F939FF /* 다음알림.mp3 */; };
 		B037B97F2A12084300F939FF /* 타임오버.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B037B97C2A12084300F939FF /* 타임오버.mp3 */; };
 		B037B9802A12084300F939FF /* 5분알림.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B037B97D2A12084300F939FF /* 5분알림.mp3 */; };
+		B037B9842A12FE6B00F939FF /* EmojiPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B037B9832A12FE6B00F939FF /* EmojiPopUpView.swift */; };
 		B063EDD62A01F57B001613C9 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDD52A01F57B001613C9 /* DetailView.swift */; };
 		B063EDDA2A01FD3B001613C9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDD92A01FD3B001613C9 /* String+Extension.swift */; };
-		B063EDE12A020704001613C9 /* EmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDE02A020704001613C9 /* EmojiView.swift */; };
 		B063EDE82A035421001613C9 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDE72A035421001613C9 /* TaskRowView.swift */; };
 		B063EDED2A0657EC001613C9 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063EDEC2A0657EC001613C9 /* DataService.swift */; };
 		B0B4BDC229FB73C6000E6593 /* iOS_TimeragoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4BDC129FB73C6000E6593 /* iOS_TimeragoApp.swift */; };
@@ -65,9 +65,9 @@
 		B037B97B2A12084300F939FF /* 다음알림.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "다음알림.mp3"; sourceTree = "<group>"; };
 		B037B97C2A12084300F939FF /* 타임오버.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "타임오버.mp3"; sourceTree = "<group>"; };
 		B037B97D2A12084300F939FF /* 5분알림.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "5분알림.mp3"; sourceTree = "<group>"; };
+		B037B9832A12FE6B00F939FF /* EmojiPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPopUpView.swift; sourceTree = "<group>"; };
 		B063EDD52A01F57B001613C9 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B063EDD92A01FD3B001613C9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		B063EDE02A020704001613C9 /* EmojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiView.swift; sourceTree = "<group>"; };
 		B063EDE72A035421001613C9 /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
 		B063EDEC2A0657EC001613C9 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		B0B4BDBE29FB73C6000E6593 /* iOS_Timerago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Timerago.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,8 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				B063EDD52A01F57B001613C9 /* DetailView.swift */,
-				B063EDE02A020704001613C9 /* EmojiView.swift */,
 				B063EDE72A035421001613C9 /* TaskRowView.swift */,
+				B037B9832A12FE6B00F939FF /* EmojiPopUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -398,12 +398,12 @@
 				B063EDDA2A01FD3B001613C9 /* String+Extension.swift in Sources */,
 				B063EDD62A01F57B001613C9 /* DetailView.swift in Sources */,
 				B00B5DB62A01E0A700ABA945 /* TimeInterval+Extension.swift in Sources */,
+				B037B9842A12FE6B00F939FF /* EmojiPopUpView.swift in Sources */,
 				B00B5DBB2A01E1CC00ABA945 /* HomeViewModel.swift in Sources */,
 				AC06AACA2A0C91800000C8C3 /* RoutineCardViewModel.swift in Sources */,
 				B0B4BE2029FFCA6E000E6593 /* Color+Extension.swift in Sources */,
 				B063EDED2A0657EC001613C9 /* DataService.swift in Sources */,
 				B0B4BE3229FFCE46000E6593 /* UIApplication+Extension.swift in Sources */,
-				B063EDE12A020704001613C9 /* EmojiView.swift in Sources */,
 				ACD7795F2A0FDA5C00B86EB0 /* AppDelegate.swift in Sources */,
 				B037B9782A11B24D00F939FF /* PreferenceManager+Extension.swift in Sources */,
 				B0B4BE3529FFD14D000E6593 /* PlayButton.swift in Sources */,
