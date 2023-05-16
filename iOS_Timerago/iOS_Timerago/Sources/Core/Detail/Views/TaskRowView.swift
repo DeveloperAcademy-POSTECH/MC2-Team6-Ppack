@@ -12,8 +12,7 @@ struct TaskRowView: View {
     
     @Binding var task:TaskModel
     @FocusState var isTimeFocused:Bool
-    @FocusState var isEmojiFocued:Bool
-    
+    @State var showEmojiView:Bool = false
     
     var body: some View {
         
@@ -39,7 +38,7 @@ struct TaskRowView: View {
                     
                 },
                 set: { text in
-                    
+                    print("newValue : \(text)")
                     let suffix = String(text.suffix(1))
                     task.emoji = suffix
                     UIApplication.shared.endEditing()
@@ -50,29 +49,31 @@ struct TaskRowView: View {
         
         HStack{
             
-            EmojiTextField(text: emojiText)
+            Text(emojiText.wrappedValue)
                 .font(.title3)
                 .frame(width: 20,height: 20)
                 .padding(7)
                 .background(Circle().fill(Color.circle))
-                .keyboardShortcut(.return)
-                .keyboardShortcut(.cancelAction)
-                .focused($isEmojiFocued)
+                .onTapGesture {
+                    showEmojiView = true
+                }
+
 
                 
             
-            TextField("몇 분 걸리는 일인가요?",text: timeText)
+            TextField("몇 분 걸리는 일인가요",text: timeText)
                 .font(.preR(18))
                 .keyboardType(.numberPad)
                 .keyboardShortcut(.return)
                 .keyboardShortcut(.cancelAction)
                 .focused($isTimeFocused)
-            
-            
-            
-            
+      
                 
-                
+        }
+        .sheet(isPresented: $showEmojiView) {
+            EmojiPopUpView()
+                .presentationDetents([.fraction(0.4),])
+              
         }
 
         

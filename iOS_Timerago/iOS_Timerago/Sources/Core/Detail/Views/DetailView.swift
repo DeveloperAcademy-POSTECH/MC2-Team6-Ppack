@@ -342,7 +342,7 @@ extension DetailView{
             ForEach($tmpList){ $task in //바인딩 , 바인딩..
                 TaskRowView(task:$task)
                     .onChange(of: task) { newValue in
-                            totalTime = tmpList.map{Int($0.interval) ?? 0}.reduce(0, {$0 + $1})
+                        totalTime = tmpList.map{Int($0.interval) ?? 0}.reduce(0, {$0 + $1})
                         
                         pass = isPassAllRequire()
 
