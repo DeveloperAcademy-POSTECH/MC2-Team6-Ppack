@@ -13,20 +13,17 @@ final class TimerViewModel: ObservableObject {
     @Published var minutes: Double = 0.0
     @Published var tasks: [Int] = []
     @Published var backgroundTime: Date? = nil
-    @Published var timeInterval: Int = 0
     @Published var width: CGFloat = 0
-    @Published var totalWidth: CGFloat = 0
     @Published var count: Double = 0
-    @Published var totalTimeDifference: Double = 0
     @Published var currentIndex = 0
-    @Published var taskTime = 0
     var totalTime: Double = 0
+    var totalWidth: CGFloat = UIScreen.main.bounds.width
     private let notificationCenter = UNUserNotificationCenter.current()
     
     func start() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { Timer in
-            guard self.isActive != false else { return }
             let finishTimeIntervals = self.getFinishNotificationTimeIntervals()
+            guard self.isActive != false else { return }
             
             if self.minutes > 0 {
                 self.count += 1
@@ -39,18 +36,15 @@ final class TimerViewModel: ObservableObject {
                 if self.minutes != 0 {
                     self.width += (CGFloat(self.totalWidth) / self.totalTime)
                 } else {
-                    self.width = UIScreen.main.bounds.width
+                    self.width = self.totalWidth
                 }
             }
             
-            for timeInterval in finishTimeIntervals {
-                if self.count == Double(timeInterval) {
-                    self.currentIndex += 1
-                    continue
-                }
+            guard self.currentIndex != self.tasks.count - 1 else { return }
+            if Int(self.count) >= finishTimeIntervals[self.currentIndex] {
+                self.currentIndex += 1
             }
         })
-        
     }
     
     func getTimeString(time: Double) -> String {
