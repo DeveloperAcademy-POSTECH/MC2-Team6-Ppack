@@ -37,13 +37,27 @@ struct TaskRowView: View {
         HStack{
             
             Text(task.emoji)
-                .font(.system(size: 15))
+                .font( task.emoji == .defaultEmoji ?  .system(size: 20) : .system(size: 15))
+                .foregroundColor(.white)
                 .frame(width: 20,height: 20)
                 .padding(7)
-                .background(Circle().fill(LinearGradient(colors: [Color(hex: 0xE3F0FF),Color(hex: 0xB2D3FF)], startPoint: .top, endPoint: .bottom)))
+                .background{
+                    
+                    if  task.emoji == .defaultEmoji  {
+                        Circle().fill(Color(hex: 0xD0D3DA))
+                    }
+                    else {
+                        Circle().fill(LinearGradient(colors: [Color(hex: 0xE3F0FF),Color(hex: 0xB2D3FF)], startPoint: .top, endPoint: .bottom))
+                    }
+
+                        
+                           
+
+                }
                 .onTapGesture {
                     showEmojiView = true
                 }
+                
 
 
                 
