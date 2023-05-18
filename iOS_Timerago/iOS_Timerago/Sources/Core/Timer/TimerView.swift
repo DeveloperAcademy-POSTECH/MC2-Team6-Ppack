@@ -13,6 +13,7 @@ struct TimerView: View {
     @Binding var routine: RoutineModel
     @Binding var time: Int
     @Binding var tasks: [Int]
+    @State var isActivePulseAnimation:Bool = false
     
     var body: some View {
         
@@ -166,6 +167,7 @@ struct TimerView: View {
                         .fill(
                             LinearGradient(colors: [Color(hex: 0xCAE3FF),Color(hex: 0xB4D8FE)], startPoint: .top, endPoint: .bottom)
                         )
+                        .scaleEffect(self.isActivePulseAnimation ? 1 : 0.7)
                        
               
                 )
@@ -173,6 +175,7 @@ struct TimerView: View {
                 .background(
                     Circle()
                         .fill(Color(hex: 0x4E94F8,alpha: 0.09))
+                        .scaleEffect(self.isActivePulseAnimation ? 1 : 0.7)
 
                 )
                 
@@ -184,6 +187,10 @@ struct TimerView: View {
             
             
         }
+        .onAppear{
+            self.isActivePulseAnimation.toggle()
+        }
+        .animation(.linear(duration: 1.0).repeatForever(autoreverses:false), value: isActivePulseAnimation)
         
     }
 
