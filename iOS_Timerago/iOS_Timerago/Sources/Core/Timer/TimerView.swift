@@ -167,16 +167,24 @@ struct TimerView: View {
                         .fill(
                             LinearGradient(colors: [Color(hex: 0xCAE3FF),Color(hex: 0xB4D8FE)], startPoint: .top, endPoint: .bottom)
                         )
-                        .scaleEffect(self.isActivePulseAnimation ? 1 : 0.7)
+
                        
               
                 )
-                .padding(18)
                 .background(
-                    Circle()
-                        .fill(Color(hex: 0x4E94F8,alpha: 0.09))
-                        .scaleEffect(self.isActivePulseAnimation ? 1 : 0.7)
-
+                       
+                            Circle()
+                                .fill(Color(hex: 0x4E94F8,alpha: 0.2))
+                                .scaleEffect(self.isActivePulseAnimation ? 1.5 : 1)
+                                .opacity(self.isActivePulseAnimation ? .zero : 1)
+                                .animation(.easeInOut(duration: 1).repeatForever(autoreverses:false).speed(0.5), value: isActivePulseAnimation)
+                                .onAppear{
+                                    self.isActivePulseAnimation.toggle()
+                                }
+                                
+                    
+                    
+                    
                 )
                 
                 .padding(.bottom,UIScreen.height/10)
@@ -187,10 +195,7 @@ struct TimerView: View {
             
             
         }
-        .onAppear{
-            self.isActivePulseAnimation.toggle()
-        }
-        .animation(.linear(duration: 1.0).repeatForever(autoreverses:false), value: isActivePulseAnimation)
+       
         
     }
 
