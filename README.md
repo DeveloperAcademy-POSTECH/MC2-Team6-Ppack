@@ -1,101 +1,47 @@
-# MC2-Team6-Ppack
+<img  src ="https://github.com/DeveloperAcademy-POSTECH/MC2-Team6-Ppack/assets/86860517/0dfeacc0-3171-410a-a8c5-801823a4a8e3">
+<br><br>
+
+## 📸앱 스크린샷
+![65-03](https://github.com/DeveloperAcademy-POSTECH/MC2-Team6-Ppack/assets/86860517/6000d133-699d-4985-80f5-a08824273d19)
 
 <br><br>
 
-### 커밋 규칙
-- 가장 작은 단위로 많은 커밋을 푸쉬하는 것을 목표로합니다
-- 커밋의 단위가 크면 나중에 PR시 한 커밋에 여러개의 변화를 확인해야하는 불편함이 있습니다.  
+## 👨‍👩‍👧‍👦 팀소개
+### 👊빡 할 땐 하고 빡 쉴 땐 쉬고 빡 치지 말자👊
 
-
-<br><br>
-
-### *커밋 메시지 템플릿*
-
-<table align = "center">
- 
- <th> Emoji  </th>
- <th> Emoji Name </th>
- <th> Description</th>
- <th> Example </th>
- 
- <tr>
-   <td align = "center"> :tada: </td>
-   <td align = "center"> : tada : </td>
-    <td align = "center"> 새로운 프로젝트 시작 </td>
-     <td align = "left"> :tada: :: 프로젝트 시작  </td>
- </tr>
- 
+<table>
   <tr>
-   <td align = "center"> 📄 </td>
-   <td align = "center"> : page_facing_up : </td>
-    <td align = "center">  Readme 작업 </td>
-     <td align = "left"> 📄 :: Readme 추가 </td>
- </tr>
- 
- 
-  <tr>
-   <td align = "center"> 💄 </td>
-   <td align = "center"> : lipstick : </td>
-    <td align = "center"> UI작업(뷰) </td>
-     <td align = "left"> 💄 :: 카드 뷰 색 변경 </td>
- </tr>
- 
- 
-  <tr>
-   <td align = "center"> 🐞 </td>
-   <td align = "center"> : bug : </td>
-    <td align = "center"> 버그 픽스 </td>
-     <td align = "left"> 🐞 :: Color 버그 수정 </td>
- </tr>
- 
- <tr>
-   <td align = "center"> 💾 </td>
-   <td align = "center"> : floppy_disk : </td>
-    <td align = "center"> 데이터(모델) 작업 </td>
-     <td align = "left"> 💾 :: 데이터 모델 생성 </td>
- </tr>
- 
- 
-  <tr>
-   <td align = "center"> 🎸  </td>
-   <td align = "center"> : guitar : </td>
-    <td align = "center">  그 외 </td>
-     <td align = "left"> 🎸 :: 뷰 분할 </td>
- </tr>
-
-  <tr>
-   <td align = "center"> 👏 </td>
-   <td align = "center"> : clap : </td>
-    <td align = "center">  병합(merge) </td>
-     <td align = "left"> 👏 :: 카드 뷰 완료 </td>
- </tr>
- 
-
+    <td align="center"><a href="https://github.com/yongbeomkwak"><img src="https://avatars.githubusercontent.com/u/48616183?v=4" width="200px;" alt=""/><br />곽용범<br/ > (Kayle)</td>
+    <td align="center"><a href="https://github.com/kiwi1023"><img src="https://avatars.githubusercontent.com/u/101521502?v=4" width="200px;" alt=""/><br />송기원<br />(Kiwi)</td>
+<td align="center"><a href="https://github.com/venushin"><img src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team6-Ppack/assets/86860517/05c0b2bf-3f86-4563-bec1-287f527132b0" width="200px;" alt=""/><br />이신영<br />(Cindy)</td>
+          <td align="center"><a href="https://github.com/grace0617"><img src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team6-Ppack/assets/86860517/359eebf5-90f0-4c21-a993-58fe1d2d9a9a" width="200px;" alt=""/><br />정다은<br />(Grace)</td>
+             <td align="center"><a href="https://github.com/isakk001"><img src="https://avatars.githubusercontent.com/u/67995932?v=4" width="200px;" alt=""/><br />이삭<br />(San)</td>
+        </tr>
 
 
 </table>
 
+
+
 <br><br>
 
-## 브랜치 규칙 
-
-1. 브랜치 명
- - **브랜치를 만들기 전 반드시 다른 인원이 해당 lecture 작업을 하고 있는 지 확인한다.**
- - _절대 main 브랜치는 건드리지 않는다._
- - feature/담당기능(또는 뷰)_닉네임 으로 만.
-   -  ex) feature/HomeView_Kayle 
-   
-
+## 🙌프로젝트 소개
+**여유롭게 집을 나서는 방법, Timerago**
+> 👋Timerago를 개발한 팀 PPAK입니다
 <br>
 
-2. PR 규칙
- - 브랜치를 합칠 때는 반드시 PR을 작성해서 올립니다.
- - PR은 아직 정확한 템플릿은 없지만 잘 써주시는 분 PR 방식을 템플릿으로 채택할 생각입니다.
- - PR은 최소 2명이상의 approve를 받아야 승인 할 수 있습니다.
- - 만약 approve를 받지 못했다면 반드시 해당 사항에대하여 고쳐주시길 바랍니다.
- - 만약 해당 PR에 대하여 approve가 아닌 과정을 했을 시 반드시 정확한 피드백(코멘트)를 해주시기 바랍니다.
 
+**⏳시간이 얼마나 흘렀는지 알고 싶으신가요?**
+> 시계를 보면서 허둥지둥 준비하지 말고, Timerago의 알림을 들으며 준비하세요!
 <br>
 
-## 참고 자료
-[리드미 문법 참고 자료](https://gist.github.com/ihoneymon/652be052a0727ad59601)
+☀️**시간을 관리하고 싶으신가요?**
+> 태스크를 지정하고 시간을 저장하여 나만의 루틴을 생성해보세요!
+<br>
+
+🤳**외출 전 준비하느라 정신 없으시죠?**
+> 지금 몇 시인지 확인하거나 울리는 알람을 끌 필요 없는 핸즈프리 리마인더 알림을 사용해보세요!
+
+<br><br>
+
+
