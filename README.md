@@ -14,7 +14,7 @@
     <td align="center"><a href="https://github.com/yongbeomkwak"><img src="https://avatars.githubusercontent.com/u/48616183?v=4" width="200px;" alt=""/><br />곽용범<br/ > (Kayle)</td>
     <td align="center"><a href="https://github.com/kiwi1023"><img src="https://avatars.githubusercontent.com/u/101521502?v=4" width="200px;" alt=""/><br />송기원<br />(Kiwi)</td>
 <td align="center"><a href="https://github.com/venushin"><img src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team6-Ppack/assets/86860517/05c0b2bf-3f86-4563-bec1-287f527132b0" width="200px;" alt=""/><br />이신영<br />(Cindy)</td>
-          <td align="center"><a href="https://github.com/grace0617"><img src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team6-Ppack/assets/86860517/359eebf5-90f0-4c21-a993-58fe1d2d9a9a" width="200px;" alt=""/><br />정다은<br />(Grace)</td>
+          <td align="center"><a href="https://github.com/grace0617"><img src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team6-Ppack/assets/48616183/8105afec-cfd2-442f-bb4d-72b563c79b1d" width="200px;" alt=""/><br />정다은<br />(Grace)</td>
              <td align="center"><a href="https://github.com/isakk001"><img src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team6-Ppack/assets/48616183/e36b70d4-d194-41c7-8b34-91736cf0acd4" width="200px;" alt=""/><br />이삭<br />(San)</td>
         </tr>
 
